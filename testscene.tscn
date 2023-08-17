@@ -1,23 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cadup42kb27o6"]
+[gd_scene load_steps=8 format=3 uid="uid://cadup42kb27o6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68440"]
-albedo_color = Color(0.490196, 0.490196, 0.490196, 1)
+[ext_resource type="PackedScene" uid="uid://cxf213clukt4t" path="res://player.tscn" id="1_6medv"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vdgyy"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpbjj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ijoaq"]
+sky_material = SubResource("ProceduralSkyMaterial_kpbjj")
+
+[sub_resource type="Environment" id="Environment_j7gxi"]
+background_mode = 2
+sky = SubResource("Sky_ijoaq")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ou5lv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2krrs"]
 albedo_color = Color(0.368627, 0.368627, 0.368627, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st5po"]
+
 [node name="Node3D" type="Node3D"]
 
-[node name="PLANE" type="MeshInstance3D" parent="."]
-transform = Transform3D(500, 0, 0, 0, 100, 0, 0, 0, 500, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_68440")
-mesh = SubResource("PlaneMesh_vdgyy")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j7gxi")
 
-[node name="CUBE" type="MeshInstance3D" parent="."]
-transform = Transform3D(22.04, 0, 0, 0, 16.62, 0, 0, 0, 26.25, 40.065, 8, 31.6247)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="test_cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(14.265, 0, 0, 0, 9.5, 0, 0, 0, 26.25, 28.187, 3.95866, 24.921)
 mesh = SubResource("BoxMesh_ou5lv")
 surface_material_override/0 = SubResource("StandardMaterial3D_2krrs")
+
+[node name="Player" parent="." instance=ExtResource("1_6medv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225218, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_st5po")
