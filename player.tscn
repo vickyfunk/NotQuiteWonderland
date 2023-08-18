@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=6 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_pu7ro"]
 [ext_resource type="PackedScene" uid="uid://dhu6jq7gxct11" path="res://Scenes/ak.tscn" id="2_xlmbf"]
+[ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/crosshair.png" id="3_m2r0y"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 
@@ -26,4 +27,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="Assault Rifle" parent="Head/Camera3D" instance=ExtResource("2_xlmbf")]
-transform = Transform3D(-0.247169, 0.00647235, 0.0369524, 0.00654424, 0.249914, 0, -0.0369397, 0.0009673, -0.247254, 0.247, -0.31, -0.335)
+transform = Transform3D(-0.399452, -0.0209344, -3.49691e-08, -0.0209344, 0.399452, 0, 3.49212e-08, 1.83014e-09, -0.4, 0.212, -0.375, -0.255)
+
+[node name="AimingRaycast" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737293)
+target_position = Vector3(0, 0, -1)
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_m2r0y")

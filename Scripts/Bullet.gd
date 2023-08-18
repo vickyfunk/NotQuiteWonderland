@@ -1,9 +1,10 @@
 extends Node3D
 
 @export var speed = 40.0
+var is_coll = false
 
 @onready var mesh = $MeshInstance3D
-@onready var raycast = $RayCast3D
+@onready var ray = $RayCast3D
 
 
 
@@ -20,3 +21,8 @@ func _physics_process(delta):
 func _process(delta):
 	#print("In the %s time since last fired, moved %s" % [delta, speed * delta])
 	position += transform.basis * Vector3(0, 0, speed) * delta
+	if ray.is_colliding():
+		if (!is_coll):
+			print("Visible bullet ray is colliding")
+		else:
+			print("Collision bullet ray is colliding")

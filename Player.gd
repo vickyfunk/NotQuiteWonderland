@@ -20,12 +20,14 @@ var gravity = 9.8
 
 var bullet = load("res://Scenes/Bullet.tscn")
 var instance 
+var collision_instance
 
 @onready var head = $"Head"
 @onready var camera = $"Head/Camera3D"
+@onready var gun = $"Head/Camera3D/Assault Rifle"
 @onready var gun_anim = $"Head/Camera3D/Assault Rifle/RootNode/AnimationPlayer"
 @onready var gun_barrel = $"Head/Camera3D/Assault Rifle/RootNode/RayCast3D"
-
+@onready var aiming_raycast = $Head/Camera3D/AimingRaycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -93,7 +95,20 @@ func shoot():
 	if !gun_anim.is_playing():
 		gun_anim.play("Shoot")
 		instance = bullet.instantiate()
+		collision_instance = bullet.instantiate()
+		
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis
+		instance.rotation.y = gun.global_rotation.y
+		
+		collision_instance.position = aiming_raycast.global_position
+		collision_instance.transform.basis = aiming_raycast.global_transform.basis
+		collision_instance.rotation.y = camera.global_rotation.y
+		
+		
+		
 		get_parent().add_child(instance)
-		#instance.ready()
+		get_parent().add_child(collision_instance)
+		
+		collision_instance.ready()
+
