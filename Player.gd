@@ -96,6 +96,7 @@ func shoot():
 		gun_anim.play("Shoot")
 		instance = bullet.instantiate()
 		collision_instance = bullet.instantiate()
+		collision_instance.is_coll = true	
 		
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis
@@ -103,7 +104,7 @@ func shoot():
 		
 		collision_instance.position = aiming_raycast.global_position
 		collision_instance.transform.basis = aiming_raycast.global_transform.basis
-		collision_instance.rotation.y = camera.global_rotation.y
+		
 		
 		
 		
@@ -111,4 +112,7 @@ func shoot():
 		get_parent().add_child(collision_instance)
 		
 		collision_instance.ready()
+		#collision_instance.rotation.x = gun.global_rotation.x
+		#collision_instance.rotation.y = aiming_raycast.global_rotation.y
+		#	collision_instance.global_rotation.z = aiming_raycast.global_rotation.z
 

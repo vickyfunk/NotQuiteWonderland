@@ -20,4 +20,5 @@ speed = 100.0
 mesh = SubResource("BoxMesh_ve8hp")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, 0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.49769)
+target_position = Vector3(0, 0, 1.2)
