@@ -24,10 +24,10 @@ var collision_instance
 
 @onready var head = $"Head"
 @onready var camera = $"Head/Camera3D"
-@onready var gun = $"Head/Camera3D/Assault Rifle"
-@onready var gun_anim = $"Head/Camera3D/Assault Rifle/RootNode/AnimationPlayer"
-@onready var gun_barrel = $"Head/Camera3D/Assault Rifle/RootNode/RayCast3D"
-@onready var aiming_raycast = $Head/Camera3D/AimingRaycast
+@onready var gun = $"Head/Camera3D/Hand/Assault Rifle"
+@onready var gun_anim = $"Head/Camera3D/Hand/Assault Rifle/RootNode/AnimationPlayer"
+@onready var gun_barrel = $"Head/Camera3D/Hand/Assault Rifle/RootNode/RayCast3D"
+@onready var aiming_raycast = $Head/Camera3D/Hand/AimingRaycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
