@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d36ikl45lmito"
-path="res://.godot/imported/Assault Rifle.glb-7cc1dd91b0a09e03cd7aa4ae56e89643.scn"
+uid="uid://drx5nycdrpql5"
+path="res://.godot/imported/UMP45.glb-592c5202ac4c2722f1bdbd6dfd473942.scn"
 
 [deps]
 
-source_file="res://Assets/Assault Rifle.glb"
-dest_files=["res://.godot/imported/Assault Rifle.glb-7cc1dd91b0a09e03cd7aa4ae56e89643.scn"]
+source_file="res://Assets/Ultimate Guns Pack-glb/UMP45.glb"
+dest_files=["res://.godot/imported/UMP45.glb-592c5202ac4c2722f1bdbd6dfd473942.scn"]
 
 [params]
 

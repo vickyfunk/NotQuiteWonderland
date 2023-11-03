@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_pu7ro"]
+[ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/textures/crosshair.png" id="2_gytup"]
 [ext_resource type="PackedScene" uid="uid://dhu6jq7gxct11" path="res://Scenes/ak.tscn" id="2_xlmbf"]
-[ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/crosshair.png" id="3_m2r0y"]
 [ext_resource type="Script" path="res://WeaponManager.gd" id="4_1me3v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
@@ -24,7 +24,7 @@ shape = SubResource("ConvexPolygonShape3D_7eeua")
 
 [node name="Crosshair" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("3_m2r0y")
+texture = ExtResource("2_gytup")
 
 [node name="Head" type="Node3D" parent="."]
 

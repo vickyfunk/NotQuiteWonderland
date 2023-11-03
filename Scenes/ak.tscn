@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhu6jq7gxct11"]
 
-[ext_resource type="PackedScene" uid="uid://d36ikl45lmito" path="res://Assets/Assault Rifle.glb" id="1_ufb1u"]
+[ext_resource type="PackedScene" uid="uid://d36ikl45lmito" path="res://Assets/meshes/Assault Rifle.glb" id="1_rv4mu"]
 
 [sub_resource type="Animation" id="Animation_8hh3i"]
 resource_name = "Shoot"
@@ -24,7 +24,7 @@ _data = {
 "Shoot": SubResource("Animation_8hh3i")
 }
 
-[node name="Assault Rifle" instance=ExtResource("1_ufb1u")]
+[node name="Assault Rifle" instance=ExtResource("1_rv4mu")]
 
 [node name="AssaultRifle_2" parent="RootNode" index="0"]
 transform = Transform3D(-4.37114e-06, 100, 4.37114e-06, 0, -4.37114e-06, 100, 100, 4.37114e-06, 1.91069e-13, 0, 0, 0)
