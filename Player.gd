@@ -25,21 +25,26 @@ var collision_instance
 @onready var head = $"Head"
 @onready var camera = $"Head/Camera3D"
 @onready var camera_rotation_amount : float = .085
-@onready var gun = $"Head/Camera3D/Hand/Assault Rifle"
-@onready var gun_anim = $"Head/Camera3D/Hand/Assault Rifle/RootNode/AnimationPlayer"
-@onready var gun_barrel = $"Head/Camera3D/Hand/Assault Rifle/RootNode/RayCast3D"
-@onready var aiming_raycast = $Head/Camera3D/Hand/AimingRaycast
+@onready var gun = $"Head/Camera3D/WeaponManager/Assault Rifle"
+@onready var gun_anim = $"Head/Camera3D/WeaponManager/Assault Rifle/RootNode/AnimationPlayer"
+@onready var gun_barrel = $"Head/Camera3D/WeaponManager/Assault Rifle/RootNode/RayCast3D"
+@onready var aiming_raycast = $Head/Camera3D/WeaponManager/AimingRaycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+func _process(_delta):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-
+		var camera_x_rotation = camera.rotation.x - event.relative.y * SENSITIVITY
+		camera_x_rotation = clamp(camera_x_rotation, deg_to_rad(-90), deg_to_rad(90))
+		camera.rotation.x = camera_x_rotation
 
 func _physics_process(delta):
 	# Add the gravity.
