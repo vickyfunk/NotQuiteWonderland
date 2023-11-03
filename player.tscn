@@ -38,7 +38,7 @@ sway_right = Vector3(0, -0.1, 0)
 transform = Transform3D(-0.399452, -0.0209344, -3.49691e-08, -0.0209344, 0.399452, 0, 3.49212e-08, 1.83014e-09, -0.4, 0.212, -0.375, -0.255)
 
 [node name="AimingRaycast" type="RayCast3D" parent="Head/Camera3D/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737293)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.737293)
 target_position = Vector3(0, 0, -1)
 
 [node name="Crosshair" type="Sprite2D" parent="."]

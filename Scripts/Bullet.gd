@@ -14,7 +14,7 @@ func ready():
 
 # Called every physics frame which is by default 60 times per second. 'delta' is the elapsed time since previous physics frame.
 # Best practice is to scale movement by delta anyway as to allow us to adjust the framerate later in development.
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

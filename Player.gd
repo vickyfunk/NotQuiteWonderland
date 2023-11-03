@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var speed
 const WALK_SPEED = 5.0
-const SPRINT_SPEED = 8.0
+const SPRINT_SPEED = 10.0
 const JUMP_VELOCITY = 4.8
 const SENSITIVITY = 0.004
 
@@ -12,8 +12,8 @@ const BOB_AMP = 0.08
 var t_bob = 0.0
 
 #fov variables
-const BASE_FOV = 75.0
-const FOV_CHANGE = 1.5
+const BASE_FOV = 90.0
+const FOV_CHANGE = 1.1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
@@ -24,6 +24,7 @@ var collision_instance
 
 @onready var head = $"Head"
 @onready var camera = $"Head/Camera3D"
+@onready var camera_rotation_amount : float = .085
 @onready var gun = $"Head/Camera3D/Hand/Assault Rifle"
 @onready var gun_anim = $"Head/Camera3D/Hand/Assault Rifle/RootNode/AnimationPlayer"
 @onready var gun_barrel = $"Head/Camera3D/Hand/Assault Rifle/RootNode/RayCast3D"
@@ -82,8 +83,12 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
+	cam_tilt(input_dir.x, delta)
 
-
+func cam_tilt(input_x, delta):
+	if camera:
+		camera.rotation.z = lerp(camera.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
+	
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -94,17 +99,19 @@ func _headbob(time) -> Vector3:
 func shoot():
 	if !gun_anim.is_playing():
 		gun_anim.play("Shoot")
-		instance = bullet.instantiate()
-		collision_instance = bullet.instantiate()
+		instance = bullet.instantiate()		#The visible bullet shooting out of the gun barrel
+		collision_instance = bullet.instantiate()		#The (supposed to be) invisible bullet shooting out from the center of the camera which determines the actual bullet impact location
 		collision_instance.is_coll = true	
 		
+		#Spawn the visible bullet from the gun barrel and make sure it's rotated the correct direction
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis
 		instance.rotation.y = gun.global_rotation.y
 		
+		#Spawn the invisible collision-detection bullet from the center of screen and make sure it's rotated correct
 		collision_instance.position = aiming_raycast.global_position
 		collision_instance.transform.basis = aiming_raycast.global_transform.basis
-		
+		collision_instance.rotation.y = aiming_raycast.global_rotation.y
 		
 		
 		
@@ -112,7 +119,4 @@ func shoot():
 		get_parent().add_child(collision_instance)
 		
 		collision_instance.ready()
-		#collision_instance.rotation.x = gun.global_rotation.x
-		#collision_instance.rotation.y = aiming_raycast.global_rotation.y
-		#	collision_instance.global_rotation.z = aiming_raycast.global_rotation.z
 
