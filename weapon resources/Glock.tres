@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://cx2nt7k8xpo6w"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_7swsh"]
+
+[resource]
+script = ExtResource("1_7swsh")
+Weapon_Name = "Glock"
+Idle_Anim = "GlockIdle"
+Shoot_Anim = "GlockShoot"
+Reload_Anim = ""
+Draw_Anim = "GlockDraw"
+Holster_Anim = "GlockHolster"
+Out_Of_Ammo_Anim = ""
+Current_Ammo = 0
+Reserve_Ammo = 0
+Magazine = 17
+Max_Ammo = 170
+Damage = 10
+Auto_Fire = false
+Projectile_Velocity = 375
