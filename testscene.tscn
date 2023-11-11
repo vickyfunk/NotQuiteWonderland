@@ -12,6 +12,7 @@ sky_material = SubResource("ProceduralSkyMaterial_kpbjj")
 [sub_resource type="Environment" id="Environment_j7gxi"]
 background_mode = 2
 sky = SubResource("Sky_ijoaq")
+ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
 
@@ -31,7 +32,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 environment = SubResource("Environment_j7gxi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 95.6053, -46.5824)
 shadow_enabled = true
 
 [node name="test_cube" type="MeshInstance3D" parent="."]
