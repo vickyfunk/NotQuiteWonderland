@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://5euoebwedfh4"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_6dtwn"]
+
+[resource]
+script = ExtResource("1_6dtwn")
+Weapon_Name = "Tantal"
+Idle_Anim = "TantalIdle"
+Shoot_Anim = "TantalShoot"
+Reload_Anim = ""
+Draw_Anim = "TantalDraw"
+Holster_Anim = "TantalHolster"
+Out_Of_Ammo_Anim = ""
+Current_Ammo = 0
+Reserve_Ammo = 0
+Magazine = 30
+Max_Ammo = 300
+Damage = 20
+Auto_Fire = true
+Projectile_Velocity = 880

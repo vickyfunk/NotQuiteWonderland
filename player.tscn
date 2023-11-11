@@ -1,14 +1,192 @@
-[gd_scene load_steps=7 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=20 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_pu7ro"]
 [ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/textures/crosshair.png" id="2_gytup"]
-[ext_resource type="PackedScene" uid="uid://dhu6jq7gxct11" path="res://Scenes/ak.tscn" id="2_xlmbf"]
 [ext_resource type="Script" path="res://WeaponManager.gd" id="4_1me3v"]
+[ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://weapon resources/Glock.tres" id="4_ctbai"]
+[ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
+[ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
+[ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://weapon resources/Tantal.tres" id="5_sfq0o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7eeua"]
 points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="Animation" id="Animation_r7elo"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.707, 0.707)
+
+[sub_resource type="Animation" id="Animation_gjhl0"]
+resource_name = "GlockDraw"
+length = 0.4
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.45, -0.3, 0.2, 1, 0.07, -0.1, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.183, -0.183, -0.683, 0.683, 0.2, 1, -0.183, -0.183, -0.683, 0.683, 0.4, 1, 0, 0, -0.707, 0.707)
+
+[sub_resource type="Animation" id="Animation_kfa5f"]
+resource_name = "GlockShoot"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.28, 0.1, 1, 0.07, -0.1, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.012, 0.012, -0.707, 0.707, 0.1, 1, 0, 0, -0.707, 0.707)
+
+[sub_resource type="Animation" id="Animation_gj0oj"]
+resource_name = "TantalShoot"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.17, 0.1, 1, 0.2, -0.6, -0.2)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.012, 0.707, 0.012, 0.707, 0.1, 1, 0, 0.707, 0, 0.707)
+
+[sub_resource type="Animation" id="Animation_pujt7"]
+resource_name = "TantalDraw"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -1.69, -0.3, 0.5, 1, 0.2, -0.6, -0.2)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.331, 0.625, -0.341, 0.619, 0.5, 1, 0, 0.707, 0, 0.707)
+
+[sub_resource type="Animation" id="Animation_axb4e"]
+resource_name = "TantalHolster"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.2, 0.5, 1, 0.2, -1.69, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.707, 0, 0.707, 0.5, 1, -0.331, 0.625, -0.341, 0.619)
+
+[sub_resource type="Animation" id="Animation_iog7m"]
+resource_name = "GlockHolster"
+length = 0.4
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 0.07, -0.1, -0.3, 0.4, 1, 0.2, -0.45, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.707, 0.707, 0.1, 1, -0.183, -0.183, -0.683, 0.683, 0.4, 1, -0.183, -0.183, -0.683, 0.683)
+
+[sub_resource type="Animation" id="Animation_mf1yt"]
+resource_name = "GlockIdle"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.707, 0.707)
+
+[sub_resource type="Animation" id="Animation_6fa4e"]
+resource_name = "TantalIdle"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.2)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.707, 0, 0.707)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8njrv"]
+_data = {
+"GlockDraw": SubResource("Animation_gjhl0"),
+"GlockHolster": SubResource("Animation_iog7m"),
+"GlockIdle": SubResource("Animation_mf1yt"),
+"GlockShoot": SubResource("Animation_kfa5f"),
+"RESET": SubResource("Animation_r7elo"),
+"TantalDraw": SubResource("Animation_pujt7"),
+"TantalHolster": SubResource("Animation_axb4e"),
+"TantalIdle": SubResource("Animation_6fa4e"),
+"TantalShoot": SubResource("Animation_gj0oj")
+}
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
@@ -32,14 +210,22 @@ texture = ExtResource("2_gytup")
 
 [node name="WeaponManager" type="Node3D" parent="Head/Camera3D"]
 script = ExtResource("4_1me3v")
+_weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("5_sfq0o")])
+Start_Weapons = Array[String](["Glock", "Tantal"])
 sway_up = Vector3(-0.1, 0, 0)
 sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-[node name="Assault Rifle" parent="Head/Camera3D/WeaponManager" instance=ExtResource("2_xlmbf")]
-transform = Transform3D(-0.399452, -0.0209344, -3.49691e-08, -0.0209344, 0.399452, 0, 3.49212e-08, 1.83014e-09, -0.4, 0.212, -0.375, -0.255)
+[node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
+transform = Transform3D(-2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, 0, 0, 0, 0.6, 0.07, -0.1, -0.3)
 
-[node name="AimingRaycast" type="RayCast3D" parent="Head/Camera3D/WeaponManager"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.737293)
-target_position = Vector3(0, 0, -1)
+[node name="Tantal" parent="Head/Camera3D/WeaponManager" instance=ExtResource("5_b88fu")]
+transform = Transform3D(-0.00851355, 0.00504666, 0.599918, -0.501731, 0.328889, -0.00988686, -0.328927, -0.501804, -0.000446571, 0.2, -1.69, -0.3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/WeaponManager"]
+libraries = {
+"": SubResource("AnimationLibrary_8njrv")
+}
+
+[connection signal="animation_finished" from="Head/Camera3D/WeaponManager/AnimationPlayer" to="Head/Camera3D/WeaponManager" method="_on_animation_player_animation_finished"]

@@ -79,8 +79,7 @@ func _physics_process(delta):
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
-	if Input.is_action_pressed("shoot"):
-		shoot()
+	
 	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
@@ -101,27 +100,5 @@ func _headbob(time) -> Vector3:
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 
-func shoot():
-	if !gun_anim.is_playing():
-		gun_anim.play("Shoot")
-		instance = bullet.instantiate()		#The visible bullet shooting out of the gun barrel
-		collision_instance = bullet.instantiate()		#The (supposed to be) invisible bullet shooting out from the center of the camera which determines the actual bullet impact location
-		collision_instance.is_coll = true	
-		
-		#Spawn the visible bullet from the gun barrel and make sure it's rotated the correct direction
-		instance.position = gun_barrel.global_position
-		instance.transform.basis = gun_barrel.global_transform.basis
-		instance.rotation.y = gun.global_rotation.y
-		
-		#Spawn the invisible collision-detection bullet from the center of screen and make sure it's rotated correct
-		collision_instance.position = aiming_raycast.global_position
-		collision_instance.transform.basis = aiming_raycast.global_transform.basis
-		collision_instance.rotation.y = aiming_raycast.global_rotation.y
-		
-		
-		
-		get_parent().add_child(instance)
-		get_parent().add_child(collision_instance)
-		
-		collision_instance.ready()
+
 
