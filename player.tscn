@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://coklbcv2m6ky6"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_pu7ro"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/textures/crosshair.png" id="2_gytup"]
-[ext_resource type="Script" path="res://WeaponManager.gd" id="4_1me3v"]
+[ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
 [ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://weapon resources/Glock.tres" id="4_ctbai"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
@@ -190,7 +190,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
-script = ExtResource("1_pu7ro")
+script = ExtResource("1_ptgww")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
@@ -209,7 +209,7 @@ texture = ExtResource("2_gytup")
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="WeaponManager" type="Node3D" parent="Head/Camera3D"]
-script = ExtResource("4_1me3v")
+script = ExtResource("3_vb8qq")
 _weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("5_sfq0o")])
 Start_Weapons = Array[String](["Glock", "Tantal"])
 sway_up = Vector3(-0.1, 0, 0)
