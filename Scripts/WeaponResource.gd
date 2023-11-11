@@ -8,7 +8,7 @@ class_name Weapon_Resource
 @export var Reload_Anim: String
 @export var Draw_Anim: String
 @export var Holster_Anim: String
-@export var Out_Of_Ammo_Anim: String
+@export var Empty_Anim: String
 
 @export var Current_Ammo: int #ammo currently in magazine
 @export var Reserve_Ammo: int #ammo in reserve
