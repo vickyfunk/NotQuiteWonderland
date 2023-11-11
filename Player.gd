@@ -25,10 +25,6 @@ var collision_instance
 @onready var head = $"Head"
 @onready var camera = $"Head/Camera3D"
 @onready var camera_rotation_amount : float = .085
-@onready var gun = $"Head/Camera3D/WeaponManager/Assault Rifle"
-@onready var gun_anim = $"Head/Camera3D/WeaponManager/Assault Rifle/RootNode/AnimationPlayer"
-@onready var gun_barrel = $"Head/Camera3D/WeaponManager/Assault Rifle/RootNode/RayCast3D"
-@onready var aiming_raycast = $Head/Camera3D/WeaponManager/AimingRaycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
