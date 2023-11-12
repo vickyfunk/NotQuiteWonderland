@@ -6,6 +6,7 @@ class_name Weapon_Resource
 @export var Idle_Anim: String
 @export var Shoot_Anim: String
 @export var Reload_Anim: String
+@export var Tacload_Anim: String
 @export var Draw_Anim: String
 @export var Holster_Anim: String
 @export var Empty_Anim: String
