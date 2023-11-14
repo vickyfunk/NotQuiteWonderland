@@ -50,6 +50,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0676834, -0.0773611, -0.40863)
 
 [sub_resource type="Animation" id="Animation_1flt6"]
 resource_name = "GlockEmpty"
@@ -178,6 +185,175 @@ tracks/1/keys = {
 "values": [Quaternion(0.012, 0.012, -0.707, 0.707), Quaternion(0, 0, -0.707, 0.707)]
 }
 
+[sub_resource type="Animation" id="Animation_hie2r"]
+resource_name = "LaserDraw"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.515, 0.315, 1, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LaserRifle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.7, 1, 0.201795, -0.0821831, -0.858493)
+
+[sub_resource type="Animation" id="Animation_nu34i"]
+resource_name = "LaserEmpty"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.26, -0.325, -0.395)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.0305295, 0.973893, 0.0305295, 0.222866)]
+}
+
+[sub_resource type="Animation" id="Animation_cje4p"]
+resource_name = "LaserHolster"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 1.005, 0.315, -0.275)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LaserRifle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bfa6g"]
+resource_name = "LaserIdle"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
+[sub_resource type="Animation" id="Animation_o73uh"]
+resource_name = "LaserReload"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.025, -1.01, -0.4, 0.7, 1, -0.025, -0.485, -0.4, 1, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
+[sub_resource type="Animation" id="Animation_u7mim"]
+resource_name = "LaserShoot"
+length = 0.01
+step = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.39, 0.01, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
 [sub_resource type="Animation" id="Animation_r7elo"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -241,6 +417,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.7, 1, 0.201795, -0.25162, -2.49861)
 
 [sub_resource type="Animation" id="Animation_0qkl8"]
 resource_name = "TantalEmpty"
@@ -369,168 +552,6 @@ tracks/1/keys = {
 "values": [Quaternion(0.005, 0.707, 0.012, 0.707), Quaternion(0, 0.707, 0, 0.707)]
 }
 
-[sub_resource type="Animation" id="Animation_u7mim"]
-resource_name = "LaserShoot"
-length = 0.01
-step = 0.01
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.39, 0.01, 1, 0.2, -0.25, -0.4)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0, 0.707107, 0, 0.707107)]
-}
-
-[sub_resource type="Animation" id="Animation_bfa6g"]
-resource_name = "LaserIdle"
-length = 0.1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(0, 0.707107, 0, 0.707107)]
-}
-
-[sub_resource type="Animation" id="Animation_hie2r"]
-resource_name = "LaserDraw"
-length = 0.7
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.515, 0.315, -0.275, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 0.2, -0.25, -0.4)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0, 0.707107, 0, 0.707107)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LaserRifle:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_cje4p"]
-resource_name = "LaserHolster"
-length = 0.7
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 1.005, 0.315, -0.275)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LaserRifle:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_nu34i"]
-resource_name = "LaserEmpty"
-length = 0.1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.26, -0.325, -0.395)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(-0.0305295, 0.973893, 0.0305295, 0.222866)]
-}
-
-[sub_resource type="Animation" id="Animation_o73uh"]
-resource_name = "LaserReload"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LaserRifle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.025, -1.01, -0.4, 0.7, 1, -0.025, -0.485, -0.4, 1, 1, 0.2, -0.25, -0.4)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LaserRifle:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(0, 0.707107, 0, 0.707107)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8njrv"]
 _data = {
 "GlockDraw": SubResource("Animation_gjhl0"),
@@ -625,13 +646,15 @@ sway_right = Vector3(0, 0.1, 0)
 [node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
 transform = Transform3D(-0.00725938, 0.494237, 0.0753462, -0.282814, -0.0661982, 0.406982, 0.412267, -0.036709, 0.280515, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
+visible = false
 
 [node name="Tantal" parent="Head/Camera3D/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0.45314, -0.0465871, 0.390505, 0.335011, 0.357785, -0.346061, -0.205992, 0.479395, 0.296223, 0.755, 0.425, 1.57)
+transform = Transform3D(0, 0, 0.6, 0, 0.600001, 0, -0.6, 0, 0, 0.2, -0.6, -0.2)
 rotation_edit_mode = 1
+visible = false
 
 [node name="LaserRifle" parent="Head/Camera3D/WeaponManager" instance=ExtResource("10_e71et")]
-transform = Transform3D(-0.128684, 0.0443054, 0.584361, 0.55864, 0.190066, 0.10861, -0.177091, 0.567373, -0.0820154, 1.005, 0.315, -0.275)
+transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
 rotation_edit_mode = 1
 visible = false
 
@@ -641,7 +664,8 @@ libraries = {
 }
 
 [node name="Bullet_Point" type="Marker3D" parent="Head/Camera3D/WeaponManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200053, -0.0850381, -0.851282)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201795, -0.25162, -2.49861)
 
 [connection signal="Update_Ammo" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
