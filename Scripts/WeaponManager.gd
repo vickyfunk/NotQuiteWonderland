@@ -44,6 +44,9 @@ func Initialize(_start_weapons: Array):
 		Weapon_Stack.push_back(i)
 	Current_Weapon = Weapon_List[Weapon_Stack[0]] #sets 1st weapon in stack to current
 	emit_signal("Update_Weapon_Stack", Weapon_Stack)
+	for i in get_children(): #Hides the weapons even if left visible in the editor
+		if i is Node3D:
+			i.visible = false
 	enter()
 
 func enter():
