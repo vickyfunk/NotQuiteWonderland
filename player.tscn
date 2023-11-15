@@ -25,7 +25,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.45, -0.3, 0.2, 1, 0.07, -0.195, -0.3, 0.4, 1, 0.07, -0.1, -0.3)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.45, -0.3, 0.2, 1, 0.07, -0.195, -0.3, 0.4, 1, 0.07, -0.1, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -56,7 +56,7 @@ tracks/3/enabled = true
 tracks/3/path = NodePath("Bullet_Point")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0676834, -0.0773611, -0.40863)
+tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0705564, -0.0611819, -0.542182)
 
 [sub_resource type="Animation" id="Animation_1flt6"]
 resource_name = "GlockEmpty"
@@ -67,7 +67,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.19, -0.3)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.19, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -90,7 +90,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.1, 1, 0.07, -0.1, -0.3, 0.5, 1, 0.2, -0.45, -0.3)
+tracks/0/keys = PackedFloat32Array(0.1, 1, 0.07, -0.1, -0.35, 0.5, 1, 0.2, -0.45, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -125,7 +125,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -148,7 +148,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3, 0.3, 1, 0.18, -0.075, -0.3, 0.6, 1, 0.18, -0.525, -0.3, 0.9, 1, 0.07, -0.23, -0.3, 1.2, 1, 0.07, -0.28, -0.3, 1.5, 1, 0.07, -0.1, -0.3)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3, 0.3, 1, 0.18, -0.075, -0.3, 0.6, 1, 0.18, -0.525, -0.3, 0.9, 1, 0.07, -0.23, -0.3, 1.2, 1, 0.07, -0.28, -0.3, 1.5, 1, 0.07, -0.1, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -171,7 +171,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("Glock")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.28, 0.1, 1, 0.07, -0.1, -0.3)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.31, 0.1, 1, 0.07, -0.1, -0.35)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -644,7 +644,7 @@ sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
 [node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.00725938, 0.494237, 0.0753462, -0.282814, -0.0661982, 0.406982, 0.412267, -0.036709, 0.280515, 0.07, -0.1, -0.3)
+transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587344, 0.448824, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 visible = false
 
@@ -665,7 +665,7 @@ libraries = {
 
 [node name="Bullet_Point" type="Marker3D" parent="Head/Camera3D/WeaponManager"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201795, -0.25162, -2.49861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.542182)
 
 [connection signal="Update_Ammo" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]

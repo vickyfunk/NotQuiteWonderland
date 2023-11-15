@@ -23,6 +23,8 @@ var sway_lerp = 5
 
 enum {NULL, HITSCAN, PROJECTILE}
 
+var Collision_Exclusion = []
+
 @export var sway_up : Vector3
 @export var sway_down : Vector3
 @export var sway_left : Vector3
@@ -53,6 +55,11 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_mov_x = -event.relative.x
 		mouse_mov_y = -event.relative.y
+	if event.is_action_pressed("free_mouse"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else: 
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event.is_action_pressed("next_weapon"):
 		Weapon_Indicator = min(Weapon_Indicator+1, Weapon_Stack.size()-1)
 		print(Weapon_Indicator)
@@ -102,7 +109,7 @@ func shoot():
 				HITSCAN:
 					Hitscan_Collision(Camera_Collision)
 				PROJECTILE:
-					pass
+					Launch_Projectile(Camera_Collision)
 	else: 
 		reload()
 
@@ -127,6 +134,7 @@ func Get_Camera_Collision()->Vector3:
 	var Ray_End = Ray_Origin + camera.project_ray_normal(viewport/2)*Current_Weapon.Weapon_Range
 	
 	var New_Intersection = PhysicsRayQueryParameters3D.create(Ray_Origin, Ray_End)
+	New_Intersection.set_exclude(Collision_Exclusion)
 	var Intersection = get_world_3d().direct_space_state.intersect_ray(New_Intersection)
 	
 	if not Intersection.is_empty():
@@ -153,6 +161,19 @@ func Hitscan_Collision(Collision_Point):
 func Hitscan_Damage(Collider):
 	if Collider.is_in_group("Target") and Collider.has_method("Hit_Successful"):
 		Collider.Hit_Successful(Current_Weapon.Damage)
+
+func Launch_Projectile(Point: Vector3):
+	var Direction = (Point - Bullet_Point.get_global_transform().origin).normalized()
+	var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
+	var Projectile_RID = Projectile.get_rid()
+	Collision_Exclusion.push_front(Projectile_RID)
+	Projectile.tree_exited.connect(Remove_Exclusion.bind(Projectile.get_rid()))
+	Bullet_Point.add_child(Projectile)
+	Projectile.Damage = Current_Weapon.Damage
+	Projectile.set_linear_velocity(Direction*Current_Weapon.Projectile_Velocity)
+
+func Remove_Exclusion(Projectile_RID):
+	Collision_Exclusion.erase(Projectile_RID)
 
 func release():
 	if !Animation_Player.is_playing():

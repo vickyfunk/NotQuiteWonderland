@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d36ikl45lmito"
-path="res://.godot/imported/Assault Rifle.glb-547ed5983da7d4fc911da769dc6bde6a.scn"
+uid="uid://mnbyghfnpqnc"
+path="res://.godot/imported/x39casing.glb-2c18351f9c76b8fe6cccd43d11a89960.scn"
 
 [deps]
 
-source_file="res://Assets/meshes/Assault Rifle.glb"
-dest_files=["res://.godot/imported/Assault Rifle.glb-547ed5983da7d4fc911da769dc6bde6a.scn"]
+source_file="res://Assets/meshes/casings/x39casing.glb"
+dest_files=["res://.godot/imported/x39casing.glb-2c18351f9c76b8fe6cccd43d11a89960.scn"]
 
 [params]
 

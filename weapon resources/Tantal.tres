@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://5euoebwedfh4"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://5euoebwedfh4"]
 
 [ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_6dtwn"]
+[ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_ahl68"]
 
 [resource]
 script = ExtResource("1_6dtwn")
@@ -16,8 +17,10 @@ Current_Ammo = 30
 Reserve_Ammo = 150
 Magazine = 30
 Max_Ammo = 300
-Type = 2
-Damage = 5
+Damage = 10
 Auto_Fire = true
 Weapon_Range = 1000
+Type = 2
+Projectile_to_Load = ExtResource("1_ahl68")
 Projectile_Velocity = 880
+Casing_Velocity = 0

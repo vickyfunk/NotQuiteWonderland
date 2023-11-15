@@ -55,4 +55,4 @@ size = Vector3(100, 0.5, 100)
 material = SubResource("StandardMaterial3D_st5po")
 
 [node name="Box" parent="." instance=ExtResource("2_ctst0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.62747, 0.25, 23.7932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.62747, 0.381112, 23.7932)

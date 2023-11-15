@@ -16,10 +16,11 @@ class_name Weapon_Resource
 @export var Magazine: int #magazine capacity
 @export var Max_Ammo: int #maximum reserve ammo
 
-@export_flags("Hitscan", "Projectile") var Type
 @export var Damage: int #duh
 @export var Auto_Fire: bool #does it full auto or no
 @export var Weapon_Range: int
-
+@export_flags("Hitscan", "Projectile") var Type
 @export var Projectile_to_Load: PackedScene 
 @export var Projectile_Velocity: int
+@export var Casing_to_Load: PackedScene
+@export var Casing_Velocity: int 

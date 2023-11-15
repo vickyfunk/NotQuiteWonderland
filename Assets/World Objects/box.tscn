@@ -68,11 +68,15 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m1mx5")
 
 [node name="Box" type="RigidBody3D" groups=["Target"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_q1tu7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_1oq5f")
 
 [node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xtqgs")
 skeleton = NodePath("")
