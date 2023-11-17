@@ -25,3 +25,7 @@ class_name Weapon_Resource
 @export var Casing_to_Load: PackedScene
 @export var Casing_Velocity: int 
 @export var Screen_Shake_Intensity: float
+@export var recoil_rotation_x: Curve
+@export var recoil_rotation_z: Curve
+@export var recoil_position_z: Curve
+@export var recoil_amplitude := Vector3(1,1,1)
