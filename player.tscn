@@ -575,9 +575,15 @@ _data = {
 "TantalShoot": SubResource("Animation_gj0oj")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
+head = NodePath("Head")
+camera = NodePath("Head/Camera3D")
+weapon_holder = NodePath("Head/WeaponManager")
+weapon_rotation_amount = 0.05
+bob_amount = 0.04
+bob_freq = 0.004
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_6d6d2")
@@ -634,7 +640,7 @@ shape = SubResource("ConvexPolygonShape3D_7eeua")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Head/Camera3D"]
+[node name="WeaponManager" type="Node3D" parent="Head"]
 script = ExtResource("3_vb8qq")
 _weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("5_sfq0o"), ExtResource("7_50dux")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
@@ -643,30 +649,30 @@ sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-[node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
+[node name="Glock" parent="Head/WeaponManager" instance=ExtResource("4_lmw1r")]
 transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587344, 0.448824, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 
-[node name="Tantal" parent="Head/Camera3D/WeaponManager" instance=ExtResource("5_b88fu")]
+[node name="Tantal" parent="Head/WeaponManager" instance=ExtResource("5_b88fu")]
 transform = Transform3D(0, 0, 0.6, 0, 0.600001, 0, -0.6, 0, 0, 0.2, -0.6, -0.2)
 rotation_edit_mode = 1
 visible = false
 
-[node name="LaserRifle" parent="Head/Camera3D/WeaponManager" instance=ExtResource("10_e71et")]
+[node name="LaserRifle" parent="Head/WeaponManager" instance=ExtResource("10_e71et")]
 transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
 rotation_edit_mode = 1
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/Camera3D/WeaponManager"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/WeaponManager"]
 libraries = {
 "": SubResource("AnimationLibrary_8njrv")
 }
 
-[node name="Bullet_Point" type="Marker3D" parent="Head/Camera3D/WeaponManager"]
+[node name="Bullet_Point" type="Marker3D" parent="Head/WeaponManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.542182)
 
-[connection signal="Update_Ammo" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
-[connection signal="Update_Weapon_Stack" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
-[connection signal="Weapon_Changed" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
-[connection signal="animation_finished" from="Head/Camera3D/WeaponManager/AnimationPlayer" to="Head/Camera3D/WeaponManager" method="_on_animation_player_animation_finished"]
+[connection signal="Update_Ammo" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Weapon_Stack" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
+[connection signal="Weapon_Changed" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
+[connection signal="animation_finished" from="Head/WeaponManager/AnimationPlayer" to="Head/WeaponManager" method="_on_animation_player_animation_finished"]

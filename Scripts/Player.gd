@@ -1,11 +1,10 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 10.0
+@export var WALK_SPEED = 5.0
+@export var SPRINT_SPEED = 10.0
 const JUMP_VELOCITY = 4.8
-const SENSITIVITY = 0.004
-
+@export var SENSITIVITY = 0.004
 #bob variables
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
@@ -18,13 +17,22 @@ const FOV_CHANGE = 1.1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
-@onready var head = $"Head"
-@onready var camera = $"Head/Camera3D"
-@onready var camera_rotation_amount : float = .085
+@export var head: Node3D
+@export var camera: Node3D
+@export var camera_rotation_amount : float = .085
+@export var weapon_holder: Node3D
+@export var weapon_sway_amount : float = .05
+@export var weapon_rotation_amount : float = .01
+
+@export var bob_amount: float = 0.01
+@export var bob_freq: float = 0.01
+
+var mouse_input : Vector2
+var default_weapon_holder_pos: Vector3
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	default_weapon_holder_pos = weapon_holder.position
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -34,9 +42,10 @@ func _process(_delta):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
-		var camera_x_rotation = camera.rotation.x - event.relative.y * SENSITIVITY
-		camera_x_rotation = clamp(camera_x_rotation, deg_to_rad(-90), deg_to_rad(90))
-		camera.rotation.x = camera_x_rotation
+		var head_x_rotation = head.rotation.x - event.relative.y * SENSITIVITY
+		head_x_rotation = clamp(head_x_rotation, deg_to_rad(-90), deg_to_rad(90))
+		head.rotation.x = head_x_rotation
+		mouse_input = event.relative
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -71,8 +80,6 @@ func _physics_process(delta):
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
-	
-	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
@@ -80,17 +87,35 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	cam_tilt(input_dir.x, delta)
+	weapon_tilt(input_dir.x, delta)
+	weapon_sway(delta)
+	weapon_bob(velocity.length(), delta)
 
 func cam_tilt(input_x, delta):
 	if camera:
 		camera.rotation.z = lerp(camera.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
-	
+
+func weapon_tilt(input_x, delta):
+	if weapon_holder:
+		weapon_holder.rotation.z = lerp(weapon_holder.rotation.z, -input_x * weapon_rotation_amount, 10 * delta)
+
+func weapon_sway(delta):
+	mouse_input = lerp(mouse_input, Vector2.ZERO, 10 * delta)
+	weapon_holder.rotation.x = lerp(weapon_holder.rotation.x, mouse_input.y * weapon_rotation_amount, 10 * delta)
+	weapon_holder.rotation.y = lerp(weapon_holder.rotation.y, mouse_input.x * weapon_rotation_amount, 10 * delta)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
+	return pos
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 
-
-
+func weapon_bob(vel: float, delta):
+	if weapon_holder:
+		if vel > 0:
+			weapon_holder.position.y = lerp(weapon_holder.position.y, default_weapon_holder_pos.y + sin(Time.get_ticks_msec() * bob_freq) * bob_amount, 10 * delta)
+			weapon_holder.position.x = lerp(weapon_holder.position.x, default_weapon_holder_pos.x + sin(Time.get_ticks_msec() * bob_freq * 0.5) * bob_amount, 10 * delta)
+		else:
+			weapon_holder.position.y = lerp(weapon_holder.position.y, default_weapon_holder_pos.y, 10 * delta)
+			weapon_holder.position.x = lerp(weapon_holder.position.x, default_weapon_holder_pos.x, 10 * delta)
