@@ -24,3 +24,4 @@ Type = 2
 Projectile_to_Load = ExtResource("1_ahl68")
 Projectile_Velocity = 880
 Casing_Velocity = 0
+Screen_Shake_Intensity = 0.4

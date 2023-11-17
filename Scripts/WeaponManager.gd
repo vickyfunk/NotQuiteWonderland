@@ -6,6 +6,7 @@ signal Update_Weapon_Stack
 
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
+@export var camera_shaker: CameraShaker
 
 var Current_Weapon = null
 var Weapon_Stack = [] #array of weapons held by player currently
@@ -106,6 +107,7 @@ func shoot():
 			Current_Weapon.Current_Ammo -= 1
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 			var Camera_Collision = Get_Camera_Collision()
+			apply_recoil(Current_Weapon.Screen_Shake_Intensity)
 			match Current_Weapon.Type:
 				NULL:
 					print("Weapon Type Not Chosen")
@@ -193,3 +195,6 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == Current_Weapon.Shoot_Anim && Current_Weapon.Auto_Fire == true:
 		if Input.is_action_pressed("shoot"):
 			shoot()
+
+func apply_recoil(screen_shake_intensity: float):
+	camera_shaker.add_trauma(screen_shake_intensity)

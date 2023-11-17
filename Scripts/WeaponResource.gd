@@ -24,3 +24,4 @@ class_name Weapon_Resource
 @export var Projectile_Velocity: int
 @export var Casing_to_Load: PackedScene
 @export var Casing_Velocity: int 
+@export var Screen_Shake_Intensity: float

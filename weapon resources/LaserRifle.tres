@@ -22,3 +22,4 @@ Weapon_Range = 1000
 Type = 1
 Projectile_Velocity = 0
 Casing_Velocity = 0
+Screen_Shake_Intensity = 0.0

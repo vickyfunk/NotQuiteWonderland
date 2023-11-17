@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=35 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://HUD.gd" id="2_6d6d2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://weapon resources/Tantal.tres" id="5_sfq0o"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://weapon resources/LaserRifle.tres" id="7_50dux"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
+[ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 
@@ -575,15 +576,14 @@ _data = {
 "TantalShoot": SubResource("Animation_gj0oj")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 weapon_holder = NodePath("Head/WeaponManager")
-weapon_rotation_amount = 0.035
-bob_amount = 0.04
-bob_freq = 0.008
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_6d6d2")
@@ -640,8 +640,9 @@ shape = SubResource("ConvexPolygonShape3D_7eeua")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Head"]
+[node name="WeaponManager" type="Node3D" parent="Head" node_paths=PackedStringArray("camera_shaker")]
 script = ExtResource("3_vb8qq")
+camera_shaker = NodePath("../CameraShaker")
 _weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("5_sfq0o"), ExtResource("7_50dux")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
 sway_up = Vector3(-0.1, 0, 0)
@@ -671,6 +672,12 @@ libraries = {
 [node name="Bullet_Point" type="Marker3D" parent="Head/WeaponManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.542182)
+
+[node name="CameraShaker" type="Node3D" parent="Head" node_paths=PackedStringArray("camera")]
+script = ExtResource("11_w3kwb")
+noise = SubResource("FastNoiseLite_gmyi8")
+max_y = 5.0
+camera = NodePath("../Camera3D")
 
 [connection signal="Update_Ammo" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
