@@ -581,9 +581,9 @@ script = ExtResource("1_ptgww")
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 weapon_holder = NodePath("Head/WeaponManager")
-weapon_rotation_amount = 0.05
+weapon_rotation_amount = 0.035
 bob_amount = 0.04
-bob_freq = 0.004
+bob_freq = 0.008
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_6d6d2")

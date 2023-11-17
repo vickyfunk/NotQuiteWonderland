@@ -101,8 +101,8 @@ func weapon_tilt(input_x, delta):
 
 func weapon_sway(delta):
 	mouse_input = lerp(mouse_input, Vector2.ZERO, 10 * delta)
-	weapon_holder.rotation.x = lerp(weapon_holder.rotation.x, mouse_input.y * weapon_rotation_amount, 10 * delta)
-	weapon_holder.rotation.y = lerp(weapon_holder.rotation.y, mouse_input.x * weapon_rotation_amount, 10 * delta)
+	weapon_holder.rotation.x = lerp(weapon_holder.rotation.x, mouse_input.y * weapon_rotation_amount, 15 * delta)
+	weapon_holder.rotation.y = lerp(weapon_holder.rotation.y, mouse_input.x * weapon_rotation_amount, 15 * delta)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -113,7 +113,7 @@ func _headbob(time) -> Vector3:
 
 func weapon_bob(vel: float, delta):
 	if weapon_holder:
-		if vel > 0:
+		if vel > 1:
 			weapon_holder.position.y = lerp(weapon_holder.position.y, default_weapon_holder_pos.y + sin(Time.get_ticks_msec() * bob_freq) * bob_amount, 10 * delta)
 			weapon_holder.position.x = lerp(weapon_holder.position.x, default_weapon_holder_pos.x + sin(Time.get_ticks_msec() * bob_freq * 0.5) * bob_amount, 10 * delta)
 		else:
