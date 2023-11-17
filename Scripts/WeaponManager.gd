@@ -97,9 +97,9 @@ func exit(_next_weapon: String):
 func _process(delta):
 	if current_time < 1:
 		current_time += delta
-		position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
 		rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
 		rotation.x = lerp(rotation.x, target_rot.x, recoil_lerp_speed * delta)
+		#position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
 		
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
 		target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * -Current_Weapon.recoil_amplitude.x
