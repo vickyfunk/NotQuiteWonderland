@@ -13,6 +13,7 @@ signal Update_Weapon_Stack
 var target_rot: Vector3
 var target_pos: Vector3
 var current_time: float
+var z_position_prerecoil
 
 var Current_Weapon = null
 var Weapon_Stack = [] #array of weapons held by player currently
@@ -95,16 +96,20 @@ func exit(_next_weapon: String):
 			Next_Weapon = _next_weapon
 
 func _process(delta):
-	if current_time < 1:
+	if current_time < 0.32:
 		current_time += delta
 		rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
 		rotation.x = lerp(rotation.x, target_rot.x, recoil_lerp_speed * delta)
-		#position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
+		position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
 		
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
 		target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * -Current_Weapon.recoil_amplitude.x
 		target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z
-		
+	elif z_position_prerecoil:
+		if abs(z_position_prerecoil - position.z) < 0.01:
+			z_position_prerecoil = null
+		else:
+			position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
 	return
 	
 	
@@ -220,6 +225,8 @@ func _on_animation_player_animation_finished(anim_name):
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
 	Current_Weapon.recoil_amplitude.y *= -1 if randf() > 0.5 else 1
+	if !z_position_prerecoil:
+		z_position_prerecoil = position.z
 	target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
 	target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
 	target_pos.z = Current_Weapon.recoil_position_z.sample(0)

@@ -5,8 +5,8 @@
 
 [sub_resource type="Curve" id="Curve_cykpo"]
 min_value = -1.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.214286, -0.557895), 0.0, 0.0, 0, 0, Vector2(0.328571, 0.2), 0.0, 0.0, 0, 0, Vector2(0.835714, 0.0526316), 0.0, 0.0, 0, 0]
-point_count = 4
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.214286, -0.557895), 0.0, 0.0, 0, 0, Vector2(0.321267, 0.0105263), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [resource]
 script = ExtResource("1_7swsh")
