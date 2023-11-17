@@ -646,7 +646,6 @@ sway_right = Vector3(0, 0.1, 0)
 [node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
 transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587344, 0.448824, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
-visible = false
 
 [node name="Tantal" parent="Head/Camera3D/WeaponManager" instance=ExtResource("5_b88fu")]
 transform = Transform3D(0, 0, 0.6, 0, 0.600001, 0, -0.6, 0, 0, 0.2, -0.6, -0.2)
