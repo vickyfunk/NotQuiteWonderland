@@ -18,7 +18,7 @@ const FOV_CHANGE = 1.1
 var gravity = 9.8
 
 @export var head: Node3D
-@export var camera: Node3D
+@export var camera: Camera3D
 @export var camera_rotation_amount : float = .085
 @export var weapon_holder: Node3D
 @export var weapon_sway_amount : float = .05
@@ -78,7 +78,7 @@ func _physics_process(delta):
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	head.transform.origin = _headbob(t_bob)
 	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
@@ -92,8 +92,8 @@ func _physics_process(delta):
 	weapon_bob(velocity.length(), delta)
 
 func cam_tilt(input_x, delta):
-	if camera:
-		camera.rotation.z = lerp(camera.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
+	if head:
+		head.rotation.z = lerp(head.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
 
 func weapon_tilt(input_x, delta):
 	if weapon_holder:
@@ -106,7 +106,6 @@ func weapon_sway(delta):
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
-	return pos
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos

@@ -110,9 +110,9 @@ func _process(delta):
 			z_position_prerecoil = null
 		else:
 			position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
-	return
-	
-	
+
+
+
 	var sway_final : Vector3 = sway_default
 	if mouse_mov_x != null:
 		if mouse_mov_x > sway_threshold:
@@ -224,7 +224,6 @@ func _on_animation_player_animation_finished(anim_name):
 
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
-	Current_Weapon.recoil_amplitude.y *= -1 if randf() > 0.5 else 1
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
