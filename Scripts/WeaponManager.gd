@@ -7,6 +7,7 @@ signal Update_Weapon_Stack
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
 
+@export var head: Node3D
 @export var camera_shaker: CameraShaker
 @export var recoil_lerp_speed: float = 1
 
@@ -96,14 +97,17 @@ func exit(_next_weapon: String):
 			Next_Weapon = _next_weapon
 
 func _process(delta):
+	#I.e. if it's been less than .32 seconds since we fired the gun
 	if current_time < 0.32:
 		current_time += delta
 		rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
-		rotation.x = lerp(rotation.x, target_rot.x, recoil_lerp_speed * delta)
+		#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
+		#also made this one be head rotation specifically so you get camera kick
+		head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 		position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
 		
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-		target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * -Current_Weapon.recoil_amplitude.x
+		target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 		target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z
 	elif z_position_prerecoil:
 		if abs(z_position_prerecoil - position.z) < 0.01:

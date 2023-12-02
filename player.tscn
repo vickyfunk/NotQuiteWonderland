@@ -640,8 +640,9 @@ shape = SubResource("ConvexPolygonShape3D_7eeua")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Head" node_paths=PackedStringArray("camera_shaker")]
+[node name="WeaponManager" type="Node3D" parent="Head" node_paths=PackedStringArray("head", "camera_shaker")]
 script = ExtResource("3_vb8qq")
+head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
 _weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("5_sfq0o"), ExtResource("7_50dux")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
@@ -676,7 +677,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.542
 [node name="CameraShaker" type="Node3D" parent="Head" node_paths=PackedStringArray("camera")]
 script = ExtResource("11_w3kwb")
 noise = SubResource("FastNoiseLite_gmyi8")
-max_y = 5.0
+max_x = 5.0
+max_y = 2.5
+max_z = 2.5
 camera = NodePath("../Camera3D")
 
 [connection signal="Update_Ammo" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
