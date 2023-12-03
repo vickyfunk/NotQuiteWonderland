@@ -31,4 +31,4 @@ Screen_Shake_Intensity = 0.5
 recoil_rotation_x = ExtResource("3_ndeb4")
 recoil_rotation_z = ExtResource("4_qqm4d")
 recoil_position_z = ExtResource("2_kjtcw")
-recoil_amplitude = Vector3(0.5, 1, 1)
+recoil_amplitude = Vector3(0.35, 1, 0.5)
