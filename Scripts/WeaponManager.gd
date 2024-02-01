@@ -7,6 +7,17 @@ signal Update_Weapon_Stack
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
 
+@export var head: Node3D
+@export var camera_shaker: CameraShaker
+@export var recoil_lerp_speed: float = 1
+
+var target_rot: Vector3
+var target_pos: Vector3
+var z_travel: float
+var max_z_travel: float
+var current_time: float
+var z_position_prerecoil
+
 var Current_Weapon = null
 var Weapon_Stack = [] #array of weapons held by player currently
 var Weapon_Indicator = 0 #keeps track of array position
@@ -35,6 +46,8 @@ var Collision_Exclusion = []
 
 func _ready():
 	Initialize(Start_Weapons)
+	target_rot.y = rotation.y
+	current_time = 1
 
 func Initialize(_start_weapons: Array):
 	#creates dictionary of weapons
@@ -53,6 +66,7 @@ func enter():
 	Animation_Player.queue(Current_Weapon.Draw_Anim)
 	emit_signal("Weapon_Changed", Current_Weapon.Weapon_Name)
 	emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
+	max_z_travel = Current_Weapon.max_z_travel
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -86,6 +100,30 @@ func exit(_next_weapon: String):
 			Next_Weapon = _next_weapon
 
 func _process(delta):
+	#I.e. if our gun is not "recoilless"
+	if max_z_travel > 0:
+		#I.e. if it's been less than .32 seconds since we fired the gun
+		if current_time < 0.32:
+			current_time += delta
+			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
+			z_travel = z_position_prerecoil - position.z
+			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
+			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
+			#also made this one be head rotation specifically so you get camera kick
+			head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
+			
+			
+			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
+			target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
+			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
+		elif z_position_prerecoil:
+			if abs(z_position_prerecoil - position.z) < 0.01:
+				z_position_prerecoil = null
+			else:
+				position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
+
+
+
 	var sway_final : Vector3 = sway_default
 	if mouse_mov_x != null:
 		if mouse_mov_x > sway_threshold:
@@ -106,6 +144,7 @@ func shoot():
 			Current_Weapon.Current_Ammo -= 1
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 			var Camera_Collision = Get_Camera_Collision()
+			apply_recoil(Current_Weapon.Screen_Shake_Intensity)
 			match Current_Weapon.Type:
 				NULL:
 					print("Weapon Type Not Chosen")
@@ -193,3 +232,16 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == Current_Weapon.Shoot_Anim && Current_Weapon.Auto_Fire == true:
 		if Input.is_action_pressed("shoot"):
 			shoot()
+
+func apply_recoil(screen_shake_intensity: float):
+	camera_shaker.add_trauma(screen_shake_intensity)
+	if !z_position_prerecoil:
+		z_position_prerecoil = position.z
+	z_travel = z_position_prerecoil - position.z
+	#print(z_travel)    Obsolete debug code
+	#If our gun should recoil
+	if max_z_travel > 0:
+		target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
+		target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
+		target_pos.z = Current_Weapon.recoil_position_z.sample(0) if abs(z_travel) < max_z_travel else z_position_prerecoil - max_z_travel
+		current_time = 0
