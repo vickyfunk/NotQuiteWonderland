@@ -238,15 +238,10 @@ func apply_recoil(screen_shake_intensity: float):
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	z_travel = z_position_prerecoil - position.z
-	print(z_travel)
+	#print(z_travel)    Obsolete debug code
+	#If our gun should recoil
 	if max_z_travel > 0:
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
 		target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
-		target_pos.z = Current_Weapon.recoil_position_z.sample(0)
-		if abs(z_travel) < max_z_travel:
-			target_pos.z = Current_Weapon.recoil_position_z.sample(0)   
-			print("within bounds, target value %s" % target_pos.z)
-		else: 
-			target_pos.z = z_position_prerecoil - max_z_travel
-			print("out of bounds, capping target value to %s" % target_pos.z)
+		target_pos.z = Current_Weapon.recoil_position_z.sample(0) if abs(z_travel) < max_z_travel else z_position_prerecoil - max_z_travel
 		current_time = 0
