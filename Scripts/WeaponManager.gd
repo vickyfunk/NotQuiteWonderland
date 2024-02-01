@@ -13,6 +13,8 @@ signal Update_Weapon_Stack
 
 var target_rot: Vector3
 var target_pos: Vector3
+var z_travel: float
+var max_z_travel: float
 var current_time: float
 var z_position_prerecoil
 
@@ -64,6 +66,7 @@ func enter():
 	Animation_Player.queue(Current_Weapon.Draw_Anim)
 	emit_signal("Weapon_Changed", Current_Weapon.Weapon_Name)
 	emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
+	max_z_travel = Current_Weapon.max_z_travel
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -97,23 +100,27 @@ func exit(_next_weapon: String):
 			Next_Weapon = _next_weapon
 
 func _process(delta):
-	#I.e. if it's been less than .32 seconds since we fired the gun
-	if current_time < 0.32:
-		current_time += delta
-		rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
-		#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
-		#also made this one be head rotation specifically so you get camera kick
-		head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
-		position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta)
-		
-		target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-		target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
-		target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z
-	elif z_position_prerecoil:
-		if abs(z_position_prerecoil - position.z) < 0.01:
-			z_position_prerecoil = null
-		else:
-			position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
+	#I.e. if our gun is not "recoilless"
+	if max_z_travel > 0:
+		#I.e. if it's been less than .32 seconds since we fired the gun
+		if current_time < 0.32:
+			current_time += delta
+			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
+			z_travel = z_position_prerecoil - position.z
+			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
+			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
+			#also made this one be head rotation specifically so you get camera kick
+			head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
+			
+			
+			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
+			target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
+			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
+		elif z_position_prerecoil:
+			if abs(z_position_prerecoil - position.z) < 0.01:
+				z_position_prerecoil = null
+			else:
+				position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
 
 
 
@@ -230,7 +237,16 @@ func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
-	target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
-	target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
-	target_pos.z = Current_Weapon.recoil_position_z.sample(0)
-	current_time = 0
+	z_travel = z_position_prerecoil - position.z
+	print(z_travel)
+	if max_z_travel > 0:
+		target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
+		target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
+		target_pos.z = Current_Weapon.recoil_position_z.sample(0)
+		if abs(z_travel) < max_z_travel:
+			target_pos.z = Current_Weapon.recoil_position_z.sample(0)   
+			print("within bounds, target value %s" % target_pos.z)
+		else: 
+			target_pos.z = z_position_prerecoil - max_z_travel
+			print("out of bounds, capping target value to %s" % target_pos.z)
+		current_time = 0
