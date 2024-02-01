@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_7swsh"]
 [ext_resource type="PackedScene" uid="uid://cqq7bfit4ltoo" path="res://Scenes/9x19bullet.tscn" id="1_jyqad"]
-[ext_resource type="Curve" uid="uid://dq2jln7b8ivqi" path="res://weapon resources/glock_recoil_z_curve.tres" id="2_kjtcw"]
-[ext_resource type="Curve" uid="uid://cmu4ea35khke5" path="res://weapon resources/glock_recoil_x_rotation.tres" id="3_ndeb4"]
-[ext_resource type="Curve" uid="uid://cnxv8uas3btyg" path="res://weapon resources/glock_recoil_z_rotation.tres" id="4_qqm4d"]
+[ext_resource type="Curve" path="res://weapon resources/glock_recoil_z_curve.tres" id="2_kjtcw"]
+[ext_resource type="Curve" path="res://weapon resources/glock_recoil_x_rotation.tres" id="3_ndeb4"]
+[ext_resource type="Curve" path="res://weapon resources/glock_recoil_z_rotation.tres" id="4_qqm4d"]
 
 [resource]
 script = ExtResource("1_7swsh")

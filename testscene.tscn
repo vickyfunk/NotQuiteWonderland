@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://coklbcv2m6ky6" path="res://player.tscn" id="1_6medv"]
 [ext_resource type="PackedScene" uid="uid://cns2etdmr0d4t" path="res://Assets/World Objects/box.tscn" id="2_ctst0"]
 [ext_resource type="Texture2D" uid="uid://7vtk3ilx03sr" path="res://Assets/textures/Placeholder Grid Texture.png" id="2_kato5"]
-[ext_resource type="PackedScene" uid="uid://drxh6j2kbuhkj" path="res://Scenes/capsule_target.tscn" id="4_jc11w"]
+[ext_resource type="PackedScene" uid="uid://bkvgwud5323dn" path="res://Scenes/capsule_target.tscn" id="4_jc11w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpbjj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
