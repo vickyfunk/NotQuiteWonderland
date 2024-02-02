@@ -111,11 +111,12 @@ func _process(delta):
 			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
 			#also made this one be head rotation specifically so you get camera kick
 			head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
-			
+			print("head rotation now %s" % head.rotation.x)
 			
 			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-			target_rot.x = Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
+			target_rot.x = head.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
+			print("target z rotation: %s, target x rotation: %s, target z position: %s" % [target_rot.z, target_rot.x, target_pos.z])
 		elif z_position_prerecoil:
 			if abs(z_position_prerecoil - position.z) < 0.01:
 				z_position_prerecoil = null
@@ -207,6 +208,7 @@ func Hitscan_Damage(Collider):
 func Launch_Projectile(Point: Vector3):
 	var Direction = (Point - Bullet_Point.get_global_transform().origin).normalized()
 	var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
+	Projectile.is_player_bullet = true
 	var Projectile_RID = Projectile.get_rid()
 	Collision_Exclusion.push_front(Projectile_RID)
 	Projectile.tree_exited.connect(Remove_Exclusion.bind(Projectile.get_rid()))
@@ -243,5 +245,15 @@ func apply_recoil(screen_shake_intensity: float):
 	if max_z_travel > 0:
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
 		target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
+<<<<<<< Updated upstream
 		target_pos.z = Current_Weapon.recoil_position_z.sample(0) if abs(z_travel) < max_z_travel else z_position_prerecoil - max_z_travel
+=======
+		target_pos.z = Current_Weapon.recoil_position_z.sample(0)
+		if abs(z_travel) < max_z_travel:
+			target_pos.z = Current_Weapon.recoil_position_z.sample(0)   
+			print("within bounds, target z position %s" % target_pos.z)
+		else: 
+			target_pos.z = z_position_prerecoil - max_z_travel
+			print("out of bounds, capping target z position value to %s" % target_pos.z)
+>>>>>>> Stashed changes
 		current_time = 0

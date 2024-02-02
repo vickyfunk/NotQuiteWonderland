@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
+radius = 0.35
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7eeua"]
-points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jkvit"]
+points = PackedVector3Array(0.223309, 0.896623, 0.103721, -0.337198, -0.702061, -0.0738964, -0.337534, -0.702762, 0.0723161, 0.310749, -0.801262, 0.0436457, -0.0738964, 0.702061, -0.337198, -0.16127, 0.700536, 0.305571, 0.0725934, -0.705427, 0.337223, 0.159308, -0.699184, -0.306633, -0.312854, 0.802421, -0.0156505, 0.305573, 0.700541, -0.161271, 0.271925, 0.68908, 0.21446, -0.163457, -0.828337, -0.252249, -0.163719, -0.829673, 0.251001, -0.273692, 0.660736, -0.216253, -0.076791, 0.973148, -0.10719, 0.105646, -0.974166, 0.0752147, 0.0725934, 0.705427, 0.337223, 0.159305, 0.699172, -0.306627, -0.16068, -0.697961, -0.306097, 0.333009, -0.667538, -0.102346, 0.21446, -0.68908, 0.271925, 0.333438, 0.668396, 0.100824, -0.297834, 0.594163, 0.183049, -0.216924, -0.662794, 0.272955, -0.106631, 0.937716, 0.165455, -0.10719, -0.973148, -0.076791, 0.104936, -0.937366, -0.167048, 0.333438, -0.668396, 0.100824, 0.0723161, -0.702761, -0.337534, 0.104937, 0.937368, -0.167048, -0.102345, -0.667533, 0.333007, -0.337198, 0.702061, -0.0738964)
 
 [sub_resource type="Animation" id="Animation_gjhl0"]
 resource_name = "GlockDraw"
@@ -56,7 +57,7 @@ tracks/3/enabled = true
 tracks/3/path = NodePath("Bullet_Point")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0705564, -0.0611819, -0.542182)
+tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0705564, -0.0611819, -0.521306)
 
 [sub_resource type="Animation" id="Animation_1flt6"]
 resource_name = "GlockEmpty"
@@ -628,7 +629,7 @@ mesh = SubResource("CapsuleMesh_a53bf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
-shape = SubResource("ConvexPolygonShape3D_7eeua")
+shape = SubResource("ConvexPolygonShape3D_jkvit")
 
 [node name="Head" type="Node3D" parent="."]
 
@@ -643,17 +644,20 @@ sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-<<<<<<< Updated upstream
-[node name="Glock" parent="Head/Camera3D/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587344, 0.448824, 0.07, -0.1, -0.3)
-=======
+
 [node name="Glock" parent="Head/WeaponManager" instance=ExtResource("4_lmw1r")]
 transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587343, 0.448824, 0.07, -0.1, -0.3)
->>>>>>> Stashed changes
+
 rotation_edit_mode = 1
 
-[node name="Tantal" parent="Head/Camera3D/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0, 0, 0.6, 0, 0.600001, 0, -0.6, 0, 0, 0.2, -0.6, -0.2)
+
+[node name="Tantal" parent="Head/WeaponManager" instance=ExtResource("5_b88fu")]
+<<<<<<< Updated upstream
+transform = Transform3D(0.45314, -0.0465874, 0.390505, 0.33501, 0.357786, -0.346061, -0.205991, 0.479396, 0.296223, 0.755, 0.425, 1.57)
+
+=======
+transform = Transform3D(0.45314, -0.0465874, 0.390505, 0.33501, 0.357786, -0.346061, -0.205991, 0.479396, 0.296224, 0.755, 0.425, 1.57)
+>>>>>>> Stashed changes
 rotation_edit_mode = 1
 visible = false
 
@@ -669,7 +673,7 @@ libraries = {
 
 [node name="Bullet_Point" type="Marker3D" parent="Head/Camera3D/WeaponManager"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.542182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
 
 [connection signal="Update_Ammo" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Head/Camera3D/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
