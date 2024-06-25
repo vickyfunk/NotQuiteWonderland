@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://cdhiggdsjo6ly"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_csl3r"]
+[ext_resource type="Curve" uid="uid://w6ugdjobck4j" path="res://weapon resources/laser_recoil_curve.tres" id="1_gajx5"]
+
+[resource]
+script = ExtResource("1_csl3r")
+Weapon_Name = "Laser Rifle"
+Idle_Anim = "LaserIdle"
+Shoot_Anim = "LaserShoot"
+Reload_Anim = "LaserReload"
+Tacload_Anim = "LaserTacload"
+Draw_Anim = "LaserDraw"
+Holster_Anim = "LaserHolster"
+Empty_Anim = "LaserEmpty"
+Current_Ammo = 2000
+Reserve_Ammo = 0
+Magazine = 2000
+Max_Ammo = 0
+Damage = 1
+Auto_Fire = true
+Weapon_Range = 1000
+Type = 1
+Projectile_Velocity = 0
+Casing_Velocity = 0
+Screen_Shake_Intensity = 0.0
+recoil_rotation_x = ExtResource("1_gajx5")
+recoil_rotation_z = ExtResource("1_gajx5")
+recoil_position_z = ExtResource("1_gajx5")
+recoil_amplitude = Vector3(0, 0, 0)
+max_z_travel = 0.0

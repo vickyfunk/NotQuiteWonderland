@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=6 format=3 uid="uid://cx2nt7k8xpo6w"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_7swsh"]
+[ext_resource type="PackedScene" uid="uid://cqq7bfit4ltoo" path="res://Scenes/9x19bullet.tscn" id="1_jyqad"]
+[ext_resource type="Curve" uid="uid://dq2jln7b8ivqi" path="res://weapon resources/glock_recoil_z_curve.tres" id="2_kjtcw"]
+[ext_resource type="Curve" uid="uid://cmu4ea35khke5" path="res://weapon resources/glock_recoil_x_rotation.tres" id="3_ndeb4"]
+[ext_resource type="Curve" uid="uid://cnxv8uas3btyg" path="res://weapon resources/glock_recoil_z_rotation.tres" id="4_qqm4d"]
+
+[resource]
+script = ExtResource("1_7swsh")
+Weapon_Name = "Glock"
+Idle_Anim = "GlockIdle"
+Shoot_Anim = "GlockShoot"
+Reload_Anim = "GlockReload"
+Tacload_Anim = ""
+Draw_Anim = "GlockDraw"
+Holster_Anim = "GlockHolster"
+Empty_Anim = "GlockEmpty"
+Current_Ammo = 17
+Reserve_Ammo = 68
+Magazine = 17
+Max_Ammo = 170
+Damage = 5
+Auto_Fire = true
+Weapon_Range = 1000
+Type = 2
+Projectile_to_Load = ExtResource("1_jyqad")
+Projectile_Velocity = 375
+Casing_Velocity = 0
+Screen_Shake_Intensity = 0.5
+recoil_rotation_x = ExtResource("3_ndeb4")
+recoil_rotation_z = ExtResource("4_qqm4d")
+recoil_position_z = ExtResource("2_kjtcw")
+recoil_amplitude = Vector3(0.2, 1, 0.5)
+max_z_travel = 0.05

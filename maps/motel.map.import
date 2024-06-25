@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://s36uor837v68"
+path="res://.godot/imported/motel.map-caab6acebd696ea0c01be3d2dffcc7d2.tres"
+
+[deps]
+
+source_file="res://maps/motel.map"
+dest_files=["res://.godot/imported/motel.map-caab6acebd696ea0c01be3d2dffcc7d2.tres"]
+
+[params]
+

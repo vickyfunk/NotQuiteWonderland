@@ -1,0 +1,698 @@
+[gd_scene load_steps=36 format=3 uid="uid://coklbcv2m6ky6"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
+[ext_resource type="Texture2D" uid="uid://cr4hyitgtq415" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair038.png" id="3_q3k23"]
+[ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
+[ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://weapon resources/Glock.tres" id="4_ctbai"]
+[ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
+[ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
+[ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://weapon resources/LaserRifle.tres" id="7_50dux"]
+[ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
+[ext_resource type="Script" path="res://Scripts/Tracers.gd" id="11_aj1wi"]
+[ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
+radius = 0.35
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jkvit"]
+points = PackedVector3Array(0.223309, 0.896623, 0.103721, -0.337198, -0.702061, -0.0738964, -0.337534, -0.702762, 0.0723161, 0.310749, -0.801262, 0.0436457, -0.0738964, 0.702061, -0.337198, -0.16127, 0.700536, 0.305571, 0.0725934, -0.705427, 0.337223, 0.159308, -0.699184, -0.306633, -0.312854, 0.802421, -0.0156505, 0.305573, 0.700541, -0.161271, 0.271925, 0.68908, 0.21446, -0.163457, -0.828337, -0.252249, -0.163719, -0.829673, 0.251001, -0.273692, 0.660736, -0.216253, -0.076791, 0.973148, -0.10719, 0.105646, -0.974166, 0.0752147, 0.0725934, 0.705427, 0.337223, 0.159305, 0.699172, -0.306627, -0.16068, -0.697961, -0.306097, 0.333009, -0.667538, -0.102346, 0.21446, -0.68908, 0.271925, 0.333438, 0.668396, 0.100824, -0.297834, 0.594163, 0.183049, -0.216924, -0.662794, 0.272955, -0.106631, 0.937716, 0.165455, -0.10719, -0.973148, -0.076791, 0.104936, -0.937366, -0.167048, 0.333438, -0.668396, 0.100824, 0.0723161, -0.702761, -0.337534, 0.104937, 0.937368, -0.167048, -0.102345, -0.667533, 0.333007, -0.337198, 0.702061, -0.0738964)
+
+[sub_resource type="Animation" id="Animation_gjhl0"]
+resource_name = "GlockDraw"
+length = 0.4
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.45, -0.3, 0.2, 1, 0.07, -0.195, -0.3, 0.4, 1, 0.07, -0.1, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.183, -0.183, -0.683, 0.683), Quaternion(-0.183, -0.183, -0.683, 0.683), Quaternion(0, 0, -0.707, 0.707)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.4, 1, 0.0705564, -0.0611819, -0.521306)
+
+[sub_resource type="Animation" id="Animation_1flt6"]
+resource_name = "GlockEmpty"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.19, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.373111, -0.283325, -0.653442, 0.594583)]
+}
+
+[sub_resource type="Animation" id="Animation_iog7m"]
+resource_name = "GlockHolster"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, 0.07, -0.1, -0.35, 0.5, 1, 0.2, -0.45, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, -0.707, 0.707), Quaternion(-0.183, -0.183, -0.683, 0.683), Quaternion(-0.183, -0.183, -0.683, 0.683)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mf1yt"]
+resource_name = "GlockIdle"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, -0.707, 0.707)]
+}
+
+[sub_resource type="Animation" id="Animation_f50ep"]
+resource_name = "GlockReload"
+length = 1.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3, 0.3, 1, 0.18, -0.075, -0.3, 0.6, 1, 0.18, -0.525, -0.3, 0.9, 1, 0.07, -0.23, -0.3, 1.2, 1, 0.07, -0.28, -0.3, 1.5, 1, 0.07, -0.1, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, -0.707, 0.707), Quaternion(0, 0, -0.707, 0.707)]
+}
+
+[sub_resource type="Animation" id="Animation_kfa5f"]
+resource_name = "GlockShoot"
+length = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.32, 0.05, 1, 0.07, -0.1, -0.35)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0.012, 0.012, -0.707, 0.707), Quaternion(0, 0, -0.707, 0.707)]
+}
+
+[sub_resource type="Animation" id="Animation_hie2r"]
+resource_name = "LaserDraw"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.515, 0.315, 1, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LaserRifle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.7, 1, 0.201795, -0.0821831, -0.858493)
+
+[sub_resource type="Animation" id="Animation_nu34i"]
+resource_name = "LaserEmpty"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.26, -0.325, -0.395)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.0305295, 0.973893, 0.0305295, 0.222866)]
+}
+
+[sub_resource type="Animation" id="Animation_cje4p"]
+resource_name = "LaserHolster"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4, 0.4, 1, 0.13, -0.235, -0.275, 0.7, 1, 1.005, 0.315, -0.275)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0.389051, 0.645744, 0.436178, 0.491327), Quaternion(0.389051, 0.645744, 0.436178, 0.491327)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LaserRifle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bfa6g"]
+resource_name = "LaserIdle"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
+[sub_resource type="Animation" id="Animation_o73uh"]
+resource_name = "LaserReload"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.025, -1.01, -0.4, 0.7, 1, -0.025, -0.485, -0.4, 1, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(-0.223815, 0.840306, -0.16986, 0.463617), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
+[sub_resource type="Animation" id="Animation_u7mim"]
+resource_name = "LaserShoot"
+length = 0.01
+step = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LaserRifle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.25, -0.4, 0.01, 1, 0.2, -0.25, -0.4)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LaserRifle:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+
+[sub_resource type="Animation" id="Animation_r7elo"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07, -0.1, -0.3)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Glock")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.707, 0.707)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Glock:quaternion")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.373111, -0.283325, -0.653442, 0.594583)]
+}
+
+[sub_resource type="Animation" id="Animation_pujt7"]
+resource_name = "TantalDraw"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -1.69, -0.3, 0.4, 1, 0.2, -0.6, -1, 0.7, 1, 0.2, -0.6, -0.2)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(-0.331, 0.625, -0.341, 0.619), Quaternion(0.314171, 0.66136, 0.150082, 0.664361), Quaternion(0, 0.707, 0, 0.707)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tantal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Bullet_Point")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0.7, 1, 0.201795, -0.25162, -2.49861)
+
+[sub_resource type="Animation" id="Animation_0qkl8"]
+resource_name = "TantalEmpty"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.4, -0.625, -0.545)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(-0.163939, 0.963643, 0.117956, 0.174935)]
+}
+
+[sub_resource type="Animation" id="Animation_yg2vd"]
+resource_name = "TantalHolster"
+length = 0.8
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.3, 0.5, 1, 0.555, -0.165, -0.195, 0.8, 1, 0.755, 0.425, 1.57)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707, 0, 0.707), Quaternion(0.314171, 0.66136, 0.150082, 0.664361), Quaternion(0.651232, 0.257326, 0.670036, 0.246439), Quaternion(0.407805, 0.294691, 0.188523, 0.843393)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tantal:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_6fa4e"]
+resource_name = "TantalIdle"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.3)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0.707, 0, 0.707)]
+}
+
+[sub_resource type="Animation" id="Animation_pkjlq"]
+resource_name = "TantalReload"
+length = 2.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.3, 0.4, 1, 0.68, -0.6, -0.6, 0.9, 1, 0.53, -1.15, -0.6, 1.3, 1, 0.53, -1.315, -0.785, 1.4, 1, 0.595, -1.11, -0.723, 1.6, 1, 0.53, -1.15, -0.6, 2, 1, 0.2, -0.6, -0.3)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707, 0, 0.707), Quaternion(0.384298, 0.652807, 0, 0.652807), Quaternion(0.131575, 0.968614, 0, 0.210893), Quaternion(0.131575, 0.968614, 0, 0.210893), Quaternion(0, 0.707, 0, 0.707)]
+}
+
+[sub_resource type="Animation" id="Animation_gj0oj"]
+resource_name = "TantalShoot"
+length = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tantal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.2, -0.6, -0.24, 0.1, 1, 0.2, -0.6, -0.3)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tantal:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1.8025),
+"update": 0,
+"values": [Quaternion(0.005, 0.707, 0.012, 0.707), Quaternion(0, 0.707, 0, 0.707)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8njrv"]
+_data = {
+"GlockDraw": SubResource("Animation_gjhl0"),
+"GlockEmpty": SubResource("Animation_1flt6"),
+"GlockHolster": SubResource("Animation_iog7m"),
+"GlockIdle": SubResource("Animation_mf1yt"),
+"GlockReload": SubResource("Animation_f50ep"),
+"GlockShoot": SubResource("Animation_kfa5f"),
+"LaserDraw": SubResource("Animation_hie2r"),
+"LaserEmpty": SubResource("Animation_nu34i"),
+"LaserHolster": SubResource("Animation_cje4p"),
+"LaserIdle": SubResource("Animation_bfa6g"),
+"LaserReload": SubResource("Animation_o73uh"),
+"LaserShoot": SubResource("Animation_u7mim"),
+"RESET": SubResource("Animation_r7elo"),
+"TantalDraw": SubResource("Animation_pujt7"),
+"TantalEmpty": SubResource("Animation_0qkl8"),
+"TantalHolster": SubResource("Animation_yg2vd"),
+"TantalIdle": SubResource("Animation_6fa4e"),
+"TantalReload": SubResource("Animation_pkjlq"),
+"TantalShoot": SubResource("Animation_gj0oj")
+}
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_3gv6o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "weapon_holder")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
+script = ExtResource("1_ptgww")
+head = NodePath("Head")
+camera = NodePath("Head/Camera3D")
+weapon_holder = NodePath("Head/WeaponManager")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_6d6d2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentWeapon" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="CurrentAmmo" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="WeaponStack" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_q3k23")
+stretch_mode = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CapsuleMesh_a53bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+shape = SubResource("ConvexPolygonShape3D_jkvit")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="WeaponManager" type="Node3D" parent="Head" node_paths=PackedStringArray("Tracer", "head", "camera_shaker")]
+script = ExtResource("3_vb8qq")
+Tracer = NodePath("Tracer")
+head = NodePath("..")
+camera_shaker = NodePath("../CameraShaker")
+_weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("7_50dux")])
+Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
+sway_up = Vector3(-0.1, 0, 0)
+sway_down = Vector3(0.1, 0, 0)
+sway_left = Vector3(0, -0.1, 0)
+sway_right = Vector3(0, 0.1, 0)
+
+[node name="Glock" parent="Head/WeaponManager" instance=ExtResource("4_lmw1r")]
+transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587343, 0.448824, 0.07, -0.1, -0.3)
+rotation_edit_mode = 1
+
+[node name="Tantal" parent="Head/WeaponManager" instance=ExtResource("5_b88fu")]
+transform = Transform3D(0.45314, -0.0465875, 0.390505, 0.33501, 0.357786, -0.346061, -0.205991, 0.479396, 0.296224, 0.755, 0.425, 1.57)
+rotation_edit_mode = 1
+visible = false
+
+[node name="LaserRifle" parent="Head/WeaponManager" instance=ExtResource("10_e71et")]
+transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
+rotation_edit_mode = 1
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/WeaponManager"]
+libraries = {
+"": SubResource("AnimationLibrary_8njrv")
+}
+
+[node name="Bullet_Point" type="Marker3D" parent="Head/WeaponManager"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
+
+[node name="Tracer" type="MeshInstance3D" parent="Head/WeaponManager"]
+transform = Transform3D(0.345, 0, 0, 0, -1.50804e-08, 0.345, 0, -0.345, -1.50804e-08, 0.0644175, -0.0591148, -1.44978)
+visibility_range_end = 11.8
+mesh = SubResource("ImmediateMesh_3gv6o")
+script = ExtResource("11_aj1wi")
+
+[node name="CameraShaker" type="Node3D" parent="Head" node_paths=PackedStringArray("camera")]
+script = ExtResource("11_w3kwb")
+noise = SubResource("FastNoiseLite_gmyi8")
+max_x = 5.0
+max_y = 2.5
+max_z = 2.5
+camera = NodePath("../Camera3D")
+
+[connection signal="Update_Ammo" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Weapon_Stack" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
+[connection signal="Weapon_Changed" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
+[connection signal="animation_finished" from="Head/WeaponManager/AnimationPlayer" to="Head/WeaponManager" method="_on_animation_player_animation_finished"]

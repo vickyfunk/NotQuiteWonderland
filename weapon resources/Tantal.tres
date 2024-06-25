@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=5 format=3 uid="uid://5euoebwedfh4"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_6dtwn"]
+[ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
+[ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://weapon resources/tantal_recoil_curve.tres" id="2_4tk30"]
+[ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://weapon resources/tantal_recoil_x_rotation.tres" id="3_kcijo"]
+
+[resource]
+script = ExtResource("1_6dtwn")
+Weapon_Name = "Tantal"
+Idle_Anim = "TantalIdle"
+Shoot_Anim = "TantalShoot"
+Reload_Anim = "TantalReload"
+Tacload_Anim = ""
+Draw_Anim = "TantalDraw"
+Holster_Anim = "TantalHolster"
+Empty_Anim = "TantalEmpty"
+Current_Ammo = 30
+Reserve_Ammo = 150
+Magazine = 30
+Max_Ammo = 300
+Damage = 10
+Auto_Fire = true
+Weapon_Range = 1000
+Type = 2
+Projectile_to_Load = ExtResource("1_rtly8")
+Projectile_Velocity = 5
+Casing_Velocity = 0
+Screen_Shake_Intensity = 0.33
+recoil_rotation_x = ExtResource("3_kcijo")
+recoil_rotation_z = ExtResource("2_4tk30")
+recoil_position_z = ExtResource("2_4tk30")
+recoil_amplitude = Vector3(0.1, 1, 1)
+max_z_travel = 0.1

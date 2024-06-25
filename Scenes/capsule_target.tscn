@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxh6j2kbuhkj"]
+
+[ext_resource type="Script" path="res://Scripts/physics_target.gd" id="1_3kc2o"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3w65j"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_huwpc"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_3kc2o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3w65j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_huwpc")
