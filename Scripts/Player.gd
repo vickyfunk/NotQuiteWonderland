@@ -74,7 +74,8 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	# Initiate dash if just pressed
+	# Initiate dash if just pressedg
+	# Todo: add check for is_on_floor() if player doesn't have air dash upgrade
 	if Input.is_action_just_pressed("dash"):
 		if direction:
 			dash_dir = direction
@@ -98,8 +99,6 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
-	
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())

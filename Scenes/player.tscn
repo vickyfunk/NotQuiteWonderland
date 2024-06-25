@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=37 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://weapon resources/Glock.tres" id="4_ctbai"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
+[ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://weapon resources/Tantal.tres" id="6_km2s1"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://weapon resources/LaserRifle.tres" id="7_50dux"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="11_aj1wi"]
@@ -648,7 +649,7 @@ script = ExtResource("3_vb8qq")
 Tracer = NodePath("Tracer")
 head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
-_weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("7_50dux")])
+_weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("6_km2s1"), ExtResource("7_50dux")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
 sway_up = Vector3(-0.1, 0, 0)
 sway_down = Vector3(0.1, 0, 0)
