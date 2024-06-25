@@ -75,15 +75,21 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	# Initiate dash if just pressedg
-	# Todo: add check for is_on_floor() if player doesn't have air dash upgrade
+	# Todo: 
+	# -add check for is_on_floor() if player doesn't have air dash upgrade
+	# -account for the possibility of player looking straight vertically
 	if Input.is_action_just_pressed("dash"):
-		if direction:
+		if direction:   
+			# i.e. if a direction is inputted
 			dash_dir = direction
-		else:
+		else:   
+			# default to the (flat) direction the camera is aiming
 			dash_dir = (head.transform.basis * Vector3(0,0,-1)).normalized()
 		remaining_dash_duration = 0.1
 	
 	# Handle the movement/deceleration, and dashing, if relevant.
+	# Todo:
+	# -fix the "aiming more vertically makes you move slower" issue
 	if remaining_dash_duration > 0.0:
 		velocity.x = dash_dir.x * DASH_SPEED
 		velocity.z = dash_dir.z * DASH_SPEED
