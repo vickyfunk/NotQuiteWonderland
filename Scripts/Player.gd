@@ -5,6 +5,7 @@ signal Update_Velocity
 var speed: float
 var sprinting = false
 var remaining_dash_duration: float = 0.0
+var jumps_since_grounded: int = 0
 @export var AIR_SPEED = 2.5
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 10.0
@@ -64,10 +65,14 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	else:
+		jumps_since_grounded = 0
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	# Handle Jump, including allowing for double jump if player has upgrade
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor() or (character_data.upgrades.double_jump and jumps_since_grounded < 2):
+			velocity.y = JUMP_VELOCITY
+			jumps_since_grounded += 1
 	
 	# Handle Sprint.
 	if Input.is_action_just_pressed("sprint"):
@@ -86,6 +91,8 @@ func _physics_process(delta):
 	# Todo: 
 	# [x] done! add check for is_on_floor() if player doesn't have air dash upgrade
 	# [x] done! account for the possibility of player looking straight vertically
+	# [ ] figure out some way to limit the amount dash can be spammed serially, for obvious reasons 
+	#     (infinite velocity machine)
 	if Input.is_action_just_pressed("dash"):
 		if character_data.upgrades.air_dash or is_on_floor():
 			if direction:   
