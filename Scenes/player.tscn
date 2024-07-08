@@ -628,6 +628,15 @@ layout_mode = 2
 [node name="WeaponStack" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="CurrentVelocity" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -711,6 +720,7 @@ script = ExtResource("14_t60fn")
 [node name="EquipmentLoadInstance" type="Node" parent="CharacterDataInstance"]
 script = ExtResource("15_qt13j")
 
+[connection signal="Update_Velocity" from="." to="CanvasLayer" method="_on_player_update_velocity"]
 [connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
 [connection signal="Weapon_Changed" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]

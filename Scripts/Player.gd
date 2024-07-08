@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal Update_Velocity
+
 var speed: float
 var sprinting = false
 var remaining_dash_duration: float = 0.0
@@ -43,6 +45,7 @@ var dash_dir : Vector3
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	default_weapon_holder_pos = weapon_holder.position
+
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -81,16 +84,17 @@ func _physics_process(delta):
 	
 	# Initiate dash if just pressedg
 	# Todo: 
-	# -add check for is_on_floor() if player doesn't have air dash upgrade
-	# -account for the possibility of player looking straight vertically
+	# [x] done! add check for is_on_floor() if player doesn't have air dash upgrade
+	# [x] done! account for the possibility of player looking straight vertically
 	if Input.is_action_just_pressed("dash"):
-		if direction:   
-			# i.e. if a direction is inputted
-			dash_dir = direction
-		else:   
-			# default to the (flat) direction the camera is aiming
-			dash_dir = (horiz_head.transform.basis * Vector3(0,0,-1)).normalized()
-		remaining_dash_duration = 0.1
+		if character_data.upgrades.air_dash or is_on_floor():
+			if direction:   
+				# i.e. if a direction is inputted
+				dash_dir = direction
+			else:   
+				# default to the (flat) direction the camera is aiming
+				dash_dir = (horiz_head.transform.basis * Vector3(0,0,-1)).normalized()
+			remaining_dash_duration = 0.1
 	
 	# Handle the movement/deceleration, and dashing, if relevant.
 	# Todo:
@@ -132,6 +136,9 @@ func _physics_process(delta):
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
+	# Update velocity HUD element (debug tool)
+	emit_signal("Update_Velocity", velocity.length())
 	
 	move_and_slide()
 	cam_tilt(input_dir.x, delta)
