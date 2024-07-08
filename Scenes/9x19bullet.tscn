@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqq7bfit4ltoo"]
+[gd_scene load_steps=8 format=3 uid="uid://cqq7bfit4ltoo"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_rbkh5"]
+[ext_resource type="Script" path="res://Scripts/Tracers.gd" id="2_yk5sq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f31ub"]
 resource_name = "BulletTip.001"
@@ -44,6 +45,8 @@ shadow_mesh = SubResource("ArrayMesh_uixw0")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrxaq"]
 
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2vjlg"]
+
 [node name="9x19bullet" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00931437)
 top_level = true
@@ -68,6 +71,10 @@ shape = SubResource("CapsuleShape3D_yrxaq")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="TracerTrail" type="MeshInstance3D" parent="."]
+mesh = SubResource("ImmediateMesh_2vjlg")
+script = ExtResource("2_yk5sq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

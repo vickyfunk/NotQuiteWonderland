@@ -21,6 +21,7 @@ var _oldPos : Vector3 #last position of node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("Tracer Trail ready called")
 	_oldPos = get_global_transform().origin
 	mesh = ImmediateMesh.new()
 
@@ -38,7 +39,6 @@ func RemovePoint(i):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("Tracer Trail process called")
 	if (_oldPos - get_global_transform().origin).length() > _motionDelta and _trailEnabled:
 		AppendPoint()
 		_oldPos = get_global_transform().origin

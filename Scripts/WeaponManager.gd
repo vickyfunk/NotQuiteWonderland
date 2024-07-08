@@ -171,6 +171,10 @@ func reload():
 			
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 
+#todo: make this do something
+func tacload():
+	pass
+
 func Get_Camera_Collision()->Vector3:
 	var camera = get_viewport().get_camera_3d()
 	var viewport = get_viewport().get_size()
