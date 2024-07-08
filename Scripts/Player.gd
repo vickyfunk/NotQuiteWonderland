@@ -21,7 +21,11 @@ const FOV_CHANGE = 1.1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
-@export var head: Node3D
+
+# The part of the head that rotates horizontally, i.e. around the y axis
+@export var horiz_head: Node3D
+# The part of the head that rotates vertically, i.e. around the x axis (and tilts)
+@export var vert_head: Node3D
 @export var camera: Camera3D
 @export var camera_rotation_amount : float = .085
 @export var weapon_holder: Node3D
@@ -46,10 +50,10 @@ func _process(_delta):
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		var head_x_rotation = head.rotation.x - event.relative.y * SENSITIVITY
+		horiz_head.rotate_y(-event.relative.x * SENSITIVITY)
+		var head_x_rotation = vert_head.rotation.x - event.relative.y * SENSITIVITY
 		head_x_rotation = clamp(head_x_rotation, deg_to_rad(-90), deg_to_rad(90))
-		head.rotation.x = head_x_rotation
+		vert_head.rotation.x = head_x_rotation
 		mouse_input = event.relative
 
 func _physics_process(delta):
@@ -72,7 +76,7 @@ func _physics_process(delta):
 		
 	# Get the input direction 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (horiz_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	# Initiate dash if just pressedg
 	# Todo: 
@@ -84,7 +88,7 @@ func _physics_process(delta):
 			dash_dir = direction
 		else:   
 			# default to the (flat) direction the camera is aiming
-			dash_dir = (head.transform.basis * Vector3(0,0,-1)).normalized()
+			dash_dir = (horiz_head.transform.basis * Vector3(0,0,-1)).normalized()
 		remaining_dash_duration = 0.1
 	
 	# Handle the movement/deceleration, and dashing, if relevant.
@@ -108,7 +112,7 @@ func _physics_process(delta):
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	head.transform.origin = _headbob(t_bob)
+	horiz_head.transform.origin = _headbob(t_bob)
 	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
@@ -122,8 +126,8 @@ func _physics_process(delta):
 	weapon_bob(velocity.length(), delta)
 
 func cam_tilt(input_x, delta):
-	if head:
-		head.rotation.z = lerp(head.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
+	if vert_head:
+		vert_head.rotation.z = lerp(vert_head.rotation.z, -input_x * camera_rotation_amount, 10 * delta)
 
 func weapon_tilt(input_x, delta):
 	if weapon_holder:

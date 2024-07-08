@@ -582,12 +582,13 @@ _data = {
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "weapon_holder")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("horiz_head", "vert_head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
-head = NodePath("Head")
-camera = NodePath("Head/Camera3D")
-weapon_holder = NodePath("Head/WeaponManager")
+horiz_head = NodePath("Horizontal Head")
+vert_head = NodePath("Horizontal Head/Vertical Head")
+camera = NodePath("Horizontal Head/Vertical Head/Camera3D")
+weapon_holder = NodePath("Horizontal Head/Vertical Head/WeaponManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_6d6d2")
@@ -640,11 +641,13 @@ mesh = SubResource("CapsuleMesh_a53bf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("ConvexPolygonShape3D_jkvit")
 
-[node name="Head" type="Node3D" parent="."]
+[node name="Horizontal Head" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Vertical Head" type="Node3D" parent="Horizontal Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Head" node_paths=PackedStringArray("Tracer", "head", "camera_shaker")]
+[node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
+
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("Tracer", "head", "camera_shaker")]
 script = ExtResource("3_vb8qq")
 Tracer = NodePath("Tracer")
 head = NodePath("..")
@@ -656,36 +659,36 @@ sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-[node name="Glock" parent="Head/WeaponManager" instance=ExtResource("4_lmw1r")]
+[node name="Glock" parent="Horizontal Head/Vertical Head/WeaponManager" instance=ExtResource("4_lmw1r")]
 transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.651171, 0.659626, -0.0587343, 0.448824, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 
-[node name="Tantal" parent="Head/WeaponManager" instance=ExtResource("5_b88fu")]
+[node name="Tantal" parent="Horizontal Head/Vertical Head/WeaponManager" instance=ExtResource("5_b88fu")]
 transform = Transform3D(0.45314, -0.0465875, 0.390505, 0.33501, 0.357786, -0.346061, -0.205991, 0.479396, 0.296224, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 
-[node name="LaserRifle" parent="Head/WeaponManager" instance=ExtResource("10_e71et")]
+[node name="LaserRifle" parent="Horizontal Head/Vertical Head/WeaponManager" instance=ExtResource("10_e71et")]
 transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
 rotation_edit_mode = 1
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Head/WeaponManager"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Horizontal Head/Vertical Head/WeaponManager"]
 libraries = {
 "": SubResource("AnimationLibrary_8njrv")
 }
 
-[node name="Bullet_Point" type="Marker3D" parent="Head/WeaponManager"]
+[node name="Bullet_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/WeaponManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
 
-[node name="Tracer" type="MeshInstance3D" parent="Head/WeaponManager"]
+[node name="Tracer" type="MeshInstance3D" parent="Horizontal Head/Vertical Head/WeaponManager"]
 transform = Transform3D(0.345, 0, 0, 0, -1.50804e-08, 0.345, 0, -0.345, -1.50804e-08, 0.0644175, -0.0591148, -1.44978)
 visibility_range_end = 11.8
 mesh = SubResource("ImmediateMesh_3gv6o")
 script = ExtResource("11_aj1wi")
 
-[node name="CameraShaker" type="Node3D" parent="Head" node_paths=PackedStringArray("camera")]
+[node name="CameraShaker" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("camera")]
 script = ExtResource("11_w3kwb")
 noise = SubResource("FastNoiseLite_gmyi8")
 max_x = 5.0
@@ -693,7 +696,7 @@ max_y = 2.5
 max_z = 2.5
 camera = NodePath("../Camera3D")
 
-[connection signal="Update_Ammo" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
-[connection signal="Update_Weapon_Stack" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
-[connection signal="Weapon_Changed" from="Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
-[connection signal="animation_finished" from="Head/WeaponManager/AnimationPlayer" to="Head/WeaponManager" method="_on_animation_player_animation_finished"]
+[connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
+[connection signal="Weapon_Changed" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
+[connection signal="animation_finished" from="Horizontal Head/Vertical Head/WeaponManager/AnimationPlayer" to="Horizontal Head/Vertical Head/WeaponManager" method="_on_animation_player_animation_finished"]
