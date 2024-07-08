@@ -585,9 +585,10 @@ _data = {
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("horiz_head", "vert_head", "camera", "weapon_holder")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("character_data", "horiz_head", "vert_head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
+character_data = NodePath("CharacterDataInstance")
 horiz_head = NodePath("Horizontal Head")
 vert_head = NodePath("Horizontal Head/Vertical Head")
 camera = NodePath("Horizontal Head/Vertical Head/Camera3D")
