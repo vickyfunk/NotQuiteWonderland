@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://cdhiggdsjo6ly"]
 
-[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_csl3r"]
-[ext_resource type="Curve" uid="uid://w6ugdjobck4j" path="res://weapon resources/laser_recoil_curve.tres" id="1_gajx5"]
+[ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_csl3r"]
+[ext_resource type="Curve" uid="uid://w6ugdjobck4j" path="res://Resources/Weapon/laser_recoil_curve.tres" id="1_gajx5"]
 
 [resource]
 script = ExtResource("1_csl3r")

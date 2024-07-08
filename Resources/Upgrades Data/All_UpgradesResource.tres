@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="UpgradesData" load_steps=2 format=3 uid="uid://dbalmxufx7cla"]
+
+[ext_resource type="Script" path="res://Resource Templates/UpgradesData.gd" id="1_u35v7"]
+
+[resource]
+script = ExtResource("1_u35v7")
+double_jump = true
+air_dash = true

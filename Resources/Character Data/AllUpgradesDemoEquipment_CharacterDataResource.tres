@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://de2oqbi4lb2ab"]
+
+[ext_resource type="Resource" uid="uid://cnm2dh7iep1" path="res://Resources/Equipment Load/DemoKit_EquipmentLoadResource.tres" id="1_kk8y3"]
+[ext_resource type="Script" path="res://Resource Templates/CharacterData.gd" id="2_4ykd6"]
+[ext_resource type="Resource" uid="uid://dbalmxufx7cla" path="res://Resources/Upgrades Data/All_UpgradesResource.tres" id="3_4jjgx"]
+
+[resource]
+script = ExtResource("2_4ykd6")
+upgrades = ExtResource("3_4jjgx")
+equipment = ExtResource("1_kk8y3")
+health = 100.0

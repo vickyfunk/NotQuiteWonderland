@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=5 format=3 uid="uid://bhhcna5hkx5ov"]
+
+[ext_resource type="Script" path="res://Resource Templates/CharacterData.gd" id="1_jgdqv"]
+[ext_resource type="Resource" uid="uid://qtbvtwjgog5x" path="res://Resources/Equipment Load/Null_EquipmentLoadResource.tres" id="1_w37lh"]
+[ext_resource type="Script" path="res://Resource Templates/UpgradesData.gd" id="2_jybj5"]
+
+[sub_resource type="Resource" id="Resource_ltia6"]
+script = ExtResource("2_jybj5")
+double_jump = true
+air_dash = true
+
+[resource]
+script = ExtResource("1_jgdqv")
+upgrades = SubResource("Resource_ltia6")
+equipment = ExtResource("1_w37lh")
+health = 100.0

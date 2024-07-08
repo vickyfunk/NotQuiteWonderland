@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EquipmentLoad" load_steps=2 format=3 uid="uid://cnm2dh7iep1"]
+
+[ext_resource type="Script" path="res://Resource Templates/EquipmentLoad.gd" id="1_qds50"]
+
+[resource]
+script = ExtResource("1_qds50")
+head = "ballistic helmet"
+face = "flak bandana"
+chest = "blast vest"
+hands = "exoskeleton atlatl"
+feet = "sky mikes"

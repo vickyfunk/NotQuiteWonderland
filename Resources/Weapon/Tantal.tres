@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Weapon_Resource" load_steps=5 format=3 uid="uid://5euoebwedfh4"]
 
-[ext_resource type="Script" path="res://Scripts/WeaponResource.gd" id="1_6dtwn"]
+[ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_6dtwn"]
 [ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
-[ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://weapon resources/tantal_recoil_curve.tres" id="2_4tk30"]
-[ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://weapon resources/tantal_recoil_x_rotation.tres" id="3_kcijo"]
+[ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://Resources/Weapon/tantal_recoil_curve.tres" id="2_4tk30"]
+[ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://Resources/Weapon/tantal_recoil_x_rotation.tres" id="3_kcijo"]
 
 [resource]
 script = ExtResource("1_6dtwn")

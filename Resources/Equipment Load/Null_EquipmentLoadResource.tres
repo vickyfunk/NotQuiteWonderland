@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EquipmentLoad" load_steps=2 format=3 uid="uid://qtbvtwjgog5x"]
+
+[ext_resource type="Script" path="res://Resource Templates/EquipmentLoad.gd" id="1_2kvwe"]
+
+[resource]
+script = ExtResource("1_2kvwe")
+head = "none"
+chest = "none"
+hands = "none"
+feet = "none"
