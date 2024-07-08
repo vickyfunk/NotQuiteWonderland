@@ -21,6 +21,7 @@ const FOV_CHANGE = 1.1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+@export var character_resource: CharacterResource
 
 # The part of the head that rotates horizontally, i.e. around the y axis
 @export var horiz_head: Node3D
@@ -93,19 +94,32 @@ func _physics_process(delta):
 	
 	# Handle the movement/deceleration, and dashing, if relevant.
 	# Todo:
-	# -fix the "aiming more vertically makes you move slower" issue
+	# [x] solved! fix the "aiming more vertically makes you move slower" issue
+	# [ ] try to refactor to make this more "additively physics based" i.e. create a velocity summation system
 	if remaining_dash_duration > 0.0:
-		velocity.x = dash_dir.x * DASH_SPEED
-		velocity.z = dash_dir.z * DASH_SPEED
+		#velocity.x = dash_dir.x * DASH_SPEED
+		#velocity.z = dash_dir.z * DASH_SPEED
+		velocity.x += dash_dir.x * DASH_SPEED * delta * 10.0
+		velocity.z += dash_dir.z * DASH_SPEED * delta * 10.0
 		remaining_dash_duration -= delta
 	else:
 		if is_on_floor():
-			if direction:
-				velocity.x = direction.x * speed
-				velocity.z = direction.z * speed
-			else:
-				velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-				velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			#if direction:
+			#	velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			#	velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			#else:
+			#	velocity.x = 0
+			#	velocity.z = 0
+			
+			#if direction:
+			#	velocity.x = direction.x * speed
+			#	velocity.z = direction.z * speed
+			#else:
+			#	print("not direction, direction.x * speed = ", direction.x*speed, " direction.z * speed = ", direction.z * speed)
+			#	velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			#	velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)

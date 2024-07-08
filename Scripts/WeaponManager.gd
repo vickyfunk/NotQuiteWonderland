@@ -81,11 +81,11 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if event.is_action_pressed("next_weapon"):
 		Weapon_Indicator = min(Weapon_Indicator+1, Weapon_Stack.size()-1)
-		print(Weapon_Indicator)
+		#print(Weapon_Indicator)
 		exit(Weapon_Stack[Weapon_Indicator])
 	if event.is_action_pressed("prev_weapon"):
 		Weapon_Indicator = max(Weapon_Indicator-1, 0)
-		print(Weapon_Indicator)
+		#print(Weapon_Indicator)
 		exit(Weapon_Stack[Weapon_Indicator])
 	if event.is_action_pressed("reload"):
 		reload()
@@ -93,7 +93,6 @@ func _input(event):
 		shoot()
 	if event.is_action_released("shoot"):
 		release()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func exit(_next_weapon: String):
 	if _next_weapon != Current_Weapon.Weapon_Name:
@@ -102,10 +101,8 @@ func exit(_next_weapon: String):
 			Next_Weapon = _next_weapon
 
 func _process(delta):
-	#I.e. if our gun is not "recoilless"
-	if max_z_travel > 0:
-		#I.e. if it's been less than .32 seconds since we fired the gun
-		if current_time < 0.32:
+	if max_z_travel > 0: #I.e. if our gun is not "recoilless"
+		if current_time < 0.32: #I.e. if it's been less than .32 seconds since we fired the gun
 			current_time += delta
 			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
 			z_travel = z_position_prerecoil - position.z
