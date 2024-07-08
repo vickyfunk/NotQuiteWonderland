@@ -8,7 +8,7 @@ signal Update_Weapon_Stack
 @onready var Bullet_Point = get_node("%Bullet_Point")
 
 @export var Tracer: MeshInstance3D
-@export var head: Node3D
+@export var vert_head: Node3D
 @export var camera_shaker: CameraShaker
 @export var recoil_lerp_speed: float = 1
 
@@ -112,11 +112,12 @@ func _process(delta):
 			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
 			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
 			#also made this one be head rotation specifically so you get camera kick
-			head.rotation.x = lerp(head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
+			#Todo: make this also have some element of pure gun kick
+			vert_head.rotation.x = lerp(vert_head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 			
 			
 			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-			target_rot.x = head.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
+			target_rot.x = vert_head.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
 		elif z_position_prerecoil:
 			if abs(z_position_prerecoil - position.z) < 0.01:

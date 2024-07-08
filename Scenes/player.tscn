@@ -647,10 +647,10 @@ shape = SubResource("ConvexPolygonShape3D_jkvit")
 
 [node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("Tracer", "head", "camera_shaker")]
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("Tracer", "vert_head", "camera_shaker")]
 script = ExtResource("3_vb8qq")
 Tracer = NodePath("Tracer")
-head = NodePath("..")
+vert_head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
 _weapon_resources = Array[Resource("res://Scripts/WeaponResource.gd")]([ExtResource("4_ctbai"), ExtResource("6_km2s1"), ExtResource("7_50dux")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
