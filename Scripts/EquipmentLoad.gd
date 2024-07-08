@@ -1,6 +1,6 @@
-extends Resource
+extends Node
 
-class_name EquipmentResource
+class_name EquipmentLoad
 
 @export var head: String = "none"
 @export var chest: String = "none"

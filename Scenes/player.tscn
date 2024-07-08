@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=40 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="11_aj1wi"]
 [ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
+[ext_resource type="Script" path="res://Scripts/CharacterData.gd" id="13_xwuba"]
+[ext_resource type="Script" path="res://Scripts/UpgradesData.gd" id="14_t60fn"]
+[ext_resource type="Script" path="res://Scripts/EquipmentLoad.gd" id="15_qt13j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 radius = 0.35
@@ -695,6 +698,17 @@ max_x = 5.0
 max_y = 2.5
 max_z = 2.5
 camera = NodePath("../Camera3D")
+
+[node name="CharacterDataInstance" type="Node" parent="." node_paths=PackedStringArray("upgrades", "equipment")]
+script = ExtResource("13_xwuba")
+upgrades = NodePath("UpgradesDataInstance")
+equipment = NodePath("EquipmentLoadInstance")
+
+[node name="UpgradesDataInstance" type="Node" parent="CharacterDataInstance"]
+script = ExtResource("14_t60fn")
+
+[node name="EquipmentLoadInstance" type="Node" parent="CharacterDataInstance"]
+script = ExtResource("15_qt13j")
 
 [connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
 [connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]

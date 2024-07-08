@@ -21,7 +21,7 @@ const FOV_CHANGE = 1.1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
-@export var character_resource: CharacterResource
+@export var character_data: CharacterData
 
 # The part of the head that rotates horizontally, i.e. around the y axis
 @export var horiz_head: Node3D

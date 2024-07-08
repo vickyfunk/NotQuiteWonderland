@@ -112,13 +112,3 @@ mesh = SubResource("ArrayMesh_ax4gw")
 
 [node name="Player" parent="." instance=ExtResource("8_6j23a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3285, 2.33018, 21.1977)
-AIR_SPEED = null
-WALK_SPEED = null
-SPRINT_SPEED = null
-DASH_SPEED = null
-SENSITIVITY = null
-camera_rotation_amount = null
-weapon_sway_amount = null
-weapon_rotation_amount = null
-bob_amount = null
-bob_freq = null
