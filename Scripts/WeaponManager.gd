@@ -25,6 +25,7 @@ var Weapon_Indicator = 0 #keeps track of array position
 var Next_Weapon: String
 var Weapon_List = {}
 var Debug_Bullet = preload("res://Assets/World Objects/bullet_debug.tscn")
+@onready var Generic_Bullet = preload("res://Scenes/9x19bullet.tscn")
 var mouse_mov_x
 var mouse_mov_y
 var sway_threshold = 5
@@ -58,6 +59,10 @@ func Initialize(_start_weapons: Array):
 	for i in _start_weapons:
 		Weapon_Stack.push_back(i)
 	Current_Weapon = Weapon_List[Weapon_Stack[0]] #sets 1st weapon in stack to current
+	
+	#stinky ad hoc line to try and get the bullet to show up!
+	#Current_Weapon.Projectile_to_Load = Generic_Bullet
+	
 	emit_signal("Update_Weapon_Stack", Weapon_Stack)
 	for i in get_children(): #Hides the weapons even if left visible in the editor
 		if i is Node3D:
@@ -214,14 +219,16 @@ func Hitscan_Damage(Collider, Direction, Position):
 
 func Launch_Projectile(Point: Vector3):
 	var Direction = (Point - Bullet_Point.get_global_transform().origin).normalized()
-	var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
+	#var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
+	var Projectile = Generic_Bullet.instantiate()
 	Projectile.is_player_bullet = true
 	var Projectile_RID = Projectile.get_rid()
 	Collision_Exclusion.push_front(Projectile_RID)
 	Projectile.tree_exited.connect(Remove_Exclusion.bind(Projectile.get_rid()))
 	Bullet_Point.add_child(Projectile)
 	Projectile.Damage = Current_Weapon.Damage
-	Projectile.set_linear_velocity(Direction*Current_Weapon.Projectile_Velocity)
+	#unsure if switching to impulses actually broke it but I rewrote the original code anyway and it definitely works
+	Projectile.set_linear_velocity(Direction * Current_Weapon.Projectile_Velocity)
 
 func Remove_Exclusion(Projectile_RID):
 	Collision_Exclusion.erase(Projectile_RID)

@@ -21,7 +21,7 @@ class_name Weapon_Resource
 @export var Weapon_Range: int
 @export_flags("Hitscan", "Projectile") var Type
 @export var Projectile_to_Load: PackedScene 
-@export var Projectile_Velocity: int
+@export var Projectile_Velocity: float
 @export var Casing_to_Load: PackedScene
 @export var Casing_Velocity: int 
 
