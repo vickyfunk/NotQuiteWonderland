@@ -19,8 +19,9 @@
 script = ExtResource("3_y3vyu")
 max_health = 100.0
 health = 100.0
-armor_level = 1.0
+max_armor_durability = 25.0
 armor_durability = 25.0
+armor_rating = 1.0
 max_luck = 25.0
 luck = 25.0
 
