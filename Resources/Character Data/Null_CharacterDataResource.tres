@@ -8,4 +8,3 @@
 script = ExtResource("2_0orwa")
 upgrades = ExtResource("3_mhjoq")
 equipment = ExtResource("1_exmf0")
-health = 100.0

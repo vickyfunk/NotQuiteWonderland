@@ -13,4 +13,3 @@ air_dash = true
 script = ExtResource("1_jgdqv")
 upgrades = SubResource("Resource_ltia6")
 equipment = ExtResource("1_w37lh")
-health = 100.0

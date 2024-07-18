@@ -6,3 +6,4 @@ signal Update_Chest_Equip
 signal Update_Hands_Equip
 signal Update_Feet_Equip
 
+@export var equipment: EquipmentLoad

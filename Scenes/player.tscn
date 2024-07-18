@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=40 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
-[ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_conya"]
+[ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_ap8nn"]
 [ext_resource type="Texture2D" uid="uid://cr4hyitgtq415" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair038.png" id="3_q3k23"]
 [ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
+[ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
 [ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://Resources/Weapon/Glock.tres" id="6_rmp7o"]
@@ -13,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="11_aj1wi"]
 [ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
+
+[sub_resource type="Resource" id="Resource_2kkn5"]
+script = ExtResource("3_y3vyu")
+max_health = 100.0
+health = 100.0
+armor_level = 1.0
+armor_durability = 25.0
+max_luck = 25.0
+luck = 25.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 radius = 0.35
@@ -586,7 +596,8 @@ _data = {
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("horiz_head", "vert_head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
-character_data = ExtResource("2_conya")
+character_data = ExtResource("2_ap8nn")
+unit_data = SubResource("Resource_2kkn5")
 horiz_head = NodePath("Horizontal Head")
 vert_head = NodePath("Horizontal Head/Vertical Head")
 camera = NodePath("Horizontal Head/Vertical Head/Camera3D")

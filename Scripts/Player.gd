@@ -25,6 +25,7 @@ const FOV_CHANGE = 1.1
 var gravity = 9.8
 
 @export var character_data: CharacterData
+@export var unit_data: UnitData
 
 # The part of the head that rotates horizontally, i.e. around the y axis
 @export var horiz_head: Node3D
