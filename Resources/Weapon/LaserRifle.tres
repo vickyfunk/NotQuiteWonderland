@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=4 format=3 uid="uid://cdhiggdsjo6ly"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=7 format=3 uid="uid://cdhiggdsjo6ly"]
 
 [ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_csl3r"]
 [ext_resource type="Curve" uid="uid://w6ugdjobck4j" path="res://Resources/Weapon/laser_recoil_curve.tres" id="1_gajx5"]
 [ext_resource type="AudioStream" uid="uid://n40pujbr1org" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/WAV/9mm Magazine Pack.wav" id="1_hjeta"]
+[ext_resource type="AudioStream" uid="uid://c7t0613fu4bgo" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 1 WAV.wav" id="1_v3dv7"]
+[ext_resource type="AudioStream" uid="uid://ds5te866xdnti" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 2 WAV.wav" id="2_dc6sd"]
+[ext_resource type="AudioStream" uid="uid://h23sma6ar7cp" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/22LR Bolt Cycle WAV.wav" id="4_w88ls"]
 
 [resource]
 script = ExtResource("1_csl3r")
@@ -15,6 +18,9 @@ Draw_Anim = "LaserDraw"
 Holster_Anim = "LaserHolster"
 Empty_Anim = "LaserEmpty"
 Shoot_Sound = ExtResource("1_hjeta")
+Reload_Sound_1 = ExtResource("1_v3dv7")
+Reload_Sound_2 = ExtResource("2_dc6sd")
+Slide_Rack_Sound = ExtResource("4_w88ls")
 Current_Ammo = 2000
 Reserve_Ammo = 0
 Magazine = 2000

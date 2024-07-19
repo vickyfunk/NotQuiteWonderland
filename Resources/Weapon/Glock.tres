@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=7 format=3 uid="uid://cx2nt7k8xpo6w"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=10 format=3 uid="uid://cx2nt7k8xpo6w"]
 
 [ext_resource type="PackedScene" uid="uid://cqq7bfit4ltoo" path="res://Scenes/9x19bullet.tscn" id="1_dq573"]
+[ext_resource type="AudioStream" uid="uid://dl8xclpvu4lac" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 1.wav" id="2_3lsfe"]
 [ext_resource type="AudioStream" uid="uid://b03ghf46f8ssp" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/WAV/9mm Single.wav" id="2_pcwtf"]
 [ext_resource type="Curve" uid="uid://dq2jln7b8ivqi" path="res://Resources/Weapon/glock_recoil_z_curve.tres" id="2_qq61p"]
 [ext_resource type="Curve" uid="uid://cmu4ea35khke5" path="res://Resources/Weapon/glock_recoil_x_rotation.tres" id="3_7mtfg"]
+[ext_resource type="AudioStream" uid="uid://dgqgogbnimxhi" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 2.wav" id="3_hs54y"]
 [ext_resource type="Curve" uid="uid://cnxv8uas3btyg" path="res://Resources/Weapon/glock_recoil_z_rotation.tres" id="4_4084j"]
+[ext_resource type="AudioStream" uid="uid://q6fxcocx7f71" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Rack Full.wav" id="5_7xyeq"]
 [ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="5_wjmjj"]
 
 [resource]
@@ -18,6 +21,9 @@ Draw_Anim = "GlockDraw"
 Holster_Anim = "GlockHolster"
 Empty_Anim = "GlockEmpty"
 Shoot_Sound = ExtResource("2_pcwtf")
+Reload_Sound_1 = ExtResource("2_3lsfe")
+Reload_Sound_2 = ExtResource("3_hs54y")
+Slide_Rack_Sound = ExtResource("5_7xyeq")
 Current_Ammo = 17
 Reserve_Ammo = 68
 Magazine = 17

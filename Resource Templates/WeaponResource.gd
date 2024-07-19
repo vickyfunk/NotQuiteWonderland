@@ -12,6 +12,9 @@ class_name Weapon_Resource
 @export var Empty_Anim: String
 
 @export var Shoot_Sound: AudioStream
+@export var Reload_Sound_1: AudioStream
+@export var Reload_Sound_2: AudioStream
+@export var Slide_Rack_Sound: AudioStream
 
 @export var Current_Ammo: int #ammo currently in magazine
 @export var Reserve_Ammo: int #ammo in reserve

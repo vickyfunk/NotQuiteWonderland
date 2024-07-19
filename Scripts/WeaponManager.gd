@@ -8,10 +8,13 @@ signal Update_Weapon_Stack
 @onready var Bullet_Point = get_node("%Bullet_Point")
 
 @export var shoot_audio_player: AudioStreamPlayer3D
+@export var reload_audio_player: AudioStreamPlayer3D
 @export var Tracer: MeshInstance3D
 @export var vert_head: Node3D
 @export var camera_shaker: CameraShaker
 @export var recoil_lerp_speed: float = 1
+
+var empty_reload: bool = false
 
 var target_rot: Vector3
 var target_pos: Vector3
@@ -169,6 +172,11 @@ func reload():
 	elif !Animation_Player.is_playing():
 		if Current_Weapon.Reserve_Ammo != 0:
 			Animation_Player.play(Current_Weapon.Reload_Anim)
+			
+			empty_reload = Current_Weapon.Current_Ammo == 0
+			reload_audio_player.stream = Current_Weapon.Reload_Sound_1
+			reload_audio_player.play()
+			
 			var Reload_Amount = min(Current_Weapon.Magazine-Current_Weapon.Current_Ammo, Current_Weapon.Magazine, Current_Weapon.Reserve_Ammo)
 			
 			Current_Weapon.Current_Ammo = Current_Weapon.Current_Ammo + Reload_Amount
@@ -251,6 +259,9 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == Current_Weapon.Shoot_Anim && Current_Weapon.Auto_Fire == true:
 		if Input.is_action_pressed("shoot"):
 			shoot()
+	#if anim_name == Current_Weapon.Reload_Anim:
+	#	reload_audio_player.stream = Current_Weapon.Reload_Sound_2
+	#	reload_audio_player.play()
 
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
@@ -269,3 +280,13 @@ func apply_recoil(screen_shake_intensity: float):
 			target_pos.z = z_position_prerecoil - max_z_travel
 			print("out of bounds, capping target value to %s" % target_pos.z)
 		current_time = 0
+
+
+func _on_reload_player_finished():
+	if reload_audio_player.stream == Current_Weapon.Reload_Sound_1:
+		reload_audio_player.stream = Current_Weapon.Reload_Sound_2
+		reload_audio_player.play()
+	elif empty_reload and reload_audio_player.stream == Current_Weapon.Reload_Sound_2:
+		empty_reload = false
+		reload_audio_player.stream = Current_Weapon.Slide_Rack_Sound
+		reload_audio_player.play()

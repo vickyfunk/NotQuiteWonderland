@@ -725,9 +725,10 @@ shape = SubResource("ConvexPolygonShape3D_jkvit")
 
 [node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("shoot_audio_player", "Tracer", "vert_head", "camera_shaker")]
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "Tracer", "vert_head", "camera_shaker")]
 script = ExtResource("3_vb8qq")
 shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
+reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
 Tracer = NodePath("Tracer")
 vert_head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
@@ -763,6 +764,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521
 
 [node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point"]
 
+[node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point"]
+
 [node name="Tracer" type="MeshInstance3D" parent="Horizontal Head/Vertical Head/WeaponManager"]
 transform = Transform3D(0.345, 0, 0, 0, -1.50804e-08, 0.345, 0, -0.345, -1.50804e-08, 0.0644175, -0.0591148, -1.44978)
 visibility_range_end = 11.8
@@ -789,3 +792,4 @@ panning_strength = 3.0
 [connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
 [connection signal="Weapon_Changed" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
 [connection signal="animation_finished" from="Horizontal Head/Vertical Head/WeaponManager/AnimationPlayer" to="Horizontal Head/Vertical Head/WeaponManager" method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point/ReloadPlayer" to="Horizontal Head/Vertical Head/WeaponManager" method="_on_reload_player_finished"]

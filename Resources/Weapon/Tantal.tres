@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=6 format=3 uid="uid://5euoebwedfh4"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=9 format=3 uid="uid://5euoebwedfh4"]
 
 [ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_6dtwn"]
 [ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
 [ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://Resources/Weapon/tantal_recoil_curve.tres" id="2_4tk30"]
 [ext_resource type="AudioStream" uid="uid://c3hvfbi0gs33h" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Full Sound/7.62x39/WAV/762x39 Single WAV.wav" id="2_7ndyx"]
+[ext_resource type="AudioStream" uid="uid://lpt3vg54lteq" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Reload Part 1 WAV.wav" id="2_c20m8"]
+[ext_resource type="AudioStream" uid="uid://r5x73rp73r6x" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Reload Part 2 WAV.wav" id="3_ge8w2"]
 [ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://Resources/Weapon/tantal_recoil_x_rotation.tres" id="3_kcijo"]
+[ext_resource type="AudioStream" uid="uid://b1xfwq8jcemkc" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Rack WAV.wav" id="5_btbq6"]
 
 [resource]
 script = ExtResource("1_6dtwn")
@@ -17,6 +20,9 @@ Draw_Anim = "TantalDraw"
 Holster_Anim = "TantalHolster"
 Empty_Anim = "TantalEmpty"
 Shoot_Sound = ExtResource("2_7ndyx")
+Reload_Sound_1 = ExtResource("2_c20m8")
+Reload_Sound_2 = ExtResource("3_ge8w2")
+Slide_Rack_Sound = ExtResource("5_btbq6")
 Current_Ammo = 30
 Reserve_Ammo = 150
 Magazine = 30
