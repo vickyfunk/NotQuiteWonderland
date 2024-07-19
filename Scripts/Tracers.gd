@@ -31,5 +31,5 @@ func _process(delta):
 	#mesh.clear_surfaces()
 	var end_point = get_global_transform().origin
 	var start_point = _end_point
-	draw_tracer(start_point, end_point)
+	#draw_tracer(start_point, end_point)
 	

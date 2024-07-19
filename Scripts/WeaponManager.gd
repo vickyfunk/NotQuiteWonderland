@@ -206,9 +206,10 @@ func Get_Camera_Collision()->Vector3:
 
 func Hitscan_Collision(Collision_Point):
 	if Collision_Point:
-		print("Collision_Point is %s, trying to init tracer" % Collision_Point)
-		print("Bullet_Point is %s" % Bullet_Point.get_global_transform().origin)
-		Tracer.draw_tracer(Bullet_Point.get_global_transform().origin, Collision_Point)
+		pass
+		#print("Collision_Point is %s, trying to init tracer" % Collision_Point)
+		#print("Bullet_Point is %s" % Bullet_Point.get_global_transform().origin)
+		#Tracer.draw_tracer(Bullet_Point.get_global_transform().origin, Collision_Point)
 	var Bullet_Direction = (Collision_Point - Bullet_Point.get_global_transform().origin).normalized()
 	var New_Intersection = PhysicsRayQueryParameters3D.create(Bullet_Point.get_global_transform().origin, Collision_Point+Bullet_Direction*2)
 	
