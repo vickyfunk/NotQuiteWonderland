@@ -24,6 +24,10 @@ const FOV_CHANGE = 1.1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+var time_since_step: float
+@export var time_bw_steps_walking: float = 0.5
+@export var footstep_manager: AudioStreamPlayer3D
+
 @export var character_data: CharacterData
 @export var unit_data: UnitData
 
@@ -47,6 +51,7 @@ var dash_dir : Vector3
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	default_weapon_holder_pos = weapon_holder.position
+	time_since_step = 0.0
 
 func _process(_delta):
 	if Input.is_action_just_pressed("quit"):
@@ -63,6 +68,14 @@ func _unhandled_input(event):
 		mouse_input = event.relative
 
 func _physics_process(delta):
+	
+	# Add time since last footstep sound, up to 2 seconds past the "time between" value as
+	# that is realistically more than enough even if the frequency varies with velocity
+	#print("time_since_step: ", time_since_step)
+	if time_bw_steps_walking - time_since_step > -2.0:
+		time_since_step += delta
+		#print("time_since_step update: ", time_since_step)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -88,7 +101,7 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (horiz_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	# Initiate dash if just pressedg
+	# Initiate dash if just pressed
 	# Todo: 
 	# [x] done! add check for is_on_floor() if player doesn't have air dash upgrade
 	# [x] done! account for the possibility of player looking straight vertically
@@ -118,6 +131,18 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			
+			#figure out how long we should wait between step soundds, scaled inverse to speed, 
+			#with hard clamp limits of 0.1 minimum and 2.0 maximum
+			var time_bw_steps_current = clamp(time_bw_steps_walking * WALK_SPEED / Vector2(velocity.x,velocity.z).length(), 0.1, 2.0)
+			#print("time_bw_steps_current: ", time_bw_steps_current)
+			
+			#see if we are still moving while on the ground and if enough time has elapsed since 
+			#last footstep sound, scaled to current speed. If so, play footstep sound
+			if direction and time_bw_steps_current - time_since_step <= 0.0:
+				footstep_manager.play()
+				time_since_step = 0.0
+				
 			#if direction:
 			#	velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			#	velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
