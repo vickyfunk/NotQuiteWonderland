@@ -17,7 +17,7 @@ func _ready():
 	_end_point = get_global_transform().origin
 
 func draw_tracer(start_point, end_point, color: Color = Color.RED):
-	print("drawing tracer, start_point=", start_point, ", end_point=", end_point)
+	#print("drawing tracer, start_point=", start_point, ", end_point=", end_point)
 	mesh.surface_begin(Mesh.PRIMITIVE_LINES, material_override)
 	mesh.surface_set_color(color)
 	mesh.surface_add_vertex(start_point)
