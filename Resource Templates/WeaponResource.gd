@@ -11,6 +11,8 @@ class_name Weapon_Resource
 @export var Holster_Anim: String
 @export var Empty_Anim: String
 
+@export var Shoot_Sound: AudioStream
+
 @export var Current_Ammo: int #ammo currently in magazine
 @export var Reserve_Ammo: int #ammo in reserve
 @export var Magazine: int #magazine capacity

@@ -598,7 +598,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
-footstep_manager = NodePath("FootstepManager")
+footstep_manager = NodePath("FootstepPlayer")
 character_data = ExtResource("2_ap8nn")
 unit_data = SubResource("Resource_2kkn5")
 horiz_head = NodePath("Horizontal Head")
@@ -725,8 +725,9 @@ shape = SubResource("ConvexPolygonShape3D_jkvit")
 
 [node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("Tracer", "vert_head", "camera_shaker")]
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("shoot_audio_player", "Tracer", "vert_head", "camera_shaker")]
 script = ExtResource("3_vb8qq")
+shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
 Tracer = NodePath("Tracer")
 vert_head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
@@ -760,6 +761,8 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
 
+[node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point"]
+
 [node name="Tracer" type="MeshInstance3D" parent="Horizontal Head/Vertical Head/WeaponManager"]
 transform = Transform3D(0.345, 0, 0, 0, -1.50804e-08, 0.345, 0, -0.345, -1.50804e-08, 0.0644175, -0.0591148, -1.44978)
 visibility_range_end = 11.8
@@ -774,12 +777,12 @@ max_y = 2.5
 max_z = 2.5
 camera = NodePath("../Camera3D")
 
-[node name="FootstepManager" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.736114, 0)
 stream = ExtResource("15_axp3g")
 volume_db = -0.045
 max_polyphony = 2
-panning_strength = 2.0
+panning_strength = 3.0
 
 [connection signal="Update_Velocity" from="." to="CanvasLayer" method="_on_player_update_velocity"]
 [connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]

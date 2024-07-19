@@ -7,6 +7,7 @@ signal Update_Weapon_Stack
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
 
+@export var shoot_audio_player: AudioStreamPlayer3D
 @export var Tracer: MeshInstance3D
 @export var vert_head: Node3D
 @export var camera_shaker: CameraShaker
@@ -71,6 +72,7 @@ func Initialize(_start_weapons: Array):
 
 func enter():
 	Animation_Player.queue(Current_Weapon.Draw_Anim)
+	shoot_audio_player.stream = Current_Weapon.Shoot_Sound
 	emit_signal("Weapon_Changed", Current_Weapon.Weapon_Name)
 	emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 	max_z_travel = Current_Weapon.max_z_travel
@@ -145,6 +147,7 @@ func _process(delta):
 func shoot():
 	if Current_Weapon.Current_Ammo != 0:
 		if !Animation_Player.is_playing(): #cant shoot to interrupt anims, also sets firerate to anim rate
+			shoot_audio_player.play()
 			Animation_Player.play(Current_Weapon.Shoot_Anim)
 			Current_Weapon.Current_Ammo -= 1
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])

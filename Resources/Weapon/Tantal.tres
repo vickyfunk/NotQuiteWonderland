@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=5 format=3 uid="uid://5euoebwedfh4"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=6 format=3 uid="uid://5euoebwedfh4"]
 
 [ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_6dtwn"]
 [ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
 [ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://Resources/Weapon/tantal_recoil_curve.tres" id="2_4tk30"]
+[ext_resource type="AudioStream" uid="uid://c3hvfbi0gs33h" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Full Sound/7.62x39/WAV/762x39 Single WAV.wav" id="2_7ndyx"]
 [ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://Resources/Weapon/tantal_recoil_x_rotation.tres" id="3_kcijo"]
 
 [resource]
@@ -15,6 +16,7 @@ Tacload_Anim = ""
 Draw_Anim = "TantalDraw"
 Holster_Anim = "TantalHolster"
 Empty_Anim = "TantalEmpty"
+Shoot_Sound = ExtResource("2_7ndyx")
 Current_Ammo = 30
 Reserve_Ammo = 150
 Magazine = 30
@@ -24,7 +26,7 @@ Auto_Fire = true
 Weapon_Range = 1000
 Type = 2
 Projectile_to_Load = ExtResource("1_rtly8")
-Projectile_Velocity = 5
+Projectile_Velocity = 0.0
 Casing_Velocity = 0
 Screen_Shake_Intensity = 0.33
 recoil_rotation_x = ExtResource("3_kcijo")
