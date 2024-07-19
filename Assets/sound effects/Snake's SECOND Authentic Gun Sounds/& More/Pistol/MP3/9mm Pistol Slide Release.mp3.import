@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdr5wi07myy3j"
+path="res://.godot/imported/9mm Pistol Slide Release.mp3-cdfe8e3c656c7ee1a0c5cba430ab09bb.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/MP3/9mm Pistol Slide Release.mp3"
+dest_files=["res://.godot/imported/9mm Pistol Slide Release.mp3-cdfe8e3c656c7ee1a0c5cba430ab09bb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

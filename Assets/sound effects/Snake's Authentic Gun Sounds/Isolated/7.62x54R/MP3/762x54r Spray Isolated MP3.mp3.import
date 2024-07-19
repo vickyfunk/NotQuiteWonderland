@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6j7d2s0wuy6e"
+path="res://.godot/imported/762x54r Spray Isolated MP3.mp3-90019adfc7e9c53b6232732184489895.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's Authentic Gun Sounds/Isolated/7.62x54R/MP3/762x54r Spray Isolated MP3.mp3"
+dest_files=["res://.godot/imported/762x54r Spray Isolated MP3.mp3-90019adfc7e9c53b6232732184489895.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

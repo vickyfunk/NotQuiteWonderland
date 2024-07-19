@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2j4537jdnr14"
+path="res://.godot/imported/9mm Double Tap.wav-1fb76ea42a614f3d38cf4d3be91d3186.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/WAV/9mm Double Tap.wav"
+dest_files=["res://.godot/imported/9mm Double Tap.wav-1fb76ea42a614f3d38cf4d3be91d3186.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

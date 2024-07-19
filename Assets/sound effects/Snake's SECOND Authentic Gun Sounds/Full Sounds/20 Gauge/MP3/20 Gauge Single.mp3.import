@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4gvqc3swpu2u"
+path="res://.godot/imported/20 Gauge Single.mp3-b6cd2fe541c87a474ac7334f3461e497.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Full Sounds/20 Gauge/MP3/20 Gauge Single.mp3"
+dest_files=["res://.godot/imported/20 Gauge Single.mp3-b6cd2fe541c87a474ac7334f3461e497.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

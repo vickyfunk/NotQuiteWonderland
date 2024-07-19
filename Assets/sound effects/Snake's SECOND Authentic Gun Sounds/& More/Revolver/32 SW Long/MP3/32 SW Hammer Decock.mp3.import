@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xl16jqeddy7h"
+path="res://.godot/imported/32 SW Hammer Decock.mp3-b4612d6b001a67d797f4e893276d11ec.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/32 SW Long/MP3/32 SW Hammer Decock.mp3"
+dest_files=["res://.godot/imported/32 SW Hammer Decock.mp3-b4612d6b001a67d797f4e893276d11ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

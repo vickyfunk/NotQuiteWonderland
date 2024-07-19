@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chvs1p7je0dkr"
+path="res://.godot/imported/556 Spray Slow WAV.wav-e48a8848062864d9bb0d7465c81f3351.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's Authentic Gun Sounds/Full Sound/5.56/WAV/556 Spray Slow WAV.wav"
+dest_files=["res://.godot/imported/556 Spray Slow WAV.wav-e48a8848062864d9bb0d7465c81f3351.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

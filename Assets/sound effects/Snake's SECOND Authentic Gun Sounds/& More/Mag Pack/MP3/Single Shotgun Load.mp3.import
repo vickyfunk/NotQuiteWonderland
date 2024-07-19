@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvte76e8lphnm"
+path="res://.godot/imported/Single Shotgun Load.mp3-935e8173f29a18e35747e960d9aa46a1.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/MP3/Single Shotgun Load.mp3"
+dest_files=["res://.godot/imported/Single Shotgun Load.mp3-935e8173f29a18e35747e960d9aa46a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

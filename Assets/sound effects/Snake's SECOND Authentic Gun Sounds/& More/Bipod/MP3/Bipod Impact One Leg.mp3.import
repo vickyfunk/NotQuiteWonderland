@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx3uw6tedp0fs"
+path="res://.godot/imported/Bipod Impact One Leg.mp3-9b4122f22d07b526e559a05a89ffb6d0.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Bipod/MP3/Bipod Impact One Leg.mp3"
+dest_files=["res://.godot/imported/Bipod Impact One Leg.mp3-9b4122f22d07b526e559a05a89ffb6d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
