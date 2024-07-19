@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=39 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resources/Weapon/Tantal.tres" id="7_jatp6"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://Resources/Weapon/LaserRifle.tres" id="8_fia83"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
-[ext_resource type="Script" path="res://Scripts/Tracers.gd" id="11_aj1wi"]
 [ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
 [ext_resource type="AudioStream" uid="uid://vvg0ax8d4pge" path="res://Assets/sound effects/Free Footsteps Pack/Concrete 2.wav" id="15_axp3g"]
 
@@ -591,8 +590,6 @@ _data = {
 "TantalShoot": SubResource("Animation_gj0oj")
 }
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_3gv6o"]
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder")]
@@ -729,7 +726,7 @@ shape = SubResource("ConvexPolygonShape3D_jkvit")
 script = ExtResource("3_vb8qq")
 shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
 reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
-Tracer = NodePath("Tracer")
+Tracer = NodePath("")
 vert_head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
 _weapon_resources = Array[Resource("res://Resource Templates/WeaponResource.gd")]([ExtResource("6_rmp7o"), ExtResource("7_jatp6"), ExtResource("8_fia83")])
@@ -765,12 +762,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521
 [node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point"]
 
 [node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/WeaponManager/Bullet_Point"]
-
-[node name="Tracer" type="MeshInstance3D" parent="Horizontal Head/Vertical Head/WeaponManager"]
-transform = Transform3D(0.345, 0, 0, 0, -1.50804e-08, 0.345, 0, -0.345, -1.50804e-08, 0.0644175, -0.0591148, -1.44978)
-visibility_range_end = 11.8
-mesh = SubResource("ImmediateMesh_3gv6o")
-script = ExtResource("11_aj1wi")
 
 [node name="CameraShaker" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("camera")]
 script = ExtResource("11_w3kwb")

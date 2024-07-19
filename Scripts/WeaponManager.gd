@@ -54,7 +54,6 @@ func _ready():
 	Initialize(Start_Weapons)
 	target_rot.y = rotation.y
 	current_time = 1
-	Tracer._ready()
 
 func Initialize(_start_weapons: Array):
 	#creates dictionary of weapons

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqq7bfit4ltoo"]
+[gd_scene load_steps=9 format=3 uid="uid://cqq7bfit4ltoo"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_rbkh5"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="2_yk5sq"]
@@ -45,6 +45,12 @@ shadow_mesh = SubResource("ArrayMesh_uixw0")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrxaq"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwsa7"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_2vjlg"]
 
 [node name="9x19bullet" type="RigidBody3D"]
@@ -74,6 +80,7 @@ one_shot = true
 autostart = true
 
 [node name="TracerTrail" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_uwsa7")
 mesh = SubResource("ImmediateMesh_2vjlg")
 script = ExtResource("2_yk5sq")
 
