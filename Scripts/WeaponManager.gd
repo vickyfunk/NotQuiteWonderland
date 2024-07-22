@@ -41,6 +41,8 @@ var sway_lerp = 5
 enum {NULL, HITSCAN, PROJECTILE}
 
 var Collision_Exclusion = []
+@export var gun_barrel_crosshair: TextureRect
+@export var camera: Camera3D
 
 @export var sway_up : Vector3
 @export var sway_down : Vector3
@@ -145,6 +147,8 @@ func _process(delta):
 		elif mouse_mov_y < -sway_threshold:
 			sway_final += sway_down
 	rotation = rotation.lerp(sway_final, sway_lerp * delta)
+	 
+	gun_barrel_crosshair.position = camera.unproject_position(get_barrel_collision()) - gun_barrel_crosshair.size/2
 
 func shoot():
 	if Current_Weapon.Current_Ammo != 0:
@@ -290,3 +294,18 @@ func _on_reload_player_finished():
 		empty_reload = false
 		reload_audio_player.stream = Current_Weapon.Slide_Rack_Sound
 		reload_audio_player.play()
+
+func get_barrel_collision() -> Vector3: 
+	#var camera = get_viewport().get_camera_3d()
+	var ray_origin = Bullet_Point.get_global_position()
+	#var Ray_End = Ray_Origin + camera.project_ray_normal(viewport/2)*Current_Weapon.Weapon_Range
+	#Get a point our current weapon's range away from the barrel of the gun in the negative z direction of the barrel (forward)
+	var ray_end = ray_origin - Bullet_Point.global_transform.basis.z.normalized() * Current_Weapon.Weapon_Range
+	var barrel_raycast = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	var intersection = get_world_3d().direct_space_state.intersect_ray(barrel_raycast)
+	
+	if not intersection.is_empty():
+		var collision_point = intersection.position
+		return collision_point
+	else:
+		return ray_end

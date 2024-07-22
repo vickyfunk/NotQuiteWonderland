@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=40 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
+[ext_resource type="Texture2D" uid="uid://jg7j8wv2bhdx" path="res://Assets/textures/crosshair.png" id="6_neea7"]
 [ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://Resources/Weapon/Glock.tres" id="6_rmp7o"]
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resources/Weapon/Tantal.tres" id="7_jatp6"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://Resources/Weapon/LaserRifle.tres" id="8_fia83"]
@@ -699,13 +700,22 @@ layout_mode = 2
 [node name="CurrentFeetEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer5"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="AimingCrosshair" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_q3k23")
+stretch_mode = 3
+
+[node name="GunBarrelCrosshair" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_neea7")
 stretch_mode = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -722,15 +732,16 @@ shape = SubResource("ConvexPolygonShape3D_jkvit")
 
 [node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "Tracer", "vert_head", "camera_shaker")]
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "vert_head", "camera_shaker", "gun_barrel_crosshair", "camera")]
 script = ExtResource("3_vb8qq")
 shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
 reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
-Tracer = NodePath("")
 vert_head = NodePath("..")
 camera_shaker = NodePath("../CameraShaker")
 _weapon_resources = Array[Resource("res://Resource Templates/WeaponResource.gd")]([ExtResource("6_rmp7o"), ExtResource("7_jatp6"), ExtResource("8_fia83")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
+gun_barrel_crosshair = NodePath("../../../CanvasLayer/GunBarrelCrosshair")
+camera = NodePath("../Camera3D")
 sway_up = Vector3(-0.1, 0, 0)
 sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
@@ -741,7 +752,7 @@ transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.6
 rotation_edit_mode = 1
 
 [node name="Tantal" parent="Horizontal Head/Vertical Head/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0.45314, -0.0465875, 0.390505, 0.33501, 0.357786, -0.346061, -0.205991, 0.479396, 0.296224, 0.755, 0.425, 1.57)
+transform = Transform3D(0.453139, -0.0465872, 0.390506, 0.33501, 0.357786, -0.346061, -0.205992, 0.479396, 0.296223, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 
