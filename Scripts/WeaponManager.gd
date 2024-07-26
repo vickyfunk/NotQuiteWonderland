@@ -37,6 +37,9 @@ var mouse_mov_y
 var sway_threshold = 5
 var sway_lerp = 5
 
+var shots_in_burst: int = 0
+var time_since_release: float = 0.16
+
 @export var _weapon_resources: Array[Weapon_Resource]
 @export var Start_Weapons: Array[String] #weapons you start with
 
@@ -130,7 +133,7 @@ func _process(delta):
 			#rotation.x = lerp(rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 			
 			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-			target_rot.x = wrist.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
+			target_rot.x = wrist.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x * (1.0 if shots_in_burst < Current_Weapon.Shots_Until_Controlled else 0.1)
 			#target_rot.x = vert_head.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			#target_rot.x = rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
@@ -145,6 +148,14 @@ func _process(delta):
 		
 		if current_time > 0.2:
 			wrist.rotation.x = lerp(wrist.rotation.x, 0.0, Current_Weapon.Handling * delta)	
+		if Input.is_action_pressed("shoot"):
+			time_since_release = 0.0
+		if time_since_release < 0.1:
+			time_since_release += delta
+		elif shots_in_burst > 0:
+			shots_in_burst -= 1
+			time_since_release = 0.0
+			
 
 
 
@@ -170,6 +181,7 @@ func shoot():
 			shoot_audio_player.play()
 			Animation_Player.play(Current_Weapon.Shoot_Anim)
 			Current_Weapon.Current_Ammo -= 1
+			shots_in_burst += 1 if shots_in_burst < Current_Weapon.Shots_Until_Controlled else 0
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 			#var Camera_Collision = Get_Camera_Collision()
 			var Barrel_Collision = get_barrel_collision()
@@ -266,6 +278,7 @@ func Remove_Exclusion(Projectile_RID):
 func release():
 	if !Animation_Player.is_playing():
 		Animation_Player.play(Current_Weapon.Idle_Anim)
+	time_since_release = 0.0
 
 func Change_Weapon(weapon_name: String):
 	Current_Weapon = Weapon_List[weapon_name]
@@ -284,6 +297,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
+	print("shots_in_burst: ", shots_in_burst, ", Shots_Until_Controlled: ", Current_Weapon.Shots_Until_Controlled)
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	z_travel = z_position_prerecoil - position.z
@@ -299,6 +313,8 @@ func apply_recoil(screen_shake_intensity: float):
 			target_pos.z = z_position_prerecoil - max_z_travel
 			#print("out of bounds, capping target value to %s" % target_pos.z)
 		current_time = 0
+		if shots_in_burst >= Current_Weapon.Shots_Until_Controlled:
+			target_rot.x *= 0.1
 
 
 func _on_reload_player_finished():

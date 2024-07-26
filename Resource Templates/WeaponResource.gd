@@ -29,7 +29,9 @@ class_name Weapon_Resource
 @export var Projectile_Velocity: float
 @export var Casing_to_Load: PackedScene
 @export var Casing_Velocity: int 
+
 @export var Handling: float = 1.0
+@export var Shots_Until_Controlled: int = 5 #how many shots experience "normal" recoil before Alice has the gun under control?
 
 @export var Screen_Shake_Intensity: float
 @export var recoil_rotation_x: Curve
