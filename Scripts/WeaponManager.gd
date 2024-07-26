@@ -171,15 +171,16 @@ func shoot():
 			Animation_Player.play(Current_Weapon.Shoot_Anim)
 			Current_Weapon.Current_Ammo -= 1
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
-			var Camera_Collision = Get_Camera_Collision()
+			#var Camera_Collision = Get_Camera_Collision()
+			var Barrel_Collision = get_barrel_collision()
 			apply_recoil(Current_Weapon.Screen_Shake_Intensity)
 			match Current_Weapon.Type:
 				NULL:
 					print("Weapon Type Not Chosen")
 				HITSCAN:
-					Hitscan_Collision(Camera_Collision)
+					Hitscan_Collision(Barrel_Collision)
 				PROJECTILE:
-					Launch_Projectile(Camera_Collision)
+					Launch_Projectile(Barrel_Collision)
 	else: 
 		reload()
 
@@ -286,17 +287,17 @@ func apply_recoil(screen_shake_intensity: float):
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	z_travel = z_position_prerecoil - position.z
-	print(z_travel)
+	#print(z_travel)
 	if max_z_travel > 0:
 		target_rot.z = Current_Weapon.recoil_rotation_z.sample(0)
 		target_rot.x = Current_Weapon.recoil_rotation_x.sample(0)
 		target_pos.z = Current_Weapon.recoil_position_z.sample(0)
 		if abs(z_travel) < max_z_travel:
 			target_pos.z = Current_Weapon.recoil_position_z.sample(0)   
-			print("within bounds, target value %s" % target_pos.z)
+			#print("within bounds, target value %s" % target_pos.z)
 		else: 
 			target_pos.z = z_position_prerecoil - max_z_travel
-			print("out of bounds, capping target value to %s" % target_pos.z)
+			#print("out of bounds, capping target value to %s" % target_pos.z)
 		current_time = 0
 
 
