@@ -118,6 +118,8 @@ func _process(delta):
 		if current_time < 0.32: #I.e. if it's been less than .32 seconds since we fired the gun
 			current_time += delta
 			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
+			#Offset the Bullet_Point on the z axis by precisely how far the gun has kicked back so far
+			Bullet_Point.position.z = -position.z
 			z_travel = z_position_prerecoil - position.z
 			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
 			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
@@ -139,6 +141,7 @@ func _process(delta):
 					z_position_prerecoil = null
 				else:
 					position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
+					Bullet_Point.position.z = -position.z
 		
 		if current_time > 0.2:
 			wrist.rotation.x = lerp(wrist.rotation.x, 0.0, Current_Weapon.Handling * delta)	

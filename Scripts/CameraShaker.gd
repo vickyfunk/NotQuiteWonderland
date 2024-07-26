@@ -12,10 +12,10 @@ var potential_trauma = 0.0
 @export var noise_speed = 50.0
 var time = 0.0
 
-@export var max_x = 4.0
-@export var max_y = 6.0
-@export var max_z = 3.0
-@export var lerp_speed = 1.0
+@export var max_x = 8.0
+@export var max_y = 12.0
+@export var max_z = 6.0
+@export var lerp_speed = 3.0
 
 @export var camera: Camera3D
 @onready var initial_rotation = camera.rotation_degrees as Vector3
