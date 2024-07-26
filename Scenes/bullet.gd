@@ -4,11 +4,17 @@ var shoot: bool = false
 var Damage: int = 0
 var Speed: float = 10.0
 var is_player_bullet: bool = false
+#@onready var tracer_emitter: GPUParticles3D = get_node("TracerParticleEmitter")
+#var time_since_particle: float = 0.0
 
 func ready():
 	set_as_top_level(true)
 	
 func physics_process(delta):
+	#time_since_particle += delta
+	#if time_since_particle > 0.1:
+		#tracer_emitter.emit_particle(Transform3D(), Vector3(), Color(Color.RED), Color(), 8)
+		#time_since_particle = 0.0
 	if shoot:
 		apply_impulse(transform.basis.z, -transform.basis.z * Speed)
 

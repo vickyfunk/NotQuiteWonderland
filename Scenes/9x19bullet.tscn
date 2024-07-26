@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqq7bfit4ltoo"]
+[gd_scene load_steps=12 format=3 uid="uid://cqq7bfit4ltoo"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_rbkh5"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="2_yk5sq"]
@@ -53,6 +53,18 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_2vjlg"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8t3rj"]
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0olbs"]
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ewws2"]
+material = SubResource("StandardMaterial3D_0olbs")
+
 [node name="9x19bullet" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00931437)
 top_level = true
@@ -83,6 +95,13 @@ autostart = true
 material_override = SubResource("StandardMaterial3D_uwsa7")
 mesh = SubResource("ImmediateMesh_2vjlg")
 script = ExtResource("2_yk5sq")
+
+[node name="TracerParticleEmitter" type="GPUParticles3D" parent="."]
+collision_base_size = 0.87
+trail_enabled = true
+trail_lifetime = 0.81
+process_material = SubResource("ParticleProcessMaterial_8t3rj")
+draw_pass_1 = SubResource("RibbonTrailMesh_ewws2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
