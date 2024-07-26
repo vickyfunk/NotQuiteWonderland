@@ -35,6 +35,7 @@ Type = 2
 Projectile_to_Load = ExtResource("1_dq573")
 Projectile_Velocity = 20.0
 Casing_Velocity = 0
+Handling = 3.4
 Screen_Shake_Intensity = 0.5
 recoil_rotation_x = ExtResource("3_7mtfg")
 recoil_rotation_z = ExtResource("4_4084j")
