@@ -78,12 +78,12 @@ contact_monitor = true
 script = ExtResource("1_rbkh5")
 
 [node name="9x19mm_Glock19_002_Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.5534e-16, -2.18557e-08, 0.5, -0.5, -2.18557e-08, -3.16428e-21, 2.18557e-08, -0.5, -2.18557e-08, 0, -0.000490747, 0)
+transform = Transform3D(3.82136e-16, -8.74228e-09, 0.2, -0.2, -8.74228e-09, -1.26571e-21, 8.74228e-09, -0.2, -8.74228e-09, 0, -0.000490747, 0)
 mesh = SubResource("ArrayMesh_jf25p")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.05087e-16, -2.40413e-09, 0.055, -0.055, -2.40413e-09, -2.9874e-22, 2.40413e-09, -0.055, -2.40413e-09, 1.78441e-05, 0, 0.00327983)
+transform = Transform3D(4.2035e-17, -9.61651e-10, 0.022, -0.022, -9.61651e-10, -1.19496e-22, 9.61651e-10, -0.022, -9.61651e-10, 1.78441e-05, 0, 0.00327983)
 shape = SubResource("CapsuleShape3D_yrxaq")
 
 [node name="Timer" type="Timer" parent="."]

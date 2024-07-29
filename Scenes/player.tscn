@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
 [ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
+[ext_resource type="Texture2D" uid="uid://dyobtmdaxgc3f" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121_scaled.png" id="5_5bio3"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
-[ext_resource type="Texture2D" uid="uid://cau8qulmew4lb" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121.png" id="5_yfw40"]
 [ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://Resources/Weapon/Glock.tres" id="6_rmp7o"]
 [ext_resource type="Texture2D" uid="uid://uc5j6i5tgwku" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair161.png" id="6_u6kn0"]
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resources/Weapon/Tantal.tres" id="7_jatp6"]
@@ -593,7 +593,7 @@ _data = {
 "TantalShoot": SubResource("Animation_gj0oj")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder", "Aiming_Crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
 footstep_manager = NodePath("FootstepPlayer")
@@ -603,6 +603,7 @@ horiz_head = NodePath("Horizontal Head")
 vert_head = NodePath("Horizontal Head/Vertical Head")
 camera = NodePath("Horizontal Head/Vertical Head/Camera3D")
 weapon_holder = NodePath("Horizontal Head/Vertical Head/Wrist/WeaponManager")
+Aiming_Crosshair = NodePath("CanvasLayer/AimingCrosshair")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("2_6d6d2")
@@ -704,14 +705,9 @@ layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 616.0
-offset_top = 336.0
-offset_right = -600.0
-offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("5_yfw40")
+texture = ExtResource("5_5bio3")
 stretch_mode = 3
 
 [node name="GunBarrelCrosshair" type="TextureRect" parent="CanvasLayer"]

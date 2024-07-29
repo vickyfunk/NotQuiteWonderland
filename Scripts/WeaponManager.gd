@@ -262,8 +262,8 @@ func Hitscan_Damage(Collider, Direction, Position):
 
 func Launch_Projectile(Point: Vector3):
 	var Direction = (Point - Bullet_Point.get_global_transform().origin).normalized()
-	#var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
-	var Projectile = Generic_Bullet.instantiate()
+	var Projectile = Current_Weapon.Projectile_to_Load.instantiate()
+	#var Projectile = Generic_Bullet.instantiate()
 	Projectile.is_player_bullet = true
 	var Projectile_RID = Projectile.get_rid()
 	Collision_Exclusion.push_front(Projectile_RID)

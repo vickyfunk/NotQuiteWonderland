@@ -44,6 +44,8 @@ var time_since_step: float
 @export var bob_amount: float = 0.01
 @export var bob_freq: float = 0.01
 
+@export var Aiming_Crosshair: TextureRect
+
 var mouse_input : Vector2
 var default_weapon_holder_pos: Vector3
 var dash_dir : Vector3
@@ -58,6 +60,8 @@ func _process(_delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	print("get_viewport().get_size()/2=", get_viewport().get_size()/2, ", Vector2i(Aiming_Crosshair.size/2)=", Vector2i(Aiming_Crosshair.size/2))
+	#Aiming_Crosshair.position = get_viewport().get_size()/2 #- Vector2i(Aiming_Crosshair.size/2)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
