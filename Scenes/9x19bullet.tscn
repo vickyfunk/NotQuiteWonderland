@@ -98,6 +98,7 @@ script = ExtResource("2_yk5sq")
 
 [node name="TracerParticleEmitter" type="GPUParticles3D" parent="."]
 collision_base_size = 0.87
+visibility_aabb = AABB(-2.39127, -1.30252, -1.91249, 4.78254, 2.60505, 3.82498)
 trail_enabled = true
 trail_lifetime = 0.81
 process_material = SubResource("ParticleProcessMaterial_8t3rj")

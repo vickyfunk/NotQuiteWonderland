@@ -267,7 +267,8 @@ func Launch_Projectile(Point: Vector3):
 	var Projectile_RID = Projectile.get_rid()
 	Collision_Exclusion.push_front(Projectile_RID)
 	Projectile.tree_exited.connect(Remove_Exclusion.bind(Projectile.get_rid()))
-	Bullet_Point.add_child(Projectile)
+	get_tree().current_scene.add_child(Projectile)
+	Projectile.transform = Bullet_Point.global_transform
 	Projectile.Damage = Current_Weapon.Damage
 	#unsure if switching to impulses actually broke it but I rewrote the original code anyway and it definitely works
 	Projectile.set_linear_velocity(Direction * Current_Weapon.Projectile_Velocity)
