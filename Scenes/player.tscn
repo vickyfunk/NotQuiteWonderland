@@ -769,7 +769,7 @@ transform = Transform3D(-0.011615, 0.790779, 0.120554, -0.452502, -0.105917, 0.6
 rotation_edit_mode = 1
 
 [node name="Tantal" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0.453139, -0.0465867, 0.390506, 0.33501, 0.357786, -0.346061, -0.205992, 0.479396, 0.296223, 0.755, 0.425, 1.57)
+transform = Transform3D(0.453139, -0.0465866, 0.390506, 0.33501, 0.357786, -0.346061, -0.205992, 0.479396, 0.296223, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 

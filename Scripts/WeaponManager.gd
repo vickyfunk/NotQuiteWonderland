@@ -297,7 +297,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
-	print("shots_in_burst: ", shots_in_burst, ", Shots_Until_Controlled: ", Current_Weapon.Shots_Until_Controlled)
+	#print("shots_in_burst: ", shots_in_burst, ", Shots_Until_Controlled: ", Current_Weapon.Shots_Until_Controlled)
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	z_travel = z_position_prerecoil - position.z
