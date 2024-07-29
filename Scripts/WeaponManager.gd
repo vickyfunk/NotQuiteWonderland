@@ -6,6 +6,7 @@ signal Update_Weapon_Stack
 
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
+@onready var Aiming_Point = get_node("%Bullet_Point/Aiming_Point")
 
 @export var shoot_audio_player: AudioStreamPlayer3D
 @export var reload_audio_player: AudioStreamPlayer3D
@@ -121,8 +122,8 @@ func _process(delta):
 		if current_time < 0.32: #I.e. if it's been less than .32 seconds since we fired the gun
 			current_time += delta
 			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
-			#Offset the Bullet_Point on the z axis by precisely how far the gun has kicked back so far
-			Bullet_Point.position.z = -position.z
+			#Offset the Aiming_Point on the z axis by precisely how far the gun has kicked back so far
+			Aiming_Point.position.z = -position.z
 			z_travel = z_position_prerecoil - position.z
 			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
 			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
@@ -144,7 +145,7 @@ func _process(delta):
 					z_position_prerecoil = null
 				else:
 					position.z = lerp(position.z, z_position_prerecoil, 20 * delta)
-					Bullet_Point.position.z = -position.z
+					Aiming_Point.position.z = -position.z
 		
 		if current_time > 0.2:
 			wrist.rotation.x = lerp(wrist.rotation.x, 0.0, Current_Weapon.Handling * delta)	
@@ -329,10 +330,10 @@ func _on_reload_player_finished():
 
 func get_barrel_collision() -> Vector3: 
 	#var camera = get_viewport().get_camera_3d()
-	var ray_origin = Bullet_Point.get_global_position()
+	var ray_origin = Aiming_Point.get_global_position()
 	#var Ray_End = Ray_Origin + camera.project_ray_normal(viewport/2)*Current_Weapon.Weapon_Range
 	#Get a point our current weapon's range away from the barrel of the gun in the negative z direction of the barrel (forward)
-	var ray_end = ray_origin - Bullet_Point.global_transform.basis.z.normalized() * Current_Weapon.Weapon_Range
+	var ray_end = ray_origin - Aiming_Point.global_transform.basis.z.normalized() * Current_Weapon.Weapon_Range
 	var barrel_raycast = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
 	var intersection = get_world_3d().direct_space_state.intersect_ray(barrel_raycast)
 	
