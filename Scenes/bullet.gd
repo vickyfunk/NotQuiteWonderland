@@ -4,6 +4,7 @@ var shoot: bool = false
 var Damage: int = 0
 var Speed: float = 10.0
 var is_player_bullet: bool = false
+#@onready var tracer_trail: MeshInstance3D = get_node("TracerTrail")
 #@onready var tracer_emitter: GPUParticles3D = get_node("TracerParticleEmitter")
 #var time_since_particle: float = 0.0
 
@@ -18,6 +19,7 @@ func _physics_process(delta):
 		#time_since_particle = 0.0
 	if shoot:
 		apply_impulse(transform.basis.z, -transform.basis.z * Speed)
+	look_at(transform.origin + linear_velocity, Vector3.UP)
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") && is_player_bullet:

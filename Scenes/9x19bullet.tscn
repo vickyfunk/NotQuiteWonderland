@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqq7bfit4ltoo"]
+[gd_scene load_steps=13 format=3 uid="uid://cqq7bfit4ltoo"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_rbkh5"]
 [ext_resource type="Script" path="res://Scripts/Tracers.gd" id="2_yk5sq"]
+[ext_resource type="Script" path="res://Scripts/TracerEffect.gd" id="3_wc65u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f31ub"]
 resource_name = "BulletTip.001"
@@ -92,17 +93,26 @@ one_shot = true
 autostart = true
 
 [node name="TracerTrail" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_uwsa7")
 mesh = SubResource("ImmediateMesh_2vjlg")
 script = ExtResource("2_yk5sq")
 
 [node name="TracerParticleEmitter" type="GPUParticles3D" parent="."]
+visible = false
 collision_base_size = 0.87
 visibility_aabb = AABB(-2.39127, -1.30252, -1.91249, 4.78254, 2.60505, 3.82498)
 trail_enabled = true
 trail_lifetime = 0.81
 process_material = SubResource("ParticleProcessMaterial_8t3rj")
 draw_pass_1 = SubResource("RibbonTrailMesh_ewws2")
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+script = ExtResource("3_wc65u")
+_motionDelta = 0.05
+_lifespan = 0.3
+_startColor = Color(0.45098, 0.439216, 0.0352941, 1)
+_endColor = Color(0.45098, 0.439216, 0.0352941, 0.388235)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

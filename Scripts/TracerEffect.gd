@@ -6,8 +6,8 @@ var _lifePoints = [] #stores trails point lifespans
 
 @export var _trailEnabled : bool = true #is trail shown
 
-@export var _fromWidth : float = 0.2 #start width 
-@export var _toWidth : float = 0.0 #end width
+@export var _fromWidth : float = 0.0 #start width 
+@export var _toWidth : float = 0.2 #end width
 @export_range(0.5, 1.5) var _scaleAcceleration : float = 1.0 #speed of scaling
 
 @export var _motionDelta : float = 0.1 #sets smoothness of trail, how long b4 new trail piece made
@@ -17,13 +17,17 @@ var _lifePoints = [] #stores trails point lifespans
 @export var _endColor : Color = Color(1.0, 1.0, 1.0, 1.0)
 
 var _oldPos : Vector3 #last position of node
-
+var mat: StandardMaterial3D = StandardMaterial3D.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Tracer Trail ready called")
 	_oldPos = get_global_transform().origin
 	mesh = ImmediateMesh.new()
+	mat.vertex_color_use_as_albedo = true
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	set_material_override(mat)
 
 func AppendPoint():
 	_points.append(get_global_transform().origin)
@@ -61,7 +65,7 @@ func _process(delta):
 	if _points.size() < 2:
 		return
 	
-	mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
+	mesh.surface_begin(Mesh.PRIMITIVE_LINE_STRIP)
 	for i in range(_points.size()):
 		var t = float(i) / (_points.size() - 1.0)
 		var currColor = _startColor.lerp(_endColor, 1 - t)

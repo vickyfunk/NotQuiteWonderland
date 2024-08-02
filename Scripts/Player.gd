@@ -60,7 +60,7 @@ func _process(_delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
-	print("get_viewport().get_size()/2=", get_viewport().get_size()/2, ", Vector2i(Aiming_Crosshair.size/2)=", Vector2i(Aiming_Crosshair.size/2))
+	#print("get_viewport().get_size()/2=", get_viewport().get_size()/2, ", Vector2i(Aiming_Crosshair.size/2)=", Vector2i(Aiming_Crosshair.size/2))
 	#Aiming_Crosshair.position = get_viewport().get_size()/2 #- Vector2i(Aiming_Crosshair.size/2)
 
 func _unhandled_input(event):
