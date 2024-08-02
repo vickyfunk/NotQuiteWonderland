@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://buqjj0a8y4lw8"]
+[gd_scene load_steps=7 format=3 uid="uid://buqjj0a8y4lw8"]
 
 [ext_resource type="Script" path="res://Scenes/bullet.gd" id="1_1vbpc"]
+[ext_resource type="Script" path="res://Scripts/TracerEffect.gd" id="2_84eyt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yllqk"]
 resource_name = "Bullet2"
@@ -67,6 +68,13 @@ shape = SubResource("CapsuleShape3D_ertui")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Trail3D" type="MeshInstance3D" parent="."]
+script = ExtResource("2_84eyt")
+_motionDelta = 0.05
+_lifespan = 0.3
+_startColor = Color(0.45098, 0.439216, 0.0352941, 1)
+_endColor = Color(0.45098, 0.439216, 0.0352941, 0.388235)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
