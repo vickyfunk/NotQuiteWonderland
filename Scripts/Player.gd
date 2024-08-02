@@ -2,20 +2,38 @@ extends CharacterBody3D
 
 signal Update_Velocity
 
+var total_directional_input: Vector3
 var speed: float
 var sprinting = false
-var remaining_dash_duration: float = 0.0
+#var remaining_dash_duration: float = 0.0
 var jumps_since_grounded: int = 0
 @export var AIR_SPEED = 2.5
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 10.0
+@export var TIME_TO_FULL_SPEED = 0.5
 @export var DASH_SPEED = 30.0
-const JUMP_VELOCITY = 4.8
+@export var DASH_DURATION = 0.1
+@export var JUMP_VELOCITY = 4.8
+@export var FRICTION = 0.5
+@export var DRAG = 0.3
 @export var SENSITIVITY = 0.004
 #bob variables
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
 var t_bob = 0.0
+
+# An Acc_Ticket stores the remaining acceleration to be imparted from a continual
+# acceleration as well as its remaining duration
+class Acc_Ticket:
+	var acc: Vector3
+	var time_to_apply: float
+	func _init(_acc: Vector3, _time_to_apply: float = 0.0):
+		acc = _acc
+		time_to_apply = _time_to_apply
+
+# This is our stack of Acc_Tickets
+var acc_tickets: Array[Acc_Ticket] = []
+
 
 #fov variables
 const BASE_FOV = 90.0
@@ -82,14 +100,23 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		#velocity.y -= gravity * delta
+		queue_accelerate(Vector3.DOWN * gravity * delta)
 	else:
 		jumps_since_grounded = 0
 
 	# Handle Jump, including allowing for double jump if player has upgrade
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor() or (character_data.upgrades.double_jump and jumps_since_grounded < 2):
-			velocity.y = JUMP_VELOCITY
+		# Should you be able to single jump in the air if you walk off an edge and don't have dbl jump?
+		# I concluded yes
+		# I also figured that this should be a case where player input can zero out prior momentum
+		# in a direction
+		if jumps_since_grounded < 1 + (character_data.upgrades.double_jump as int):
+			#velocity.y = JUMP_VELOCITY
+			var jump_vector = Vector3.UP * JUMP_VELOCITY
+			if velocity.y < 0:
+				jump_vector += Vector3.DOWN * velocity.y
+			queue_accelerate(jump_vector)
 			jumps_since_grounded += 1
 	
 	# Handle Sprint.
@@ -100,7 +127,7 @@ func _physics_process(delta):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
-		
+	
 	# Get the input direction 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (horiz_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -119,51 +146,69 @@ func _physics_process(delta):
 			else:   
 				# default to the (flat) direction the camera is aiming
 				dash_dir = (horiz_head.transform.basis * Vector3(0,0,-1)).normalized()
-			remaining_dash_duration = 0.1
+			#remaining_dash_duration = 0.1
+			queue_accelerate(dash_dir * DASH_SPEED, DASH_DURATION)
 	
+	var directional_input_difference = direction * speed - total_directional_input
+	var net_di = directional_input_difference * directional_input_difference.length()  * delta
+	total_directional_input += net_di
+	queue_accelerate(net_di)
+	
+	# temporary acc_tickets stack for holding tickets we want to push back on the master stack
+	# to avoid using overly costly pop_front() and push_front() 
+	var temp_acc_tickets: Array[Acc_Ticket] = []
+	
+	# go through the acc_tickets stack and apply each one with accelerate(ticket, delta)
+	# while using accelerate's return value to determine if the ticket should go back on the stack
+	for i in acc_tickets.size():
+		var ticket = acc_tickets.pop_back()
+		
+		# if this Acc_Ticket's time_to_apply is 0'd out (meaning true_delta==ticket.time_to_apply)
+		# then the ticket is finished and gets dumped. otherwise, push it to the temporary stack
+		if accelerate(ticket, delta):
+			temp_acc_tickets.push_back(ticket)
+	
+	# put the tickets back on the stack!
+	for i in temp_acc_tickets.size():
+		acc_tickets.push_back(temp_acc_tickets.pop_back())
+		
 	# Handle the movement/deceleration, and dashing, if relevant.
 	# Todo:
 	# [x] solved! fix the "aiming more vertically makes you move slower" issue
 	# [ ] try to refactor to make this more "additively physics based" i.e. create a velocity summation system
-	if remaining_dash_duration > 0.0:
-		#velocity.x = dash_dir.x * DASH_SPEED
-		#velocity.z = dash_dir.z * DASH_SPEED
-		velocity.x += dash_dir.x * DASH_SPEED * delta * 10.0
-		velocity.z += dash_dir.z * DASH_SPEED * delta * 10.0
-		remaining_dash_duration -= delta
+	#if remaining_dash_duration > 0.0:
+	#	#velocity.x = dash_dir.x * DASH_SPEED
+	#	#velocity.z = dash_dir.z * DASH_SPEED
+	#	velocity.x += dash_dir.x * DASH_SPEED * delta * 10.0
+	#	velocity.z += dash_dir.z * DASH_SPEED * delta * 10.0
+	#	remaining_dash_duration -= delta
+	#else:
+	
+	var resistance_force = FRICTION if is_on_floor() else DRAG
+	# The below equation is based on the one for drag irl, with the full equation
+	# being the same but multiplied by velocity.length()
+	var resistance_vector = -velocity.normalized() * resistance_force * delta
+	if is_on_floor():
+		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+		
+		#figure out how long we should wait between step soundds, scaled inverse to speed, 
+		#with hard clamp limits of 0.1 minimum and 2.0 maximum
+		var time_bw_steps_current = clamp(time_bw_steps_walking * WALK_SPEED / Vector2(velocity.x,velocity.z).length(), 0.1, 2.0)
+		#print("time_bw_steps_current: ", time_bw_steps_current)
+		
+		#see if we are still moving while on the ground and if enough time has elapsed since 
+		#last footstep sound, scaled to current speed. If so, play footstep sound
+		if direction and time_bw_steps_current - time_since_step <= 0.0:
+			footstep_manager.play()
+			time_since_step = 0.0
+		
 	else:
-		if is_on_floor():
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-			
-			#figure out how long we should wait between step soundds, scaled inverse to speed, 
-			#with hard clamp limits of 0.1 minimum and 2.0 maximum
-			var time_bw_steps_current = clamp(time_bw_steps_walking * WALK_SPEED / Vector2(velocity.x,velocity.z).length(), 0.1, 2.0)
-			#print("time_bw_steps_current: ", time_bw_steps_current)
-			
-			#see if we are still moving while on the ground and if enough time has elapsed since 
-			#last footstep sound, scaled to current speed. If so, play footstep sound
-			if direction and time_bw_steps_current - time_since_step <= 0.0:
-				footstep_manager.play()
-				time_since_step = 0.0
-				
-			#if direction:
-			#	velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			#	velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-			#else:
-			#	velocity.x = 0
-			#	velocity.z = 0
-			
-			#if direction:
-			#	velocity.x = direction.x * speed
-			#	velocity.z = direction.z * speed
-			#else:
-			#	print("not direction, direction.x * speed = ", direction.x*speed, " direction.z * speed = ", direction.z * speed)
-			#	velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			#	velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		resistance_vector *= velocity.length_squared()
+		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+	
+	queue_accelerate(resistance_vector)
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -210,3 +255,27 @@ func weapon_bob(vel: float, delta):
 		else:
 			weapon_holder.position.y = lerp(weapon_holder.position.y, default_weapon_holder_pos.y, 10 * delta)
 			weapon_holder.position.x = lerp(weapon_holder.position.x, default_weapon_holder_pos.x, 10 * delta)
+
+# acc should be relative acceleration
+# time_to_apply is how long it should take to apply the full acceleration,
+# leave time_to_apply blank if you want instant acceleration
+func queue_accelerate(acc: Vector3, time_to_apply: float = 0.0):
+	var ticket = Acc_Ticket.new(acc, time_to_apply)
+	if ticket.time_to_apply:
+		acc_tickets.push_back(ticket)
+	else:
+		accelerate(ticket)
+
+# returns true if the ticket should be pushed back onto the ticket stack
+func accelerate(ticket: Acc_Ticket, delta: float = 0.0) -> bool:
+	if ticket.time_to_apply:
+		var true_delta = min(delta, ticket.time_to_apply)
+		var acc_to_impart = true_delta / ticket.time_to_apply * ticket.acc
+		velocity += acc_to_impart
+		ticket.acc -= acc_to_impart
+		ticket.time_to_apply -= true_delta
+	# i.e. if instantaneous
+	else:
+		velocity += ticket.acc
+		
+	return ticket.time_to_apply
