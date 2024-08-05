@@ -9,4 +9,4 @@ func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Posi
 	if Health <= 0:
 		queue_free()
 	if _Direction != Vector3.ZERO:
-		apply_impulse((_Direction * (0.1 * Damage)), Hit_Position)
+		apply_impulse((_Direction * (0.1 * Impact)), Hit_Position)
