@@ -7,6 +7,8 @@ var speed: float
 var sprinting = false
 #var remaining_dash_duration: float = 0.0
 var jumps_since_grounded: int = 0
+#note that AIR_SPEED is currently used for nothing, the effects of drag vs
+#friction are what currently makes grounded and in-air motion different
 @export var AIR_SPEED = 2.5
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 10.0
@@ -14,8 +16,8 @@ var jumps_since_grounded: int = 0
 @export var DASH_SPEED = 30.0
 @export var DASH_DURATION = 0.1
 @export var JUMP_VELOCITY = 4.8
-@export var FRICTION = 0.5
-@export var DRAG = 0.3
+@export var FRICTION = 1.3
+@export var DRAG = 0.05
 @export var SENSITIVITY = 0.004
 #bob variables
 const BOB_FREQ = 2.4
@@ -149,9 +151,10 @@ func _physics_process(delta):
 			#remaining_dash_duration = 0.1
 			queue_accelerate(dash_dir * DASH_SPEED, DASH_DURATION)
 	
-	var directional_input_difference = direction * speed - total_directional_input
-	var net_di = directional_input_difference * directional_input_difference.length()  * delta
-	total_directional_input += net_di
+	#var directional_input_difference = direction * speed - total_directional_input
+	#var net_di = directional_input_difference * directional_input_difference.length()  * delta
+	#total_directional_input += net_di
+	var net_di = direction * speed * delta
 	queue_accelerate(net_di)
 	
 	# temporary acc_tickets stack for holding tickets we want to push back on the master stack
@@ -184,10 +187,11 @@ func _physics_process(delta):
 	#	remaining_dash_duration -= delta
 	#else:
 	
-	var resistance_force = FRICTION if is_on_floor() else DRAG
 	# The below equation is based on the one for drag irl, with the full equation
 	# being the same but multiplied by velocity.length()
-	var resistance_vector = -velocity.normalized() * resistance_force * delta
+	var friction_vector = -velocity.normalized() * FRICTION * delta
+	var drag_vector = -velocity * velocity.length() * DRAG * delta
+
 	if is_on_floor():
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
@@ -199,16 +203,34 @@ func _physics_process(delta):
 		
 		#see if we are still moving while on the ground and if enough time has elapsed since 
 		#last footstep sound, scaled to current speed. If so, play footstep sound
-		if direction and time_bw_steps_current - time_since_step <= 0.0:
-			footstep_manager.play()
-			time_since_step = 0.0
+		if direction:
+			var dot_product = direction.dot(velocity.normalized())
+			if dot_product < 0.0:
+				#queue_accelerate(velocity * dot_product * 4.0 * delta)
+				queue_accelerate(-velocity.length() * direction * dot_product * 4.0 * delta)
+			if time_bw_steps_current - time_since_step <= 0.0:
+				footstep_manager.play()
+				time_since_step = 0.0
+		else:
+			queue_accelerate(-velocity*2.0*delta)
 		
 	else:
-		resistance_vector *= velocity.length_squared()
+		friction_vector *= 0.0
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
+	print("friction_vector: ", friction_vector, ", length = ", friction_vector.length())
+	print("drag_vector: ", drag_vector, ", length = ", drag_vector.length())
+	var resistance_vector = friction_vector + drag_vector
+	print("resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
+	var resistance_ratio = velocity.length() / resistance_vector.length()
+	print("resistance_ratio: ", resistance_ratio)
+	# this resistance_ratio conditional multiplication ensures that if the resistance ends up 
+	# larger than even the velocity vector it will do no more than neutralize all velocity entirely
+	resistance_vector *= resistance_ratio if resistance_ratio < 1.0 else 1.0
+	print("final resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
 	queue_accelerate(resistance_vector)
+	
+	#velocity *= 0.0 if velocity.length() < 0.3 else 1.0
 	
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -258,13 +280,16 @@ func weapon_bob(vel: float, delta):
 
 # acc should be relative acceleration
 # time_to_apply is how long it should take to apply the full acceleration,
-# leave time_to_apply blank if you want instant acceleration
+# leave time_to_apply blank if you want instant acceleration (it will call accelerate right then 
+# and there) without waiting for the queue to go through
+# make acc be null length to have it do nothing automatically
 func queue_accelerate(acc: Vector3, time_to_apply: float = 0.0):
-	var ticket = Acc_Ticket.new(acc, time_to_apply)
-	if ticket.time_to_apply:
-		acc_tickets.push_back(ticket)
-	else:
-		accelerate(ticket)
+	if acc:
+		var ticket = Acc_Ticket.new(acc, time_to_apply)
+		if ticket.time_to_apply:
+			acc_tickets.push_back(ticket)
+		else:
+			accelerate(ticket)
 
 # returns true if the ticket should be pushed back onto the ticket stack
 func accelerate(ticket: Acc_Ticket, delta: float = 0.0) -> bool:
