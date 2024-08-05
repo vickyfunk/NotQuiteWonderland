@@ -2,7 +2,7 @@ extends RigidBody3D
 
 var Health = 500
 
-func Hit_Successful(Damage, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
+func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
 	var Hit_Position = _Position - get_global_transform().origin
 	Health -= Damage
 	print("Target Health: " + str(Health))

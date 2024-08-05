@@ -1,7 +1,9 @@
 extends RigidBody3D
 
 var shoot: bool = false
-var Damage: int = 0
+var Damage: float = 0.0
+var Impact: float = 0.0
+var Pen_Rating: float = 0.0
 var Speed: float = 10.0
 var is_player_bullet: bool = false
 #@onready var tracer_trail: MeshInstance3D = get_node("TracerTrail")
@@ -25,7 +27,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player") && is_player_bullet:
 		return
 	if body.is_in_group("Target") && body.has_method("Hit_Successful"):
-		body.Hit_Successful(Damage)
+		body.Hit_Successful(Damage, Impact, Pen_Rating)
 		print("Hit Successful")
 	
 	queue_free()

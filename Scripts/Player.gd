@@ -304,3 +304,14 @@ func accelerate(ticket: Acc_Ticket, delta: float = 0.0) -> bool:
 		velocity += ticket.acc
 		
 	return ticket.time_to_apply
+
+func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
+	var Hit_Position = _Position - get_global_transform().origin
+	# take damage here (not implemented yet)
+	if unit_data.health <= 0:
+		die()
+	if _Direction != Vector3.ZERO:
+		queue_accelerate(_Direction * 0.1 * Impact)
+
+func die():
+	print("you died lolololololol")
