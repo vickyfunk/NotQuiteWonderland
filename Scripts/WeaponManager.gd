@@ -44,6 +44,7 @@ var time_since_release: float = 0.16
 var alt_fires: Array[Callable] = [\
 func():
 	#Glock's alt fire
+	wrist.rotation_degrees.z = 90.0 if wrist.rotation_degrees.z == 0.0 else 0.0
 	print("Glock alt fired")
 ,func():
 	#Tantal's alt fire
