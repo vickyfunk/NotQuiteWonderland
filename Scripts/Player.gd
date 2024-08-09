@@ -11,7 +11,7 @@ var jumps_since_grounded: int = 0
 #friction are what currently makes grounded and in-air motion different
 @export var AIR_SPEED = 2.5
 @export var WALK_SPEED = 5.0
-@export var SPRINT_SPEED = 10.0
+@export var SPRINT_SPEED = 14.0
 @export var TIME_TO_FULL_SPEED = 0.5
 @export var DASH_SPEED = 30.0
 @export var DASH_DURATION = 0.1
@@ -155,7 +155,9 @@ func _physics_process(delta):
 	#var net_di = directional_input_difference * directional_input_difference.length()  * delta
 	#total_directional_input += net_di
 	var net_di = direction * speed * delta
+	net_di *= 3.0 if velocity.length() < 1.0 else 2.0 if velocity.length() < 2.0 else 1.0
 	queue_accelerate(net_di)
+	#print("net_di = ", net_di, ", length = ", net_di.length(), ", adjusted length = ", net_di.length()/delta)
 	
 	# temporary acc_tickets stack for holding tickets we want to push back on the master stack
 	# to avoid using overly costly pop_front() and push_front() 
@@ -191,6 +193,8 @@ func _physics_process(delta):
 	# being the same but multiplied by velocity.length()
 	var friction_vector = -velocity.normalized() * FRICTION * delta
 	var drag_vector = -velocity * velocity.length() * DRAG * delta
+	
+	var counter_strafe_vector = Vector3.ZERO
 
 	if is_on_floor():
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
@@ -207,29 +211,34 @@ func _physics_process(delta):
 			var dot_product = direction.dot(velocity.normalized())
 			if dot_product < 0.0:
 				#queue_accelerate(velocity * dot_product * 4.0 * delta)
-				queue_accelerate(-velocity.length() * direction * dot_product * 4.0 * delta)
+				counter_strafe_vector = -velocity.length() * direction * dot_product * 4.0 * delta
+				#queue_accelerate(-velocity.length() * direction * dot_product * 4.0 * delta)
 			if time_bw_steps_current - time_since_step <= 0.0:
 				footstep_manager.play()
 				time_since_step = 0.0
 		else:
-			queue_accelerate(-velocity*2.0*delta)
+			counter_strafe_vector = -velocity * 2.0 * delta
+			#queue_accelerate(-velocity*2.0*delta)
 		
 	else:
 		friction_vector *= 0.0
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	print("friction_vector: ", friction_vector, ", length = ", friction_vector.length())
-	print("drag_vector: ", drag_vector, ", length = ", drag_vector.length())
+	print("friction_vector: ", friction_vector, ", length = ", friction_vector.length(), ", adjusted length = ", friction_vector.length()/delta)
+	print("drag_vector: ", drag_vector, ", length = ", drag_vector.length(), ", adjusted length = ", drag_vector.length()/delta)
 	var resistance_vector = friction_vector + drag_vector
-	print("resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
+	print("resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length(), ", adjusted length = ", resistance_vector.length()/delta)
 	var resistance_ratio = velocity.length() / resistance_vector.length()
 	print("resistance_ratio: ", resistance_ratio)
 	# this resistance_ratio conditional multiplication ensures that if the resistance ends up 
 	# larger than even the velocity vector it will do no more than neutralize all velocity entirely
 	resistance_vector *= resistance_ratio if resistance_ratio < 1.0 else 1.0
 	print("final resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
+	print("velocity pre-resistance: ", velocity, ", length = ", velocity.length())
 	queue_accelerate(resistance_vector)
-	
+	print("velocity post-resistance: ", velocity, ", length = ", velocity.length())
+	queue_accelerate(counter_strafe_vector)
+	print("final velocity: ", velocity, ", length = ", velocity.length())
 	#velocity *= 0.0 if velocity.length() < 0.3 else 1.0
 	
 	# Head bob

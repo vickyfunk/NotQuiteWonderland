@@ -596,6 +596,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder", "Aiming_Crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
+DRAG = 0.03
 footstep_manager = NodePath("FootstepPlayer")
 character_data = ExtResource("2_ap8nn")
 unit_data = SubResource("Resource_2kkn5")
