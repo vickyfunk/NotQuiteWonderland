@@ -17,6 +17,7 @@ signal Update_Weapon_Stack
 @export var recoil_lerp_speed: float = 1
 
 var empty_reload: bool = false
+var glock_rotated: bool = false
 
 var target_rot: Vector3
 var target_pos: Vector3
@@ -44,7 +45,8 @@ var time_since_release: float = 0.16
 var alt_fires: Array[Callable] = [\
 func():
 	#Glock's alt fire
-	wrist.rotation_degrees.z = 90.0 if wrist.rotation_degrees.z == 0.0 else 0.0
+	wrist.rotation_degrees.z = 0.0 if glock_rotated else 90.0
+	glock_rotated = not glock_rotated
 	print("Glock alt fired")
 ,func():
 	#Tantal's alt fire
@@ -95,6 +97,9 @@ func Initialize(_start_weapons: Array):
 	enter()
 
 func enter():
+	if glock_rotated:
+		wrist.rotation.z = 0.0
+		glock_rotated = false
 	Animation_Player.queue(Current_Weapon.Draw_Anim)
 	shoot_audio_player.stream = Current_Weapon.Shoot_Sound
 	emit_signal("Weapon_Changed", Current_Weapon.Weapon_Name)
