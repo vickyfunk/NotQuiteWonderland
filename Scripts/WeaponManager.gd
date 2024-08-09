@@ -45,7 +45,14 @@ var time_since_release: float = 0.16
 var alt_fires: Array[Callable] = [\
 func():
 	#Glock's alt fire
-	wrist.rotation_degrees.z = 0.0 if glock_rotated else 90.0
+	if glock_rotated:
+		wrist.rotation_degrees.z = 0.0
+		wrist.rotation.x = wrist.rotation.y
+		wrist.rotation.y = 0.0
+	else:
+		wrist.rotation_degrees.z = 90.0
+		wrist.rotation.y = wrist.rotation.x
+		wrist.rotation.x = 0.0
 	glock_rotated = not glock_rotated
 	print("Glock alt fired")
 ,func():
@@ -150,7 +157,10 @@ func _process(delta):
 			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
 			#also made this one be head rotation specifically so you get camera kick
 			#Todo: make this also have some element of pure gun kick
-			wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
+			if glock_rotated:
+				wrist.rotation.y = lerp(wrist.rotation.y, target_rot.x, 2 * recoil_lerp_speed * delta)
+			else:
+				wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 			#vert_head.rotation.x = lerp(vert_head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 			#rotation.x = lerp(rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
 			
@@ -169,7 +179,10 @@ func _process(delta):
 					Aiming_Point.position.z = -z_position_prerecoil
 		
 		if current_time > 0.2:
-			wrist.rotation.x = lerp(wrist.rotation.x, 0.0, Current_Weapon.Handling * delta)	
+			if glock_rotated:
+				wrist.rotation.y = lerp(wrist.rotation.y, 0.0, Current_Weapon.Handling * delta)	
+			else:
+				wrist.rotation.x = lerp(wrist.rotation.x, 0.0, Current_Weapon.Handling * delta)	
 		if Input.is_action_pressed("shoot"):
 			time_since_release = 0.0
 		if time_since_release < 0.1:
