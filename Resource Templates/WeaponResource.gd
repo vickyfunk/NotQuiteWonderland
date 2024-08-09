@@ -42,3 +42,5 @@ class_name Weapon_Resource
 @export var recoil_position_z: Curve
 @export var recoil_amplitude := Vector3(1,1,1)
 @export var max_z_travel: float
+
+@export var alt_fire_index: int

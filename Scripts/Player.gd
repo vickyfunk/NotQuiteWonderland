@@ -224,21 +224,21 @@ func _physics_process(delta):
 		friction_vector *= 0.0
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		#velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	print("friction_vector: ", friction_vector, ", length = ", friction_vector.length(), ", adjusted length = ", friction_vector.length()/delta)
-	print("drag_vector: ", drag_vector, ", length = ", drag_vector.length(), ", adjusted length = ", drag_vector.length()/delta)
+	#print("friction_vector: ", friction_vector, ", length = ", friction_vector.length(), ", adjusted length = ", friction_vector.length()/delta)
+	#print("drag_vector: ", drag_vector, ", length = ", drag_vector.length(), ", adjusted length = ", drag_vector.length()/delta)
 	var resistance_vector = friction_vector + drag_vector
-	print("resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length(), ", adjusted length = ", resistance_vector.length()/delta)
+	#print("resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length(), ", adjusted length = ", resistance_vector.length()/delta)
 	var resistance_ratio = velocity.length() / resistance_vector.length()
-	print("resistance_ratio: ", resistance_ratio)
+	#print("resistance_ratio: ", resistance_ratio)
 	# this resistance_ratio conditional multiplication ensures that if the resistance ends up 
 	# larger than even the velocity vector it will do no more than neutralize all velocity entirely
 	resistance_vector *= resistance_ratio if resistance_ratio < 1.0 else 1.0
-	print("final resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
-	print("velocity pre-resistance: ", velocity, ", length = ", velocity.length())
+	#print("final resistance_vector: ", resistance_vector, ", length = ", resistance_vector.length())
+	#print("velocity pre-resistance: ", velocity, ", length = ", velocity.length())
 	queue_accelerate(resistance_vector)
-	print("velocity post-resistance: ", velocity, ", length = ", velocity.length())
+	#print("velocity post-resistance: ", velocity, ", length = ", velocity.length())
 	queue_accelerate(counter_strafe_vector)
-	print("final velocity: ", velocity, ", length = ", velocity.length())
+	#print("final velocity: ", velocity, ", length = ", velocity.length())
 	#velocity *= 0.0 if velocity.length() < 0.3 else 1.0
 	
 	# Head bob

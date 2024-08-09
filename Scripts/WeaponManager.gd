@@ -41,6 +41,18 @@ var sway_lerp = 5
 var shots_in_burst: int = 0
 var time_since_release: float = 0.16
 
+var alt_fires: Array[Callable] = [\
+func():
+	#Glock's alt fire
+	print("Glock alt fired")
+,func():
+	#Tantal's alt fire
+	print("Tantal alt fired")
+,func():
+	#Laser rifle's alt fire
+	print("Laser Rifle alt fired")
+]
+
 @export var _weapon_resources: Array[Weapon_Resource]
 @export var Start_Weapons: Array[String] #weapons you start with
 
@@ -78,6 +90,7 @@ func Initialize(_start_weapons: Array):
 	for i in get_children(): #Hides the weapons even if left visible in the editor
 		if i is Node3D:
 			i.visible = false
+		
 	enter()
 
 func enter():
@@ -110,6 +123,8 @@ func _input(event):
 		shoot()
 	if event.is_action_released("shoot"):
 		release()
+	if event.is_action_pressed("alt_fire"):
+		alt_fire()
 
 func exit(_next_weapon: String):
 	if _next_weapon != Current_Weapon.Weapon_Name:
@@ -157,6 +172,7 @@ func _process(delta):
 			shots_in_burst -= 1
 			time_since_release = 0.0
 			
+	
 
 
 
@@ -342,3 +358,6 @@ func get_barrel_collision() -> Vector3:
 		return collision_point
 	else:
 		return ray_end
+
+func alt_fire():
+	alt_fires[Current_Weapon.alt_fire_index].call()

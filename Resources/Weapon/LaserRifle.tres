@@ -41,3 +41,4 @@ recoil_rotation_z = ExtResource("1_gajx5")
 recoil_position_z = ExtResource("1_gajx5")
 recoil_amplitude = Vector3(0, 0, 0)
 max_z_travel = 0.0
+alt_fire_index = 2

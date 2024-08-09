@@ -44,3 +44,4 @@ recoil_rotation_z = ExtResource("2_4tk30")
 recoil_position_z = ExtResource("2_4tk30")
 recoil_amplitude = Vector3(0.1, 1, 1)
 max_z_travel = 0.1
+alt_fire_index = 1
