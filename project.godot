@@ -32,6 +32,10 @@ project/assembly_name="NotQuiteWonderland"
 
 enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg", "res://addons/qodot/plugin.cfg")
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 forward={
