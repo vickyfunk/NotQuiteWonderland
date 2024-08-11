@@ -19,6 +19,7 @@ var jumps_since_grounded: int = 0
 @export var FRICTION = 1.3
 @export var DRAG = 0.05
 @export var SENSITIVITY = 0.004
+@export var VELOCITY_ROTATION_SENSITIVITY = 3.14
 #bob variables
 const BOB_FREQ = 2.4
 const BOB_AMP = 0.08
@@ -195,6 +196,17 @@ func _physics_process(delta):
 	var drag_vector = -velocity * velocity.length() * DRAG * delta
 	
 	var counter_strafe_vector = Vector3.ZERO
+	var dot_product = Vector3.ZERO
+	# this dot_product is used to detect the angle the player is trying to move at relative to current
+	# velocity, allowing for quick cancellation of current velocity with obtuse angles and for 
+	# gradual rotation of the velocity vector with acute angles. we calculate dot_product here once
+	# to save on calculations since we may need this dot_product in the air too
+	# same for normalized_velocity_flat
+	var normalized_flat_velocity = Vector3(velocity.x, 0, velocity.z).normalized()
+	if direction:
+		dot_product = direction.dot(normalized_flat_velocity)
+		
+
 
 	if is_on_floor():
 		#velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
@@ -205,14 +217,23 @@ func _physics_process(delta):
 		var time_bw_steps_current = clamp(time_bw_steps_walking * 2.0 * WALK_SPEED / Vector2(velocity.x,velocity.z).length(), 0.1, 2.0)
 		#print("time_bw_steps_current: ", time_bw_steps_current)
 		
-		#see if we are still moving while on the ground and if enough time has elapsed since 
-		#last footstep sound, scaled to current speed. If so, play footstep sound
+
 		if direction:
-			var dot_product = direction.dot(velocity.normalized())
 			if dot_product < 0.0:
 				#queue_accelerate(velocity * dot_product * 4.0 * delta)
 				counter_strafe_vector = -velocity.length() * direction * dot_product * 4.0 * delta
 				#queue_accelerate(-velocity.length() * direction * dot_product * 4.0 * delta)
+			# If trying to move at a less than 90 degree angle to current velocity, rotate velocity
+			# in a manner scaling with how drastic the angle differential is
+			else:
+				# rotation_intensity scales from 1 at a 90 degree angle to 0 at a 0 degree angle
+				print("direction = ", direction, ", normalized_flat_velocity = ", normalized_flat_velocity)
+				var rotation_direction = -1.0 if direction.cross(normalized_flat_velocity).normalized() == Vector3.UP else 1.0
+				var rotation_intensity = 1 - dot_product
+				print("rotation_direction = ", rotation_direction, ", rotation_intensity = ", rotation_intensity)
+				rotate_velocity_2d(rotation_direction * rotation_intensity * delta)
+			#see if we are still moving while on the ground and if enough time has elapsed since 
+			#last footstep sound, scaled to current speed. If so, play footstep sound
 			if time_bw_steps_current - time_since_step <= 0.0:
 				footstep_manager.play()
 				time_since_step = 0.0
@@ -324,9 +345,18 @@ func add_constant_force(force: Vector3, position = Vector3.ZERO):
 func add_constant_torque(torque: Vector3):
 	pass
 	
-# applies positioned
+# applies positioned force to the body every physics update. cleared by 
+# applying an equal and opposite force at the same position
 func apply_force(force: Vector3, position = Vector3.ZERO):
 	pass
+
+# used to allow the player to redirect their velocity and perform a turn while
+# preserving momentum. this should let us make Alice feel less like a motorcycle.
+# angle is in radians (such that 2pi is a 360), and is automatically scaled by
+# our VELOCITY_ROTATION_SENSITIVITY setting. angle should be a product of delta,
+# i.e., rotate_velocity_2d should always be called with a parameter scaled on time elapsed
+func rotate_velocity_2d(angle: float):
+	velocity = velocity.rotated(Vector3.UP, VELOCITY_ROTATION_SENSITIVITY * angle)
 
 func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
 	var Hit_Position = _Position - get_global_transform().origin
