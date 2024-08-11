@@ -1,8 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c8dp8as4douxl"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c4df8vyf5lypr"]
 
 [ext_resource type="Texture2D" uid="uid://bilobfim0r32w" path="res://addons/qodot/textures/materials/grid_material.png" id="1"]
 
 [resource]
 albedo_texture = ExtResource("1")
-metallic = 1.0
+metallic = 0.17
 roughness = 0.5

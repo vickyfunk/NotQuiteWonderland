@@ -314,6 +314,20 @@ func accelerate(ticket: Acc_Ticket, delta: float = 0.0) -> bool:
 		
 	return ticket.time_to_apply
 
+# adds a constant positioned force applied over time until cleared by setting
+# constant_force = Vector3.ZERO. position is offset from body origin in global co-ords
+func add_constant_force(force: Vector3, position = Vector3.ZERO):
+	pass
+
+# applies constant rotational force not affecting position applied over time until
+# cleared by setting constant_torque = Vector3.ZERO
+func add_constant_torque(torque: Vector3):
+	pass
+	
+# applies positioned
+func apply_force(force: Vector3, position = Vector3.ZERO):
+	pass
+
 func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
 	var Hit_Position = _Position - get_global_transform().origin
 	# take damage here (not implemented yet)
