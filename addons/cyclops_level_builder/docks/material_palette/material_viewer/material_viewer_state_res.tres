@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_3sifp")
-active_material_path = "res://addons/qodot/textures/materials/grid_material.tres"
+active_material_path = "res://addons/cyclops_level_builder/materials/grid_material.tres"
