@@ -227,10 +227,10 @@ func _physics_process(delta):
 			# in a manner scaling with how drastic the angle differential is
 			else:
 				# rotation_intensity scales from 1 at a 90 degree angle to 0 at a 0 degree angle
-				print("direction = ", direction, ", normalized_flat_velocity = ", normalized_flat_velocity)
+				#print("direction = ", direction, ", normalized_flat_velocity = ", normalized_flat_velocity)
 				var rotation_direction = -1.0 if direction.cross(normalized_flat_velocity).normalized() == Vector3.UP else 1.0
 				var rotation_intensity = 1 - dot_product
-				print("rotation_direction = ", rotation_direction, ", rotation_intensity = ", rotation_intensity)
+				#print("rotation_direction = ", rotation_direction, ", rotation_intensity = ", rotation_intensity)
 				rotate_velocity_2d(rotation_direction * rotation_intensity * delta)
 			#see if we are still moving while on the ground and if enough time has elapsed since 
 			#last footstep sound, scaled to current speed. If so, play footstep sound
