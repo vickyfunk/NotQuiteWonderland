@@ -10,6 +10,8 @@ class_name Weapon_Resource
 @export var Draw_Anim: String
 @export var Holster_Anim: String
 @export var Empty_Anim: String
+@export var ADS_Anim: String
+@export var DeADS_Anim: String
 
 @export var Shoot_Sound: AudioStream
 @export var Reload_Sound_1: AudioStream

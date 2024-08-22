@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=10 format=3 uid="uid://cx2nt7k8xpo6w"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=11 format=3 uid="uid://cx2nt7k8xpo6w"]
 
 [ext_resource type="PackedScene" uid="uid://cqq7bfit4ltoo" path="res://Scenes/9x19bullet.tscn" id="1_dq573"]
+[ext_resource type="PackedScene" uid="uid://ddkf5ddd36le0" path="res://Assets/meshes/casings/9x19casing.glb" id="1_m51c8"]
 [ext_resource type="AudioStream" uid="uid://dl8xclpvu4lac" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 1.wav" id="2_3lsfe"]
 [ext_resource type="AudioStream" uid="uid://b03ghf46f8ssp" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/WAV/9mm Single.wav" id="2_pcwtf"]
 [ext_resource type="Curve" uid="uid://dq2jln7b8ivqi" path="res://Resources/Weapon/glock_recoil_z_curve.tres" id="2_qq61p"]
@@ -20,6 +21,8 @@ Tacload_Anim = ""
 Draw_Anim = "GlockDraw"
 Holster_Anim = "GlockHolster"
 Empty_Anim = "GlockEmpty"
+ADS_Anim = "GlockADS"
+DeADS_Anim = "GlockDeADS"
 Shoot_Sound = ExtResource("2_pcwtf")
 Reload_Sound_1 = ExtResource("2_3lsfe")
 Reload_Sound_2 = ExtResource("3_hs54y")
@@ -36,6 +39,7 @@ Weapon_Range = 1000
 Type = 2
 Projectile_to_Load = ExtResource("1_dq573")
 Projectile_Velocity = 50.0
+Casing_to_Load = ExtResource("1_m51c8")
 Casing_Velocity = 0
 Handling = 3.4
 Shots_Until_Controlled = 5

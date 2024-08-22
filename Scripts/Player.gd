@@ -228,6 +228,9 @@ func _physics_process(delta):
 			else:
 				# rotation_intensity scales from 1 at a 90 degree angle to 0 at a 0 degree angle
 				#print("direction = ", direction, ", normalized_flat_velocity = ", normalized_flat_velocity)
+				
+				#rotation_direction will be 1.0 if we need to rotate our velocity counter-clockwise, while
+				#rotation_direction == -1.0 means we need to rotate our velocity clockwise
 				var rotation_direction = -1.0 if direction.cross(normalized_flat_velocity).normalized() == Vector3.UP else 1.0
 				var rotation_intensity = 1 - dot_product
 				#print("rotation_direction = ", rotation_direction, ", rotation_intensity = ", rotation_intensity)

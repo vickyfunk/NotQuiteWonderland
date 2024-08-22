@@ -18,6 +18,7 @@ signal Update_Weapon_Stack
 
 var empty_reload: bool = false
 var glock_rotated: bool = false
+var is_ads: bool = false
 
 var target_rot: Vector3
 var target_pos: Vector3
@@ -138,6 +139,10 @@ func _input(event):
 		release()
 	if event.is_action_pressed("alt_fire"):
 		alt_fire()
+	if event.is_action_pressed("ads"):
+		ads()
+	if event.is_action_pressed("de_ads"):
+		de_ads()
 
 func exit(_next_weapon: String):
 	if _next_weapon != Current_Weapon.Weapon_Name:
@@ -380,3 +385,13 @@ func get_barrel_collision() -> Vector3:
 
 func alt_fire():
 	alt_fires[Current_Weapon.alt_fire_index].call()
+
+func ads():
+	if not is_ads and !Animation_Player.is_playing():
+		Animation_Player.play(Current_Weapon.ADS_Anim)
+		is_ads = true
+
+func de_ads():
+	if is_ads and !Animation_Player.is_playing():
+		Animation_Player.play(Current_Weapon.DeADS_Anim)
+		is_ads = false
