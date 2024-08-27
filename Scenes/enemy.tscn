@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b31t0ikuh6wof"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_nvp8j"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/leaf.gd" id="2_dj5hd"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_node.gd" id="3_etmxc"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_nvp8j")
+blackboard = NodePath("@Node@23525")
+actor = NodePath("..")
+
+[node name="Leaf" type="Node" parent="BeehaveTree"]
+script = ExtResource("2_dj5hd")
+
+[node name="BeehaveNode" type="Node" parent="."]
+script = ExtResource("3_etmxc")

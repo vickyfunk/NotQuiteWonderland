@@ -214,6 +214,7 @@ func _physics_process(delta):
 		
 		#figure out how long we should wait between step soundds, scaled inverse to speed, 
 		#with hard clamp limits of 0.1 minimum and 2.0 maximum
+		#TODO: Actually update this to be tuned to new real walking speeds
 		var time_bw_steps_current = clamp(time_bw_steps_walking * 2.0 * WALK_SPEED / Vector2(velocity.x,velocity.z).length(), 0.1, 2.0)
 		#print("time_bw_steps_current: ", time_bw_steps_current)
 		
