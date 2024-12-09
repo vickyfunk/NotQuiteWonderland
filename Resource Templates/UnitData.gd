@@ -19,6 +19,7 @@ func ready():
 
 func take_damage(damage: float, impact: float, pen_rating: float):
 	var net_pen = pen_rating - armor_rating
+	print("pen_rating: ", pen_rating, ", armor_rating: ", armor_rating)
 	var net_health_damage = 0.0
 	var net_armor_damage = 0.0
 	if net_pen < -1.5: #over 1.5 below
@@ -44,3 +45,5 @@ func take_damage(damage: float, impact: float, pen_rating: float):
 	armor_durability -= net_armor_damage
 	if armor_durability <= 0.0:
 		armor_rating = 0.0
+	print("took ", net_health_damage, " health dmg, ", net_armor_damage, " armor dmg, and have ", health, " health and ", luck, " luck left")
+

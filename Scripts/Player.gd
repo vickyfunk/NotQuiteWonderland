@@ -5,6 +5,7 @@ signal Update_Velocity
 var total_directional_input: Vector3
 var speed: float
 var sprinting = false
+var alive = true
 #var remaining_dash_duration: float = 0.0
 var jumps_since_grounded: int = 0
 #note that AIR_SPEED is currently used for nothing, the effects of drag vs
@@ -85,6 +86,8 @@ func _process(_delta):
 	#Aiming_Crosshair.position = get_viewport().get_size()/2 #- Vector2i(Aiming_Crosshair.size/2)
 
 func _unhandled_input(event):
+	if not alive:
+		return
 	if event is InputEventMouseMotion:
 		horiz_head.rotate_y(-event.relative.x * SENSITIVITY)
 		var head_x_rotation = vert_head.rotation.x - event.relative.y * SENSITIVITY
@@ -93,7 +96,8 @@ func _unhandled_input(event):
 		mouse_input = event.relative
 
 func _physics_process(delta):
-	
+	if not alive:
+		return
 	# Add time since last footstep sound, up to 2 seconds past the "time between" value as
 	# that is realistically more than enough even if the frequency varies with velocity
 	#print("time_since_step: ", time_since_step)
@@ -326,6 +330,7 @@ func queue_accelerate(acc: Vector3, time_to_apply: float = 0.0):
 			accelerate(ticket)
 
 # returns true if the ticket should be pushed back onto the ticket stack
+# i.e. if we have not yet applied all of the force we "ordered" with a ticket
 func accelerate(ticket: Acc_Ticket, delta: float = 0.0) -> bool:
 	if ticket.time_to_apply:
 		var true_delta = min(delta, ticket.time_to_apply)
@@ -364,7 +369,7 @@ func rotate_velocity_2d(angle: float):
 
 func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
 	var Hit_Position = _Position - get_global_transform().origin
-	# take damage here (not implemented yet)
+	unit_data.take_damage(Damage, Impact, Pen_Rating)
 	if unit_data.health <= 0:
 		die()
 	if _Direction != Vector3.ZERO:
@@ -372,3 +377,4 @@ func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Posi
 
 func die():
 	print("you died lolololololol")
+	alive = false

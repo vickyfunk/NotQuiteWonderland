@@ -311,6 +311,9 @@ func Launch_Projectile(Point: Vector3):
 	get_tree().current_scene.add_child(Projectile)
 	Projectile.transform = Bullet_Point.global_transform
 	Projectile.Damage = Current_Weapon.Damage
+	Projectile.Impact = Current_Weapon.Impact
+	Projectile.Pen_Rating = Current_Weapon.Pen_Rating
+	Projectile.Speed = Current_Weapon.Projectile_Velocity
 	#unsure if switching to impulses actually broke it but I rewrote the original code anyway and it definitely works
 	Projectile.set_linear_velocity(Direction * Current_Weapon.Projectile_Velocity)
 

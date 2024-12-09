@@ -1,5 +1,6 @@
 extends RigidBody3D
 
+#todo: probably condense all of these down into a "projectile data" packet
 var shoot: bool = false
 var Damage: float = 0.0
 var Impact: float = 0.0
@@ -27,7 +28,7 @@ func _on_body_entered(body):
 	if body.is_in_group("Player") && is_player_bullet:
 		return
 	if body.is_in_group("Target") && body.has_method("Hit_Successful"):
-		body.Hit_Successful(Damage, Impact, Pen_Rating)
+		body.Hit_Successful(Damage, Impact, Pen_Rating, get_global_transform().basis * Vector3.FORWARD, get_global_transform().origin)
 		print("Hit Successful")
 	
 	queue_free()

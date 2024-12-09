@@ -1,16 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://b31t0ikuh6wof"]
+[gd_scene load_steps=11 format=3 uid="uid://b31t0ikuh6wof"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_nvp8j"]
+[ext_resource type="Script" path="res://Resource Templates/Actor.gd" id="1_ptmm5"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/leaves/leaf.gd" id="2_dj5hd"]
+[ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="2_j4xey"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_node.gd" id="3_etmxc"]
+[ext_resource type="ArrayMesh" uid="uid://ctqp1drgsfptu" path="res://Assets/meshes/enemies/turret mg top.res" id="3_h70fk"]
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[sub_resource type="Resource" id="Resource_u7wrf"]
+script = ExtResource("2_j4xey")
+max_health = 100.0
+health = 100.0
+max_armor_durability = 25.0
+armor_durability = 25.0
+armor_rating = 1.0
+max_luck = 0.0
+luck = 0.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uswit"]
+points = PackedVector3Array(-0.000928323, 0.000820312, 0.00143651, -0.000547346, -0.00235397, 0.00308751, 0.000594654, -0.00235397, 0.00308751, -0.000801538, 0.0017095, 0.00562688, 0.00161111, 0.00196349, 0.00283345, 0.000848846, -0.00235397, 0.00562688, -0.00156349, -0.00197277, 0.00461105, -0.00156349, 0.00196349, 0.00283345, 0.00161111, -0.00146436, 0.00245278, 0.00161111, 0.00196349, 0.00461105, 0.000848846, -0.000956372, 0.00143651, -0.00156349, -0.00171835, 0.00257981, -0.000801538, -0.00235397, 0.00562688, 0.000848846, 0.000820312, 0.00588095, 0.00161111, -0.00197277, 0.00461105, -0.00156349, 0.00196349, 0.00461105, 0.000848846, 0.000947519, 0.00143651, -0.000928323, -0.000829587, 0.00588095, -0.000547346, -0.00108358, 0.00143651, -0.0011822, -0.000195238, 0.00143651, -0.000166368, 0.00120151, 0.00143651, 0.00110304, 0.000566319, 0.00143651, -0.0013093, -0.00235397, 0.00359565, 0.00161111, -0.00197277, 0.00283345, 0.000848846, 0.0017095, 0.00562688, -0.000928323, 0.000820312, 0.00588095, 0.000848846, -0.000829587, 0.00588095, 8.68914e-05, -0.00121037, 0.00143651, 0.00122982, -0.00235397, 0.00359565, -0.00156349, 0.00145551, 0.00245278, 0.00161111, 0.00145551, 0.00245278, 0.000975631, -0.000829587, 0.00575392)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5f2bs"]
+points = PackedVector3Array(0.000595139, -0.00324324, 0.0030873, 0.00034127, -0.00463924, 0.00549953, -0.000293551, -0.00463924, 0.00549953, -0.000547569, -0.00235434, 0.00537272, -0.000547569, -0.00527422, 0.00321458, -0.000674504, -0.00235434, 0.00321458, 0.000595139, -0.00235434, 0.00524567, 0.000595139, -0.00527422, 0.00321458, -0.000293551, -0.00616312, 0.00499182, 0.000595139, -0.00527422, 0.00524567, 0.000722222, -0.00235434, 0.00321458, -0.000547569, -0.00527422, 0.00537272, -0.000801587, -0.00260863, 0.00461091, 0.000214186, -0.00616312, 0.00448387, -0.000801587, -0.00324324, 0.00346868, -0.000420486, -0.00527422, 0.0030873, 0.000722222, -0.00260863, 0.00461091, -0.000547569, -0.00235434, 0.0030873, 8.72518e-05, -0.00616312, 0.00511863, 0.00034127, -0.00527422, 0.00549953, 0.000722222, -0.00324324, 0.00321458, 0.000468204, -0.00527422, 0.0030873, 0.000468204, -0.00235434, 0.00537272, -0.000293551, -0.00616312, 0.00448387, -0.000801587, -0.00235434, 0.00346868, -0.000293551, -0.00527422, 0.00549953, 0.000595139, -0.00235434, 0.0030873, -0.000801587, -0.00235434, 0.00461091, -0.000801587, -0.00324324, 0.00384958, -0.000674504, -0.00324324, 0.00321458, 0.000214186, -0.00616312, 0.00499182, 0.000722222, -0.00324324, 0.00384958)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5icsr"]
+radius = 0.595126
+height = 2.06967
+
+[node name="Turret Enemy" type="RigidBody3D" groups=["Target"]]
+script = ExtResource("1_ptmm5")
+unit_data = SubResource("Resource_u7wrf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.7749e-05, 500, 2.18557e-05, 0, -2.18557e-05, 500, 500, -3.7749e-05, -1.65006e-12, 0, 0, 0)
+mesh = ExtResource("3_h70fk")
+skeleton = NodePath("")
+
+[node name="_CollisionShape3D_29953" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.7749e-05, 500, 2.18557e-05, 0, -2.18557e-05, 500, 500, -3.7749e-05, -1.65006e-12, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_uswit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.7749e-05, 500, 2.18557e-05, 0, -2.18557e-05, 500, 500, -3.7749e-05, -1.65006e-12, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5f2bs")
 
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_nvp8j")
-blackboard = NodePath("@Node@23525")
+blackboard = NodePath("@Node@18169")
 actor = NodePath("..")
 
 [node name="Leaf" type="Node" parent="BeehaveTree"]
@@ -18,3 +54,7 @@ script = ExtResource("2_dj5hd")
 
 [node name="BeehaveNode" type="Node" parent="."]
 script = ExtResource("3_etmxc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.83506e-08, 2.25, 0, -2.25, -9.83506e-08, 0, 0, 0, 2.25, -0.899005, 1.84867, 0)
+shape = SubResource("CapsuleShape3D_5icsr")

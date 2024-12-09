@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8nox7tmllko6"
-path="res://.godot/imported/Tantal.glb-538ff91a54dac0f4cad3a68b8e11b4bd.scn"
+uid="uid://ftcvgkonqsw6"
+path="res://.godot/imported/Turret Gun.glb-9fb6b7385d702c4c0831ed646bd0375e.scn"
 
 [deps]
 
-source_file="res://Assets/Ultimate Guns Pack-glb/Tantal.glb"
-dest_files=["res://.godot/imported/Tantal.glb-538ff91a54dac0f4cad3a68b8e11b4bd.scn"]
+source_file="res://Assets/meshes/enemies/Turret Gun.glb"
+dest_files=["res://.godot/imported/Turret Gun.glb-9fb6b7385d702c4c0831ed646bd0375e.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"Root Scene_AssaultRifle_4": {
+"Root Scene_Turret_Gun_Base": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -39,9 +39,19 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/meshes/enemies/tantal turret.res"
+"save_to_file/path": "res://Assets/meshes/enemies/turret base.res"
+},
+"Root Scene_Turret_Gun_Top": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/meshes/enemies/turret mg top.res"
 }
 }
 }
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1
