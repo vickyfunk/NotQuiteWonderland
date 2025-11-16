@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://b31t0ikuh6wof"]
 
-[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_nvp8j"]
-[ext_resource type="Script" path="res://Resource Templates/Actor.gd" id="1_ptmm5"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/leaf.gd" id="2_dj5hd"]
-[ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="2_j4xey"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_node.gd" id="3_etmxc"]
+[ext_resource type="Script" uid="uid://c6p3n5yls8vra" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_nvp8j"]
+[ext_resource type="Script" uid="uid://tfa7tocivphk" path="res://Resource Templates/Actor.gd" id="1_ptmm5"]
+[ext_resource type="Script" uid="uid://b5n71eaewre24" path="res://addons/beehave/nodes/leaves/leaf.gd" id="2_dj5hd"]
+[ext_resource type="Script" uid="uid://dgshtbfugpgv6" path="res://Resource Templates/UnitData.gd" id="2_j4xey"]
+[ext_resource type="Script" uid="uid://dn2g2w8854eyp" path="res://addons/beehave/nodes/beehave_node.gd" id="3_etmxc"]
 [ext_resource type="ArrayMesh" uid="uid://ctqp1drgsfptu" path="res://Assets/meshes/enemies/turret mg top.res" id="3_h70fk"]
 
 [sub_resource type="Resource" id="Resource_u7wrf"]
@@ -46,7 +46,7 @@ shape = SubResource("ConvexPolygonShape3D_5f2bs")
 
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_nvp8j")
-blackboard = NodePath("@Node@18169")
+blackboard = NodePath("@Node@22228")
 actor = NodePath("..")
 
 [node name="Leaf" type="Node" parent="BeehaveTree"]

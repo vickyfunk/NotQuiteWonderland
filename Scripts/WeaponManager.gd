@@ -259,26 +259,28 @@ func reload():
 func tacload():
 	pass
 
-func Get_Camera_Collision()->Vector3:
-	var camera = get_viewport().get_camera_3d()
-	var viewport = get_viewport().get_size()
-	
-	var Ray_Origin = camera.project_ray_origin(viewport/2)
-	var Ray_End = Ray_Origin + camera.project_ray_normal(viewport/2)*Current_Weapon.Weapon_Range
-	
-	var New_Intersection = PhysicsRayQueryParameters3D.create(Ray_Origin, Ray_End)
-	New_Intersection.set_exclude(Collision_Exclusion)
-	var Intersection = get_world_3d().direct_space_state.intersect_ray(New_Intersection)
-	
-	if not Intersection.is_empty():
-		var Col_Point = Intersection.position
-		return Col_Point
-	else:
-		return Ray_End
+#this function seems entirely deprecated at this point, not sure we need this
+#commenting it out for now
+
+#func Get_Camera_Collision()->Vector3:
+#	#var camera = get_viewport().get_camera_3d()
+	#var viewport = get_viewport().get_size()
+	#
+	#var Ray_Origin = camera.project_ray_origin(viewport/2)
+	#var Ray_End = Ray_Origin + camera.project_ray_normal(viewport/2)*Current_Weapon.Weapon_Range
+	#
+	#var New_Intersection = PhysicsRayQueryParameters3D.create(Ray_Origin, Ray_End)
+	#New_Intersection.set_exclude(Collision_Exclusion)
+	#var Intersection = get_world_3d().direct_space_state.intersect_ray(New_Intersection)
+	#
+	#if not Intersection.is_empty():
+		#var Col_Point = Intersection.position
+		#return Col_Point
+	#else:
+		#return Ray_End
 
 func Hitscan_Collision(Collision_Point):
-	if Collision_Point:
-		pass
+	#if Collision_Point:
 		#print("Collision_Point is %s, trying to init tracer" % Collision_Point)
 		#print("Bullet_Point is %s" % Bullet_Point.get_global_transform().origin)
 		#Tracer.draw_tracer(Bullet_Point.get_global_transform().origin, Collision_Point)

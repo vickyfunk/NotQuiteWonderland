@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon_Resource" load_steps=10 format=3 uid="uid://5euoebwedfh4"]
 
-[ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="1_6dtwn"]
+[ext_resource type="Script" uid="uid://dxfg1bu181nno" path="res://Resource Templates/WeaponResource.gd" id="1_6dtwn"]
 [ext_resource type="PackedScene" uid="uid://mnbyghfnpqnc" path="res://Assets/meshes/casings/x39casing.glb" id="1_g1exn"]
 [ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
 [ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://Resources/Weapon/tantal_recoil_curve.tres" id="2_4tk30"]
@@ -20,6 +20,8 @@ Tacload_Anim = ""
 Draw_Anim = "TantalDraw"
 Holster_Anim = "TantalHolster"
 Empty_Anim = "TantalEmpty"
+ADS_Anim = ""
+DeADS_Anim = ""
 Shoot_Sound = ExtResource("2_7ndyx")
 Reload_Sound_1 = ExtResource("2_c20m8")
 Reload_Sound_2 = ExtResource("3_ge8w2")

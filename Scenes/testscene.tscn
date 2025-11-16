@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7vtk3ilx03sr" path="res://Assets/textures/Placeholder Grid Texture.png" id="2_k6ewo"]
 [ext_resource type="PackedScene" uid="uid://cns2etdmr0d4t" path="res://Assets/World Objects/box.tscn" id="3_fi8al"]
 [ext_resource type="PackedScene" uid="uid://drxh6j2kbuhkj" path="res://Scenes/capsule_target.tscn" id="4_3wavy"]
-[ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_qvt6m"]
+[ext_resource type="Script" uid="uid://dg3q3vmc3q4ws" path="res://addons/qodot/src/nodes/qodot_map.gd" id="5_qvt6m"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="6_p3ybm"]
 [ext_resource type="PackedScene" uid="uid://b31t0ikuh6wof" path="res://Scenes/enemy.tscn" id="7_gd25j"]
 

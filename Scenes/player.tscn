@@ -1,10 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=43 format=3 uid="uid://coklbcv2m6ky6"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ptgww"]
-[ext_resource type="Script" path="res://Scripts/HUD.gd" id="2_6d6d2"]
+[ext_resource type="Script" uid="uid://dd1i1ac31tgo5" path="res://Scripts/Player.gd" id="1_ptgww"]
+[ext_resource type="Script" uid="uid://da667kp73uk34" path="res://Scripts/HUD.gd" id="2_6d6d2"]
 [ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_ap8nn"]
-[ext_resource type="Script" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
-[ext_resource type="Script" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
+[ext_resource type="Script" uid="uid://crvrmp4rnryqy" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
+[ext_resource type="Script" uid="uid://dgshtbfugpgv6" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://Assets/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="Texture2D" uid="uid://dyobtmdaxgc3f" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121_scaled.png" id="5_5bio3"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://Assets/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://uc5j6i5tgwku" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair161.png" id="6_u6kn0"]
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resources/Weapon/Tantal.tres" id="7_jatp6"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://Resources/Weapon/LaserRifle.tres" id="8_fia83"]
+[ext_resource type="Script" uid="uid://dxfg1bu181nno" path="res://Resource Templates/WeaponResource.gd" id="9_fd4e3"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://Assets/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
-[ext_resource type="Script" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
+[ext_resource type="Script" uid="uid://bkr764qwyvk65" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
 [ext_resource type="AudioStream" uid="uid://vvg0ax8d4pge" path="res://Assets/sound effects/Free Footsteps Pack/Concrete 2.wav" id="15_axp3g"]
 
 [sub_resource type="Resource" id="Resource_2kkn5"]
@@ -632,32 +633,33 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8njrv"]
 _data = {
-"GlockADS": SubResource("Animation_053ja"),
-"GlockDeADS": SubResource("Animation_gr304"),
-"GlockDraw": SubResource("Animation_gjhl0"),
-"GlockEmpty": SubResource("Animation_1flt6"),
-"GlockHolster": SubResource("Animation_iog7m"),
-"GlockIdle": SubResource("Animation_mf1yt"),
-"GlockReload": SubResource("Animation_f50ep"),
-"GlockShoot": SubResource("Animation_kfa5f"),
-"LaserDraw": SubResource("Animation_hie2r"),
-"LaserEmpty": SubResource("Animation_nu34i"),
-"LaserHolster": SubResource("Animation_cje4p"),
-"LaserIdle": SubResource("Animation_bfa6g"),
-"LaserReload": SubResource("Animation_o73uh"),
-"LaserShoot": SubResource("Animation_u7mim"),
-"RESET": SubResource("Animation_r7elo"),
-"TantalDraw": SubResource("Animation_pujt7"),
-"TantalEmpty": SubResource("Animation_0qkl8"),
-"TantalHolster": SubResource("Animation_yg2vd"),
-"TantalIdle": SubResource("Animation_6fa4e"),
-"TantalReload": SubResource("Animation_pkjlq"),
-"TantalShoot": SubResource("Animation_gj0oj")
+&"GlockADS": SubResource("Animation_053ja"),
+&"GlockDeADS": SubResource("Animation_gr304"),
+&"GlockDraw": SubResource("Animation_gjhl0"),
+&"GlockEmpty": SubResource("Animation_1flt6"),
+&"GlockHolster": SubResource("Animation_iog7m"),
+&"GlockIdle": SubResource("Animation_mf1yt"),
+&"GlockReload": SubResource("Animation_f50ep"),
+&"GlockShoot": SubResource("Animation_kfa5f"),
+&"LaserDraw": SubResource("Animation_hie2r"),
+&"LaserEmpty": SubResource("Animation_nu34i"),
+&"LaserHolster": SubResource("Animation_cje4p"),
+&"LaserIdle": SubResource("Animation_bfa6g"),
+&"LaserReload": SubResource("Animation_o73uh"),
+&"LaserShoot": SubResource("Animation_u7mim"),
+&"RESET": SubResource("Animation_r7elo"),
+&"TantalDraw": SubResource("Animation_pujt7"),
+&"TantalEmpty": SubResource("Animation_0qkl8"),
+&"TantalHolster": SubResource("Animation_yg2vd"),
+&"TantalIdle": SubResource("Animation_6fa4e"),
+&"TantalReload": SubResource("Animation_pkjlq"),
+&"TantalShoot": SubResource("Animation_gj0oj")
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder", "Aiming_Crosshair")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
 script = ExtResource("1_ptgww")
+DASH_SPEED = 15.0
+DASH_DURATION = 0.05
 DRAG = 0.03
 footstep_manager = NodePath("FootstepPlayer")
 character_data = ExtResource("2_ap8nn")
@@ -813,7 +815,7 @@ reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
 vert_head = NodePath("../..")
 wrist = NodePath("..")
 camera_shaker = NodePath("../../CameraShaker")
-_weapon_resources = Array[Resource("res://Resource Templates/WeaponResource.gd")]([ExtResource("6_rmp7o"), ExtResource("7_jatp6"), ExtResource("8_fia83")])
+_weapon_resources = Array[ExtResource("9_fd4e3")]([ExtResource("6_rmp7o"), ExtResource("7_jatp6"), ExtResource("8_fia83")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle"])
 gun_barrel_crosshair = NodePath("../../../../CanvasLayer/GunBarrelCrosshair")
 camera = NodePath("../../Camera3D")
@@ -838,7 +840,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]
 libraries = {
-"": SubResource("AnimationLibrary_8njrv")
+&"": SubResource("AnimationLibrary_8njrv")
 }
 
 [node name="Bullet_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]

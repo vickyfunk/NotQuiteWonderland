@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dgqgogbnimxhi" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 2.wav" id="3_hs54y"]
 [ext_resource type="Curve" uid="uid://cnxv8uas3btyg" path="res://Resources/Weapon/glock_recoil_z_rotation.tres" id="4_4084j"]
 [ext_resource type="AudioStream" uid="uid://q6fxcocx7f71" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Rack Full.wav" id="5_7xyeq"]
-[ext_resource type="Script" path="res://Resource Templates/WeaponResource.gd" id="5_wjmjj"]
+[ext_resource type="Script" uid="uid://dxfg1bu181nno" path="res://Resource Templates/WeaponResource.gd" id="5_wjmjj"]
 
 [resource]
 script = ExtResource("5_wjmjj")

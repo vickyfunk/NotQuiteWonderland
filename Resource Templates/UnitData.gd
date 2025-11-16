@@ -46,4 +46,3 @@ func take_damage(damage: float, impact: float, pen_rating: float):
 	if armor_durability <= 0.0:
 		armor_rating = 0.0
 	print("took ", net_health_damage, " health dmg, ", net_armor_damage, " armor dmg, and have ", health, " health and ", luck, " luck left")
-
