@@ -35,6 +35,7 @@ class_name Weapon_Resource
 @export var Casing_to_Load: PackedScene
 @export var Casing_Velocity: int 
 
+@export var recoil_lerp_speed: float = 1
 @export var Handling: float = 1.0
 @export var Shots_Until_Controlled: int = 5 #how many shots experience "normal" recoil before Alice has the gun under control?
 

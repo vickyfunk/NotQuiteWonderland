@@ -12,11 +12,11 @@ var jumps_since_grounded: int = 0
 @export var AIR_SPEED = 2.5
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 14.0
-@export var TIME_TO_FULL_SPEED = 0.5
-@export var DASH_SPEED = 30.0
-@export var DASH_DURATION = 0.1
+@export var TIME_TO_FULL_SPEED = 0.25
+@export var DASH_SPEED = 15.0
+@export var DASH_DURATION = 0.05
 @export var JUMP_VELOCITY = 4.8
-@export var FRICTION = 1.3
+@export var FRICTION = 1.5
 @export var DRAG = 0.05
 @export var SENSITIVITY = 0.004
 @export var VELOCITY_ROTATION_SENSITIVITY = 3.14
@@ -233,7 +233,7 @@ func _physics_process(delta):
 				#rotation_direction will be 1.0 if we need to rotate our velocity counter-clockwise, while
 				#rotation_direction == -1.0 means we need to rotate our velocity clockwise
 				var rotation_direction = -1.0 if direction.cross(normalized_flat_velocity).normalized() == Vector3.UP else 1.0
-				var rotation_intensity = 1 - dot_product
+				var rotation_intensity = 1.5 - dot_product
 				#print("rotation_direction = ", rotation_direction, ", rotation_intensity = ", rotation_intensity)
 				rotate_velocity_2d(rotation_direction * rotation_intensity * delta)
 			#see if we are still moving while on the ground and if enough time has elapsed since 

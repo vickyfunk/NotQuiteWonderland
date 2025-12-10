@@ -14,12 +14,13 @@ signal Update_Weapon_Stack
 @export var vert_head: Node3D
 @export var wrist: Node3D
 @export var camera_shaker: CameraShaker
-@export var recoil_lerp_speed: float = 1
+#@export var recoil_lerp_speed: float = 1
 
 var empty_reload: bool = false
 var glock_rotated: bool = false
 var is_ads: bool = false
 
+var recoil_lerp_speed: float
 var target_rot: Vector3
 var target_pos: Vector3
 var z_travel: float
@@ -152,22 +153,22 @@ func exit(_next_weapon: String):
 
 func _process(delta):
 	if max_z_travel > 0: #I.e. if our gun is not "recoilless"
-		if current_time < 0.32: #I.e. if it's been less than .32 seconds since we fired the gun
+		if current_time < 0.2: #I.e. if it's been less than .32 seconds since we fired the gun
 			current_time += delta
-			position.z = lerp(position.z, target_pos.z, recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
+			position.z = lerp(position.z, target_pos.z, Current_Weapon.recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
 			#Offset the Aiming_Point on the z axis by precisely how far the gun has kicked back so far
 			Aiming_Point.position.z = -z_position_prerecoil
 			z_travel = z_position_prerecoil - position.z
-			rotation.z = lerp(rotation.z, target_rot.z, recoil_lerp_speed * delta)
-			#doubled recoil_lerp_speed here to make the x kick snappier in the time we have
+			rotation.z = lerp(rotation.z, target_rot.z, Current_Weapon.recoil_lerp_speed * delta)
+			#doubled Current_Weapon.recoil_lerp_speed here to make the x kick snappier in the time we have
 			#also made this one be head rotation specifically so you get camera kick
 			#Todo: make this also have some element of pure gun kick
 			if glock_rotated:
-				wrist.rotation.y = lerp(wrist.rotation.y, target_rot.x, 2 * recoil_lerp_speed * delta)
+				wrist.rotation.y = lerp(wrist.rotation.y, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
 			else:
-				wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
-			#vert_head.rotation.x = lerp(vert_head.rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
-			#rotation.x = lerp(rotation.x, target_rot.x, 2 * recoil_lerp_speed * delta)
+				wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
+			#vert_head.rotation.x = lerp(vert_head.rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
+			#rotation.x = lerp(rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
 			
 			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
 			target_rot.x = wrist.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x * (1.0 if shots_in_burst < Current_Weapon.Shots_Until_Controlled else 0.1)

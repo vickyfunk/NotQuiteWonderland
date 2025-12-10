@@ -232,4 +232,3 @@ func _show_confirmation(text: String, on_confirmed: Callable):
 	confirmation_dialogue.confirmed.connect(on_confirmed, CONNECT_ONE_SHOT)
 	confirmation_dialogue.popup_centered()
 	confirmation_dialogue.dialog_text = text
-
