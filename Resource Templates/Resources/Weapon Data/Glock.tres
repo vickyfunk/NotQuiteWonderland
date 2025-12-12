@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=11 format=3 uid="uid://cx2nt7k8xpo6w"]
+
+[ext_resource type="PackedScene" uid="uid://ddkf5ddd36le0" path="res://Assets/meshes/casings/9x19casing.glb" id="1_rn3nm"]
+[ext_resource type="PackedScene" uid="uid://cqq7bfit4ltoo" path="res://Scenes/9x19bullet.tscn" id="2_faqtd"]
+[ext_resource type="AudioStream" uid="uid://dl8xclpvu4lac" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 1.wav" id="3_laahn"]
+[ext_resource type="AudioStream" uid="uid://dgqgogbnimxhi" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 2.wav" id="4_fyho7"]
+[ext_resource type="AudioStream" uid="uid://b03ghf46f8ssp" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Full Sounds/9mm/WAV/9mm Single.wav" id="5_ab7c4"]
+[ext_resource type="AudioStream" uid="uid://q6fxcocx7f71" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Rack Full.wav" id="6_bbpcj"]
+[ext_resource type="Curve" uid="uid://dq2jln7b8ivqi" path="res://Resource Templates/Resources/Weapon Data/glock_recoil_z_curve.tres" id="7_6bih7"]
+[ext_resource type="Curve" uid="uid://cmu4ea35khke5" path="res://Resource Templates/Resources/Weapon Data/glock_recoil_x_rotation.tres" id="8_b3qwv"]
+[ext_resource type="Curve" uid="uid://cnxv8uas3btyg" path="res://Resource Templates/Resources/Weapon Data/glock_recoil_z_rotation.tres" id="9_u5gpk"]
+[ext_resource type="Script" uid="uid://fubjgo205yho" path="res://Resource Templates/WeaponResource.gd" id="10_tuxpr"]
+
+[resource]
+script = ExtResource("10_tuxpr")
+Weapon_Name = "Glock"
+Idle_Anim = "GlockIdle"
+Shoot_Anim = "GlockShoot"
+Reload_Anim = "GlockReload"
+Draw_Anim = "GlockDraw"
+Holster_Anim = "GlockHolster"
+Empty_Anim = "GlockEmpty"
+ADS_Anim = "GlockADS"
+DeADS_Anim = "GlockDeADS"
+Shoot_Sound = ExtResource("5_ab7c4")
+Reload_Sound_1 = ExtResource("3_laahn")
+Reload_Sound_2 = ExtResource("4_fyho7")
+Slide_Rack_Sound = ExtResource("6_bbpcj")
+Current_Ammo = 17
+Reserve_Ammo = 68
+Reloadable = true
+Damage = 5.0
+Impact = 5.0
+Pen_Rating = 1.0
+Auto_Fire = true
+Type = 2
+Projectile_to_Load = ExtResource("2_faqtd")
+Projectile_Velocity = 50.03
+Casing_to_Load = ExtResource("1_rn3nm")
+Casing_Velocity = 70
+Handling = 9.325
+Screen_Shake_Intensity = 0.665
+recoil_rotation_x = ExtResource("8_b3qwv")
+recoil_rotation_z = ExtResource("9_u5gpk")
+recoil_position_z = ExtResource("7_6bih7")
+max_z_travel = 0.14

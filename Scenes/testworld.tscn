@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=3 uid="uid://bm2kefb46kvck"]
 
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_6crsn"]
-[ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_2nb0b"]
+[ext_resource type="Resource" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_2nb0b"]
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_entity.gd" id="3_5ghen"]
-[ext_resource type="Texture2D" uid="uid://cak53a18yhhb2" path="res://textures/256x256/Wood/Wood_03-256x256.png" id="4_lbjye"]
-[ext_resource type="Texture2D" uid="uid://b1q1fiv1cclce" path="res://textures/256x256/Tile/Tile_09-256x256.png" id="5_ivt4i"]
-[ext_resource type="Texture2D" uid="uid://nihboc1p3v6d" path="res://textures/256x256/Roofs/Roofs_20-256x256.png" id="6_334xc"]
-[ext_resource type="Texture2D" uid="uid://bve6sm6d61t0j" path="res://textures/256x256/Bricks/Bricks_16-256x256.png" id="7_yspuc"]
+[ext_resource type="Texture2D" uid="uid://cak53a18yhhb2" path="res://Assets/textures/256x256/Wood/Wood_03-256x256.png" id="4_lbjye"]
+[ext_resource type="Texture2D" uid="uid://b1q1fiv1cclce" path="res://Assets/textures/256x256/Tile/Tile_09-256x256.png" id="5_ivt4i"]
+[ext_resource type="Texture2D" uid="uid://nihboc1p3v6d" path="res://Assets/textures/256x256/Roofs/Roofs_20-256x256.png" id="6_334xc"]
+[ext_resource type="Texture2D" uid="uid://bve6sm6d61t0j" path="res://Assets/textures/256x256/Bricks/Bricks_16-256x256.png" id="7_yspuc"]
 [ext_resource type="PackedScene" uid="uid://coklbcv2m6ky6" path="res://Scenes/player.tscn" id="8_6j23a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8hq2"]

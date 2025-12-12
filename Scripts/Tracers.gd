@@ -27,7 +27,7 @@ func draw_tracer(start_point, end_point, color: Color = Color.RED):
 	_end_point = end_point
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	mesh.clear_surfaces()
 	var end_point = get_global_transform().origin
 	var start_point = _end_point

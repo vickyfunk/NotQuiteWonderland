@@ -15,10 +15,6 @@ run/main_scene="res://Scenes/testscene.tscn"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
-
 [dialogic]
 
 directories/dch_directory={}
@@ -39,7 +35,7 @@ project/assembly_name="NotQuiteWonderland"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/deformablemesh/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/material_generator/plugin.cfg", "res://addons/physical_audio_3d/plugin.cfg", "res://addons/script_splitter/plugin.cfg", "res://addons/trigger_manager/plugin.cfg", "res://addons/verlet_rope_4/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/deep_raycast_3d/plugin.cfg", "res://addons/enhancedhingejoint3d/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/material_generator/plugin.cfg", "res://addons/physical_audio_3d/plugin.cfg", "res://addons/script_splitter/plugin.cfg", "res://addons/trigger_manager/plugin.cfg", "res://addons/verlet_rope_4/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
 
 [filesystem]
 

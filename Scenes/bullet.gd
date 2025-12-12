@@ -13,7 +13,7 @@ var is_player_bullet: bool = false
 func ready():
 	set_as_top_level(true)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	#time_since_particle += delta
 	#if time_since_particle > 0.1:
 		#tracer_emitter.emit_particle(Transform3D(), Vector3(), Color(Color.RED), Color(), 8)

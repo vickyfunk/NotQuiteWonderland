@@ -42,7 +42,7 @@ var sway_threshold = 5
 var sway_lerp = 5
 
 var shots_in_burst: int = 0
-var time_since_release: float = 0.16
+var time_since_release: float = 0.1
 
 var alt_fires: Array[Callable] = [\
 func():
@@ -223,7 +223,7 @@ func shoot():
 			shoot_audio_player.play()
 			Animation_Player.play(Current_Weapon.Shoot_Anim)
 			Current_Weapon.Current_Ammo -= 1
-			shots_in_burst += 1 if shots_in_burst < Current_Weapon.Shots_Until_Controlled else 0
+			shots_in_burst += 1 if shots_in_burst < Current_Weapon.Controllable_Burst else 0
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
 			#var Camera_Collision = Get_Camera_Collision()
 			var Barrel_Collision = get_barrel_collision()
@@ -253,15 +253,16 @@ func reload():
 			
 			Current_Weapon.Current_Ammo = Current_Weapon.Current_Ammo + Reload_Amount
 			Current_Weapon.Reserve_Ammo = Current_Weapon.Reserve_Ammo - Reload_Amount
-			
+			Current_Weapon.Mags_Remaining = Current_Weapon.Mags_Remaining - 1
 			emit_signal("Update_Ammo", [Current_Weapon.Current_Ammo, Current_Weapon.Reserve_Ammo])
+			emit_signal("Update_Magcount", [Current_Weapon.Mags_Remaining])
 
 #todo: make this do something
 func tacload():
 	pass
 
 func Get_Camera_Collision()->Vector3:
-	var camera = get_viewport().get_camera_3d()
+	camera = get_viewport().get_camera_3d()
 	var viewport = get_viewport().get_size()
 	
 	var Ray_Origin = camera.project_ray_origin(viewport/2)

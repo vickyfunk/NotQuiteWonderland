@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0gq5270ogtxu"]
 
-[ext_resource type="Texture2D" uid="uid://cf1nbn3eqdof8" path="res://addons/Weapons/Images/BulletHoleDecal.png" id="1_d0hng"]
+[ext_resource type="Texture2D" uid="uid://cf1nbn3eqdof8" path="res://Assets/textures/effects/BulletHoleDecal.png" id="1_d0hng"]
 
 [node name="BulletDecal" type="Node3D"]
 

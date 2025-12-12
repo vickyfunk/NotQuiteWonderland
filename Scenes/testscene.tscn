@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://1buyhgipvkov"]
+[gd_scene load_steps=13 format=3 uid="uid://1buyhgipvkov"]
 
 [ext_resource type="PackedScene" uid="uid://coklbcv2m6ky6" path="res://Scenes/player.tscn" id="1_6sgmf"]
+[ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resource Templates/Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_0pdfm"]
 [ext_resource type="Texture2D" uid="uid://7vtk3ilx03sr" path="res://Assets/textures/Placeholder Grid Texture.png" id="2_k6ewo"]
 [ext_resource type="PackedScene" uid="uid://cns2etdmr0d4t" path="res://Assets/World Objects/box.tscn" id="3_fi8al"]
 [ext_resource type="PackedScene" uid="uid://drxh6j2kbuhkj" path="res://Scenes/capsule_target.tscn" id="4_3wavy"]
@@ -54,6 +55,7 @@ shape = SubResource("ConcavePolygonShape3D_vpi4g")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_6sgmf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60022, 0)
+character_data = ExtResource("2_0pdfm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
