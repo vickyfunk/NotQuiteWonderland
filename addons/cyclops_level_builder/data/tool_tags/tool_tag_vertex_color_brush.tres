@@ -14,6 +14,7 @@ script = ExtResource("2_pcbhj")
 id = "vertex_color_brush"
 name = "Vertex Color Brush"
 input_events = Array[InputEvent]([SubResource("InputEventKey_v56kt")])
+input_events_override = false
 tooltip = "Vertex Color Brush
 
 Click and drag on surfaces to adjust the vertex color.

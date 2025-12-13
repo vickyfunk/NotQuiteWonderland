@@ -21,7 +21,7 @@ func _physics_process(_delta):
 		#time_since_particle = 0.0
 	if shoot:
 		apply_impulse(transform.basis.z, -transform.basis.z * Speed)
-	look_at(transform.origin + linear_velocity, Vector3.UP)
+		look_at(transform.origin + linear_velocity, Vector3.UP)
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") && is_player_bullet:

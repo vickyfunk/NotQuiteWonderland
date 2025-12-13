@@ -39,8 +39,6 @@ point_count = 3
 script = ExtResource("12_wwkmi")
 Weapon_Name = "Mateba"
 Current_Ammo = 6
-Reserve_Ammo = 48
-Damage = 20.0
 Type = 2
 Projectile_to_Load = ExtResource("12_y1rb8")
 Projectile_Velocity = 300.0
@@ -841,7 +839,7 @@ sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
 [node name="Glock" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.014518728, 0.9884733, 0.15069233, -0.56562704, -0.13239613, 0.8139633, 0.8245324, -0.07341791, 0.5610302, 0.07, -0.1, -0.3)
+transform = Transform3D(-0.014518727, 0.9884732, 0.15069231, -0.56562704, -0.13239612, 0.81396323, 0.82453233, -0.0734179, 0.5610302, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 visible = false
 

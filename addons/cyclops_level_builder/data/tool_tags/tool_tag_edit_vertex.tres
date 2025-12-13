@@ -15,6 +15,7 @@ script = ExtResource("2_yi1sl")
 id = "edit_vertex"
 name = "Vertex"
 input_events = Array[InputEvent]([SubResource("InputEventKey_11fdh")])
+input_events_override = false
 tooltip = "Vertex
 
 Click on a vertex to select it.  Shift Click to toggle selecton, Ctrl Click to add to selection, Shift-Ctrl click to subtract from selection.

@@ -155,23 +155,23 @@ func _process(delta):
 	if max_z_travel > 0: #I.e. if our gun is not "recoilless"
 		if current_time < 0.2: #I.e. if it's been less than .32 seconds since we fired the gun
 			current_time += delta
-			position.z = lerp(position.z, target_pos.z, Current_Weapon.recoil_lerp_speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
+			position.z = lerp(position.z, target_pos.z, Current_Weapon.Recoil_Lerp_Speed * delta) if abs(z_travel) <= Current_Weapon.max_z_travel else position.z
 			#Offset the Aiming_Point on the z axis by precisely how far the gun has kicked back so far
 			Aiming_Point.position.z = -z_position_prerecoil
 			z_travel = z_position_prerecoil - position.z
-			rotation.z = lerp(rotation.z, target_rot.z, Current_Weapon.recoil_lerp_speed * delta)
-			#doubled Current_Weapon.recoil_lerp_speed here to make the x kick snappier in the time we have
+			rotation.z = lerp(rotation.z, target_rot.z, Current_Weapon.Recoil_Lerp_Speed * delta)
+			#doubled Current_Weapon.Recoil_Lerp_Speed here to make the x kick snappier in the time we have
 			#also made this one be head rotation specifically so you get camera kick
 			#Todo: make this also have some element of pure gun kick
 			if glock_rotated:
-				wrist.rotation.y = lerp(wrist.rotation.y, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
+				wrist.rotation.y = lerp(wrist.rotation.y, target_rot.x, 2 * Current_Weapon.Recoil_Lerp_Speed * delta)
 			else:
-				wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
+				wrist.rotation.x = lerp(wrist.rotation.x, target_rot.x, 2 * Current_Weapon.Recoil_Lerp_Speed * delta)
 			#vert_head.rotation.x = lerp(vert_head.rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
 			#rotation.x = lerp(rotation.x, target_rot.x, 2 * Current_Weapon.recoil_lerp_speed * delta)
 			
 			target_rot.z = Current_Weapon.recoil_rotation_z.sample(current_time) * Current_Weapon.recoil_amplitude.y
-			target_rot.x = wrist.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x * (1.0 if shots_in_burst < Current_Weapon.Shots_Until_Controlled else 0.1)
+			target_rot.x = wrist.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x * (1.0 if shots_in_burst > Current_Weapon.Controllable_Burst else 0.1)
 			#target_rot.x = vert_head.rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			#target_rot.x = rotation.x + Current_Weapon.recoil_rotation_x.sample(current_time) * Current_Weapon.recoil_amplitude.x
 			target_pos.z = Current_Weapon.recoil_position_z.sample(current_time) * Current_Weapon.recoil_amplitude.z if abs(z_travel) <= max_z_travel else z_position_prerecoil - max_z_travel
@@ -239,7 +239,7 @@ func shoot():
 		reload()
 
 func reload():
-	if Current_Weapon.Current_Ammo == Current_Weapon.Magazine:
+	if Current_Weapon.Current_Ammo == Current_Weapon.Loaded_Mag:
 		return
 	elif !Animation_Player.is_playing():
 		if Current_Weapon.Reserve_Ammo != 0:
@@ -249,8 +249,7 @@ func reload():
 			reload_audio_player.stream = Current_Weapon.Reload_Sound_1
 			reload_audio_player.play()
 			
-			var Reload_Amount = min(Current_Weapon.Magazine-Current_Weapon.Current_Ammo, Current_Weapon.Magazine, Current_Weapon.Reserve_Ammo)
-			
+			var Reload_Amount = min(Current_Weapon.Loaded_Mag-Current_Weapon.Current_Ammo, Current_Weapon.Loaded_Mag, Current_Weapon.Reserve_Ammo)
 			Current_Weapon.Current_Ammo = Current_Weapon.Current_Ammo + Reload_Amount
 			Current_Weapon.Reserve_Ammo = Current_Weapon.Reserve_Ammo - Reload_Amount
 			Current_Weapon.Mags_Remaining = Current_Weapon.Mags_Remaining - 1
@@ -341,7 +340,8 @@ func _on_animation_player_animation_finished(anim_name):
 
 func apply_recoil(screen_shake_intensity: float):
 	camera_shaker.add_trauma(screen_shake_intensity)
-	#print("shots_in_burst: ", shots_in_burst, ", Shots_Until_Controlled: ", Current_Weapon.Shots_Until_Controlled)
+	#print("shots_in_burst: ", shots_in_burst, ", 	if shots_in_burst >= Current_Weapon.Controllable_Burst:: ", Current_Weapon.	if shots_in_burst >= Current_Weapon.Controllable_Burst:
+
 	if !z_position_prerecoil:
 		z_position_prerecoil = position.z
 	z_travel = z_position_prerecoil - position.z
@@ -357,7 +357,7 @@ func apply_recoil(screen_shake_intensity: float):
 			target_pos.z = z_position_prerecoil - max_z_travel
 			#print("out of bounds, capping target value to %s" % target_pos.z)
 		current_time = 0
-		if shots_in_burst >= Current_Weapon.Shots_Until_Controlled:
+	if shots_in_burst >= Current_Weapon.Controllable_Burst:
 			target_rot.x *= 0.1
 
 

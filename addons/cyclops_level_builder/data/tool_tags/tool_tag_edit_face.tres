@@ -19,6 +19,7 @@ script = ExtResource("2_qfyqw")
 id = "edit_face"
 name = "Face"
 input_events = Array[InputEvent]([SubResource("InputEventKey_xxi5p"), SubResource("InputEventKey_1smmt")])
+input_events_override = false
 tooltip = "Face
 
 Click on a face to select it.  Shift Click to toggle selecton, Ctrl Click to add to selection, Shift-Ctrl click to subtract from selection.

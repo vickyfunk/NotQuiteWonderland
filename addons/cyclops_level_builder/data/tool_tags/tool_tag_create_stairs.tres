@@ -16,6 +16,7 @@ script = ExtResource("1_kdc1t")
 id = "stairs"
 name = "Stairs"
 input_events = Array[InputEvent]([SubResource("InputEventKey_bydj5")])
+input_events_override = false
 tooltip = "Click on surface of block or in empty space to begin creating base of a stair case.
 
 Release mouse button and drag upwards to adjust the height of the stairs.

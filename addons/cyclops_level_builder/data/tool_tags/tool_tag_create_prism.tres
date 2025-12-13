@@ -15,6 +15,7 @@ script = ExtResource("1_oalyb")
 id = "prism"
 name = "Prism"
 input_events = Array[InputEvent]([SubResource("InputEventKey_ral6n")])
+input_events_override = false
 tooltip = "Prism
 
 Click on surface of block or in empty space to begin creating base of a prism.

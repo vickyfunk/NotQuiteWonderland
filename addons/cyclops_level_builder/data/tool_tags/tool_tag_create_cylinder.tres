@@ -15,6 +15,7 @@ script = ExtResource("2_8mpiw")
 id = "cylinder"
 name = "Cylinder"
 input_events = Array[InputEvent]([SubResource("InputEventKey_qk3nx")])
+input_events_override = false
 tooltip = "Cylinder
 
 Click on surface of block or in empty space to begin creating base of a cylinder.

@@ -14,6 +14,7 @@ script = ExtResource("2_ooato")
 id = "material_brush"
 name = "Material Brush"
 input_events = Array[InputEvent]([SubResource("InputEventKey_enkb2")])
+input_events_override = false
 tooltip = "Material Brush
 
 Click and drag on surfaces to apply the currently selected material.

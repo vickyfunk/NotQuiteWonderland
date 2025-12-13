@@ -15,6 +15,7 @@ script = ExtResource("2_4grct")
 id = "clip"
 name = "Clip"
 input_events = Array[InputEvent]([SubResource("InputEventKey_hd0cm")])
+input_events_override = false
 tooltip = "Clip
 
 Click on surface of block to place first cutting point.

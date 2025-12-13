@@ -15,6 +15,7 @@ script = ExtResource("1_w2hsk")
 id = "edit_edge"
 name = "Edge"
 input_events = Array[InputEvent]([SubResource("InputEventKey_k6fuk")])
+input_events_override = false
 tooltip = "Edge
 
 Click on an edge to select it.  Shift Click to toggle selecton, Ctrl Click to add to selection, Shift-Ctrl click to subtract from selection.
