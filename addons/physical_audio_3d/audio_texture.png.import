@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vao1kpdutos4"
-path="res://.godot/imported/audio_texture.png-880326188d28748b65ded7f35b5d0b32.ctex"
+path="res://godot/imported/audio_texture.png-880326188d28748b65ded7f35b5d0b32.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/physical_audio_3d/audio_texture.png"
-dest_files=["res://.godot/imported/audio_texture.png-880326188d28748b65ded7f35b5d0b32.ctex"]
+dest_files=["res://godot/imported/audio_texture.png-880326188d28748b65ded7f35b5d0b32.ctex"]
 
 [params]
 

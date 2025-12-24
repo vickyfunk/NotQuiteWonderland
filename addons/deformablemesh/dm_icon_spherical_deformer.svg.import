@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwffifqx20ja8"
-path="res://.godot/imported/dm_icon_spherical_deformer.svg-3d948ce77375d2adb65cf8ae4cfaefd8.ctex"
+path="res://godot/imported/dm_icon_spherical_deformer.svg-3d948ce77375d2adb65cf8ae4cfaefd8.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/deformablemesh/dm_icon_spherical_deformer.svg"
-dest_files=["res://.godot/imported/dm_icon_spherical_deformer.svg-3d948ce77375d2adb65cf8ae4cfaefd8.ctex"]
+dest_files=["res://godot/imported/dm_icon_spherical_deformer.svg-3d948ce77375d2adb65cf8ae4cfaefd8.ctex"]
 
 [params]
 

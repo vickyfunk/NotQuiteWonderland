@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3u4muxk53vge"
-path="res://.godot/imported/Sawed Off Shotgun.glb-d12e9fbe3fabf3d530e2fe0a1d2f69f5.scn"
+path="res://godot/imported/Sawed Off Shotgun.glb-d12e9fbe3fabf3d530e2fe0a1d2f69f5.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Sawed Off Shotgun.glb"
-dest_files=["res://.godot/imported/Sawed Off Shotgun.glb-d12e9fbe3fabf3d530e2fe0a1d2f69f5.scn"]
+dest_files=["res://godot/imported/Sawed Off Shotgun.glb-d12e9fbe3fabf3d530e2fe0a1d2f69f5.scn"]
 
 [params]
 

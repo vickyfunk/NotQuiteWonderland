@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dgqgogbnimxhi"
-path="res://.godot/imported/9mm Pistol Reload 2.wav-41bd9fd2444bf1a987a41288becc4c34.sample"
+path="res://godot/imported/9mm Pistol Reload 2.wav-41bd9fd2444bf1a987a41288becc4c34.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Reload 2.wav"
-dest_files=["res://.godot/imported/9mm Pistol Reload 2.wav-41bd9fd2444bf1a987a41288becc4c34.sample"]
+dest_files=["res://godot/imported/9mm Pistol Reload 2.wav-41bd9fd2444bf1a987a41288becc4c34.sample"]
 
 [params]
 

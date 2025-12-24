@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1ojck0t5f47s"
-path="res://.godot/imported/AKM.glb-3cc5ef8f8beaca31eb34c887b5b6aed2.scn"
+path="res://godot/imported/AKM.glb-3cc5ef8f8beaca31eb34c887b5b6aed2.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/AKM.glb"
-dest_files=["res://.godot/imported/AKM.glb-3cc5ef8f8beaca31eb34c887b5b6aed2.scn"]
+dest_files=["res://godot/imported/AKM.glb-3cc5ef8f8beaca31eb34c887b5b6aed2.scn"]
 
 [params]
 

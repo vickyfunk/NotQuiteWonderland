@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce3up4qingkej"
-path="res://.godot/imported/Bricks_08-256x256.png-b8f2efceb918d2097006e646f95ff01c.ctex"
+path="res://godot/imported/Bricks_08-256x256.png-b8f2efceb918d2097006e646f95ff01c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/textures/256x256/Bricks/Bricks_08-256x256.png"
-dest_files=["res://.godot/imported/Bricks_08-256x256.png-b8f2efceb918d2097006e646f95ff01c.ctex"]
+dest_files=["res://godot/imported/Bricks_08-256x256.png-b8f2efceb918d2097006e646f95ff01c.ctex"]
 
 [params]
 

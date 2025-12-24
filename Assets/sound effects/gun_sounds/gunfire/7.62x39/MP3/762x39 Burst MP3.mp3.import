@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dro8onv1mh5rj"
+path="res://godot/imported/762x39 Burst MP3.mp3-fff8487a4878a8ba143f5aac7b90ad7d.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/gunfire/7.62x39/MP3/762x39 Burst MP3.mp3"
+dest_files=["res://godot/imported/762x39 Burst MP3.mp3-fff8487a4878a8ba143f5aac7b90ad7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

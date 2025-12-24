@@ -9,9 +9,6 @@ point_count = 3
 
 [resource]
 script = ExtResource("5_kospc")
-weaponName = "SniperRifle"
-weaponId = 4
-type = 1
 animBlendTime = 0.2
 equipAnimName = "EquipAnimSniperRifle"
 unequipAnimName = "UnequipAnimSniperRifle"

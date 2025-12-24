@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6ma5djfpbaw0"
+path="res://godot/imported/Lever Cycle MP3.mp3-27be4670d4b6c7ed109fba1b5c166e46.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/MP3/Lever Cycle MP3.mp3"
+dest_files=["res://godot/imported/Lever Cycle MP3.mp3-27be4670d4b6c7ed109fba1b5c166e46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

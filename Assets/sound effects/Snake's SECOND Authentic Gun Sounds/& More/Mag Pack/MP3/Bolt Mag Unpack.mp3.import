@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://1ddxxjum7px0"
-path="res://.godot/imported/Bolt Mag Unpack.mp3-e425bda2676f574d9b3044abd40fa044.mp3str"
+path="res://godot/imported/Bolt Mag Unpack.mp3-e425bda2676f574d9b3044abd40fa044.mp3str"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/MP3/Bolt Mag Unpack.mp3"
-dest_files=["res://.godot/imported/Bolt Mag Unpack.mp3-e425bda2676f574d9b3044abd40fa044.mp3str"]
+dest_files=["res://godot/imported/Bolt Mag Unpack.mp3-e425bda2676f574d9b3044abd40fa044.mp3str"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hs2868t6etw4"
-path="res://.godot/imported/Mossberg MVP.glb-f7de4a69094c39e9205165290ac8976c.scn"
+path="res://godot/imported/Mossberg MVP.glb-f7de4a69094c39e9205165290ac8976c.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Mossberg MVP.glb"
-dest_files=["res://.godot/imported/Mossberg MVP.glb-f7de4a69094c39e9205165290ac8976c.scn"]
+dest_files=["res://godot/imported/Mossberg MVP.glb-f7de4a69094c39e9205165290ac8976c.scn"]
 
 [params]
 

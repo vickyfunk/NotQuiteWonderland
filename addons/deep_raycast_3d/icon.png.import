@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csgf3mhqkpc45"
-path="res://.godot/imported/icon.png-4dbe54854c1a60ffc6bf216042c8be69.ctex"
+path="res://godot/imported/icon.png-4dbe54854c1a60ffc6bf216042c8be69.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/deep_raycast_3d/icon.png"
-dest_files=["res://.godot/imported/icon.png-4dbe54854c1a60ffc6bf216042c8be69.ctex"]
+dest_files=["res://godot/imported/icon.png-4dbe54854c1a60ffc6bf216042c8be69.ctex"]
 
 [params]
 

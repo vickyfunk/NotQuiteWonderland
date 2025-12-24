@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://km4o31ywqyf6"
-path="res://.godot/imported/icon_joint.svg-a944d8b937fbdcb05b134a9c40542cdd.ctex"
+path="res://godot/imported/icon_joint.svg-a944d8b937fbdcb05b134a9c40542cdd.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/verlet_rope_4/Icons/icon_joint.svg"
-dest_files=["res://.godot/imported/icon_joint.svg-a944d8b937fbdcb05b134a9c40542cdd.ctex"]
+dest_files=["res://godot/imported/icon_joint.svg-a944d8b937fbdcb05b134a9c40542cdd.ctex"]
 
 [params]
 

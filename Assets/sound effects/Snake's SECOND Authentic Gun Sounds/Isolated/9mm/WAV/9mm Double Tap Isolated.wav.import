@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://daqc4e8mbiudw"
-path="res://.godot/imported/9mm Double Tap Isolated.wav-52a60211a3a94519b7c1e10f7faba770.sample"
+path="res://godot/imported/9mm Double Tap Isolated.wav-52a60211a3a94519b7c1e10f7faba770.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Isolated/9mm/WAV/9mm Double Tap Isolated.wav"
-dest_files=["res://.godot/imported/9mm Double Tap Isolated.wav-52a60211a3a94519b7c1e10f7faba770.sample"]
+dest_files=["res://godot/imported/9mm Double Tap Isolated.wav-52a60211a3a94519b7c1e10f7faba770.sample"]
 
 [params]
 

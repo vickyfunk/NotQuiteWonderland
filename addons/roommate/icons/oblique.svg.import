@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpvku5usjnjbd"
-path="res://.godot/imported/oblique.svg-bc0cc3a3fb86dc9866f11b2a156c5b58.ctex"
+path="res://godot/imported/oblique.svg-bc0cc3a3fb86dc9866f11b2a156c5b58.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://addons/roommate/icons/oblique.svg"
-dest_files=["res://.godot/imported/oblique.svg-bc0cc3a3fb86dc9866f11b2a156c5b58.ctex"]
+dest_files=["res://godot/imported/oblique.svg-bc0cc3a3fb86dc9866f11b2a156c5b58.ctex"]
 
 [params]
 

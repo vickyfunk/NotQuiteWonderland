@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Weapon_Resource" load_steps=7 format=3 uid="uid://cdhiggdsjo6ly"]
 
-[ext_resource type="AudioStream" uid="uid://c7t0613fu4bgo" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 1 WAV.wav" id="1_3uxg0"]
-[ext_resource type="AudioStream" uid="uid://ds5te866xdnti" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 2 WAV.wav" id="2_8c7wh"]
-[ext_resource type="AudioStream" uid="uid://n40pujbr1org" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/WAV/9mm Magazine Pack.wav" id="3_ext01"]
-[ext_resource type="AudioStream" uid="uid://h23sma6ar7cp" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/22LR Bolt Cycle WAV.wav" id="4_oj7ix"]
+[ext_resource type="AudioStream" uid="uid://c7t0613fu4bgo" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/Angel Mag Reload Part 1 WAV.wav" id="1_3uxg0"]
+[ext_resource type="AudioStream" uid="uid://ds5te866xdnti" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/Angel Mag Reload Part 2 WAV.wav" id="2_8c7wh"]
+[ext_resource type="AudioStream" uid="uid://n40pujbr1org" path="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/9mm Magazine Pack.wav" id="3_ext01"]
+[ext_resource type="AudioStream" uid="uid://h23sma6ar7cp" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/22LR Bolt Cycle WAV.wav" id="4_oj7ix"]
 [ext_resource type="Curve" uid="uid://w6ugdjobck4j" path="res://Resource Templates/Resources/Weapon Data/laser_recoil_curve.tres" id="5_lw8vo"]
 [ext_resource type="Script" uid="uid://fubjgo205yho" path="res://Resource Templates/WeaponResource.gd" id="6_o42jy"]
 

@@ -65,7 +65,7 @@ func():
 	print("Laser Rifle alt fired")
 ]
 
-@export var _weapon_resources: Array[Weapon_Resource]
+@export var _weapon_resources: Array[WeaponResource]
 @export var Start_Weapons: Array[String] #weapons you start with
 
 enum {NULL, HITSCAN, PROJECTILE}

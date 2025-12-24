@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cahqx54yrno58"
-path="res://.godot/imported/Hipoint Carbine.glb-f940dfa7e5ede1b75b38cad5564db38e.scn"
+path="res://godot/imported/Hipoint Carbine.glb-f940dfa7e5ede1b75b38cad5564db38e.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Hipoint Carbine.glb"
-dest_files=["res://.godot/imported/Hipoint Carbine.glb-f940dfa7e5ede1b75b38cad5564db38e.scn"]
+dest_files=["res://godot/imported/Hipoint Carbine.glb-f940dfa7e5ede1b75b38cad5564db38e.scn"]
 
 [params]
 

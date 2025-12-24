@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://665qn1aw03ks"
-path="res://.godot/imported/44 Magnum Single Load.wav-2e42e5ab2f7db02c8d1e940a1ca8e886.sample"
+path="res://godot/imported/44 Magnum Single Load.wav-2e42e5ab2f7db02c8d1e940a1ca8e886.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/WAV/44 Magnum Single Load.wav"
-dest_files=["res://.godot/imported/44 Magnum Single Load.wav-2e42e5ab2f7db02c8d1e940a1ca8e886.sample"]
+dest_files=["res://godot/imported/44 Magnum Single Load.wav-2e42e5ab2f7db02c8d1e940a1ca8e886.sample"]
 
 [params]
 

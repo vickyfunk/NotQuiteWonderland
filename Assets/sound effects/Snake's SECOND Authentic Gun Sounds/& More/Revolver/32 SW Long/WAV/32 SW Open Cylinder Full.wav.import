@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c0ssr11878euq"
-path="res://.godot/imported/32 SW Open Cylinder Full.wav-b5fe403505c8be42552510d6f9c128e3.sample"
+path="res://godot/imported/32 SW Open Cylinder Full.wav-b5fe403505c8be42552510d6f9c128e3.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/32 SW Long/WAV/32 SW Open Cylinder Full.wav"
-dest_files=["res://.godot/imported/32 SW Open Cylinder Full.wav-b5fe403505c8be42552510d6f9c128e3.sample"]
+dest_files=["res://godot/imported/32 SW Open Cylinder Full.wav-b5fe403505c8be42552510d6f9c128e3.sample"]
 
 [params]
 

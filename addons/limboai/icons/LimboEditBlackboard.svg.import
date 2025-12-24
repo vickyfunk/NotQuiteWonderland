@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvt6h7j2f5id0"
-path="res://.godot/imported/LimboEditBlackboard.svg-eacd7cf985d654974a99a4009ffcc125.ctex"
+path="res://godot/imported/LimboEditBlackboard.svg-eacd7cf985d654974a99a4009ffcc125.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://addons/limboai/icons/LimboEditBlackboard.svg"
-dest_files=["res://.godot/imported/LimboEditBlackboard.svg-eacd7cf985d654974a99a4009ffcc125.ctex"]
+dest_files=["res://godot/imported/LimboEditBlackboard.svg-eacd7cf985d654974a99a4009ffcc125.ctex"]
 
 [params]
 

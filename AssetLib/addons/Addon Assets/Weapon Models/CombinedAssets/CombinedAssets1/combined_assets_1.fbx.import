@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://jqvrg8xxeqko"
-path="res://.godot/imported/combined_assets_1.fbx-9895af3527519b68cab9c6376c3ced6e.scn"
+path="res://godot/imported/combined_assets_1.fbx-9895af3527519b68cab9c6376c3ced6e.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/CombinedAssets/CombinedAssets1/combined_assets_1.fbx"
-dest_files=["res://.godot/imported/combined_assets_1.fbx-9895af3527519b68cab9c6376c3ced6e.scn"]
+dest_files=["res://godot/imported/combined_assets_1.fbx-9895af3527519b68cab9c6376c3ced6e.scn"]
 
 [params]
 

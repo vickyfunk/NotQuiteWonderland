@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2u2xloyv7lr1"
-path="res://.godot/imported/Shockwave.glb-834660b85661d843fabee5130ffe717e.scn"
+path="res://godot/imported/Shockwave.glb-834660b85661d843fabee5130ffe717e.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Shockwave.glb"
-dest_files=["res://.godot/imported/Shockwave.glb-834660b85661d843fabee5130ffe717e.scn"]
+dest_files=["res://godot/imported/Shockwave.glb-834660b85661d843fabee5130ffe717e.scn"]
 
 [params]
 

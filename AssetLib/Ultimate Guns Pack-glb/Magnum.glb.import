@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://drbcvdr4d2e8t"
-path="res://.godot/imported/Magnum.glb-5c9dc57cf067d8c790d9527a6b499c2d.scn"
+path="res://godot/imported/Magnum.glb-5c9dc57cf067d8c790d9527a6b499c2d.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Magnum.glb"
-dest_files=["res://.godot/imported/Magnum.glb-5c9dc57cf067d8c790d9527a6b499c2d.scn"]
+dest_files=["res://godot/imported/Magnum.glb-5c9dc57cf067d8c790d9527a6b499c2d.scn"]
 
 [params]
 

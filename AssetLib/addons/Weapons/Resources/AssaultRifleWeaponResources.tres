@@ -9,9 +9,6 @@ point_count = 4
 
 [resource]
 script = ExtResource("4_i0hia")
-weaponName = "AssaultRifle"
-weaponId = 2
-type = 1
 animBlendTime = 0.2
 equipAnimName = "EquipAnimAssaultRifle"
 unequipAnimName = "UnequipAnimAssaultRifle"

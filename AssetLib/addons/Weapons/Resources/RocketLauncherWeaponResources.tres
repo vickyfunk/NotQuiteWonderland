@@ -10,9 +10,6 @@ point_count = 2
 
 [resource]
 script = ExtResource("4_ws8wg")
-weaponName = "RocketLauncher"
-weaponId = 5
-type = 2
 animBlendTime = 0.2
 equipAnimName = "EquipAnimRocketLauncher"
 unequipAnimName = "UnequipAnimRocketLauncher"

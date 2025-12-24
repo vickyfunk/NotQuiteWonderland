@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cbiwsqnrrnpkn"
-path="res://.godot/imported/Pump Shotgun.glb-94a6b947e8501ac057677f28a8252411.scn"
+path="res://godot/imported/Pump Shotgun.glb-94a6b947e8501ac057677f28a8252411.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Pump Shotgun.glb"
-dest_files=["res://.godot/imported/Pump Shotgun.glb-94a6b947e8501ac057677f28a8252411.scn"]
+dest_files=["res://godot/imported/Pump Shotgun.glb-94a6b947e8501ac057677f28a8252411.scn"]
 
 [params]
 

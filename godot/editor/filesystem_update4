@@ -1,0 +1,24 @@
+res://Scenes/player.tscn
+res://Resource Templates/Resources/Character Data/AllUpgrades_CharacterDataResource.tres
+res://addons/roommate/defaults/default_setting_values.tres
+res://addons/cyclops_level_builder/shaders/outline_shader.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_move.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_create_block.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_create_prism.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_rotate.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_create_cylinder.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_create_stairs.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_clip.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_edit_vertex.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_edit_edge.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_edit_face.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_material_brush.tres
+res://addons/cyclops_level_builder/data/tool_tags/tool_tag_vertex_color_brush.tres
+res://addons/cyclops_level_builder/docks/material_palette/material_viewer/mat_bn_normal_theme.tres
+res://addons/cyclops_level_builder/docks/material_palette/material_viewer/mat_bn_selected_theme.tres
+res://addons/cyclops_level_builder/docks/material_palette/material_viewer/mat_bn_active_theme.tres
+res://AssetLib/addons/Weapons/Resources/PistolWeaponResources.tres
+res://AssetLib/addons/Weapons/Resources/AssaultRifleWeaponResources.tres
+res://AssetLib/addons/Weapons/Resources/ShotgunWeaponResources.tres
+res://AssetLib/addons/Weapons/Resources/SniperRifleWeaponResources.tres
+res://AssetLib/addons/Weapons/Resources/RocketLauncherWeaponResources.tres

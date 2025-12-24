@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxswb5wxen8ed"
+path="res://godot/imported/Semi 22LR Reload Full WAV.wav-3d5a0c9f0af4a17e0f94de6e22adddc3.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/Semi 22LR Reload Full WAV.wav"
+dest_files=["res://godot/imported/Semi 22LR Reload Full WAV.wav-3d5a0c9f0af4a17e0f94de6e22adddc3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

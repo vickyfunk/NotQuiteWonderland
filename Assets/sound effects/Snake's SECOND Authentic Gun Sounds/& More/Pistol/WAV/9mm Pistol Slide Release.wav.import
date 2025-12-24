@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://blnp32nf15ftg"
-path="res://.godot/imported/9mm Pistol Slide Release.wav-8a5246dac9b871cdee68a6cc98591f10.sample"
+path="res://godot/imported/9mm Pistol Slide Release.wav-8a5246dac9b871cdee68a6cc98591f10.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Slide Release.wav"
-dest_files=["res://.godot/imported/9mm Pistol Slide Release.wav-8a5246dac9b871cdee68a6cc98591f10.sample"]
+dest_files=["res://godot/imported/9mm Pistol Slide Release.wav-8a5246dac9b871cdee68a6cc98591f10.sample"]
 
 [params]
 

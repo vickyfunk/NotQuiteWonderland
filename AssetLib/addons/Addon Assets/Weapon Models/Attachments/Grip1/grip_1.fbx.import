@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://byay6okhbhoo6"
-path="res://.godot/imported/grip_1.fbx-a330fdd4785d0d7c708a1a442d53946d.scn"
+path="res://godot/imported/grip_1.fbx-a330fdd4785d0d7c708a1a442d53946d.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Attachments/Grip1/grip_1.fbx"
-dest_files=["res://.godot/imported/grip_1.fbx-a330fdd4785d0d7c708a1a442d53946d.scn"]
+dest_files=["res://godot/imported/grip_1.fbx-a330fdd4785d0d7c708a1a442d53946d.scn"]
 
 [params]
 

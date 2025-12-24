@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ckng31bm3vhv3"
-path="res://.godot/imported/Revolver.glb-c321a3116bc8adc4f4d26c802a7d507f.scn"
+path="res://godot/imported/Revolver.glb-c321a3116bc8adc4f4d26c802a7d507f.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Revolver.glb"
-dest_files=["res://.godot/imported/Revolver.glb-c321a3116bc8adc4f4d26c802a7d507f.scn"]
+dest_files=["res://godot/imported/Revolver.glb-c321a3116bc8adc4f4d26c802a7d507f.scn"]
 
 [params]
 

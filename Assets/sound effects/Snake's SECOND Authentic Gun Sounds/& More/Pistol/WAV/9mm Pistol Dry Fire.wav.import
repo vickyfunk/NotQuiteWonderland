@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bf1hj771b2sqd"
-path="res://.godot/imported/9mm Pistol Dry Fire.wav-deebefb8df143fc79e61a0ddcfafe27e.sample"
+path="res://godot/imported/9mm Pistol Dry Fire.wav-deebefb8df143fc79e61a0ddcfafe27e.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Dry Fire.wav"
-dest_files=["res://.godot/imported/9mm Pistol Dry Fire.wav-deebefb8df143fc79e61a0ddcfafe27e.sample"]
+dest_files=["res://godot/imported/9mm Pistol Dry Fire.wav-deebefb8df143fc79e61a0ddcfafe27e.sample"]
 
 [params]
 

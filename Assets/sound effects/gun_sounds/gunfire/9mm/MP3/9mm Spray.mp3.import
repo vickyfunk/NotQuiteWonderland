@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yp4frfof0jaw"
+path="res://godot/imported/9mm Spray.mp3-1e2d6f45622a3c4b5723139074565ae2.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/gunfire/9mm/MP3/9mm Spray.mp3"
+dest_files=["res://godot/imported/9mm Spray.mp3-1e2d6f45622a3c4b5723139074565ae2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

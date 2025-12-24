@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cvk70ogg64y74"
-path="res://.godot/imported/sword_1.fbx-5b89c5722a51a4640af7fe3c621176c9.scn"
+path="res://godot/imported/sword_1.fbx-5b89c5722a51a4640af7fe3c621176c9.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Melee/Swords/Sword1/sword_1.fbx"
-dest_files=["res://.godot/imported/sword_1.fbx-5b89c5722a51a4640af7fe3c621176c9.scn"]
+dest_files=["res://godot/imported/sword_1.fbx-5b89c5722a51a4640af7fe3c621176c9.scn"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwfckthiivv45"
-path="res://.godot/imported/32 SW Hammer Cock.wav-3d5b4cb50b13092d03663da7a706a01e.sample"
+path="res://godot/imported/32 SW Hammer Cock.wav-3d5b4cb50b13092d03663da7a706a01e.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/32 SW Long/WAV/32 SW Hammer Cock.wav"
-dest_files=["res://.godot/imported/32 SW Hammer Cock.wav-3d5b4cb50b13092d03663da7a706a01e.sample"]
+dest_files=["res://godot/imported/32 SW Hammer Cock.wav-3d5b4cb50b13092d03663da7a706a01e.sample"]
 
 [params]
 

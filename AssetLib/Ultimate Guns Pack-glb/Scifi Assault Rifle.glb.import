@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpov65b6a2p75"
-path="res://.godot/imported/Scifi Assault Rifle.glb-15dcb8f18ed654794c6acf4a5cda92a6.scn"
+path="res://godot/imported/Scifi Assault Rifle.glb-15dcb8f18ed654794c6acf4a5cda92a6.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb"
-dest_files=["res://.godot/imported/Scifi Assault Rifle.glb-15dcb8f18ed654794c6acf4a5cda92a6.scn"]
+dest_files=["res://godot/imported/Scifi Assault Rifle.glb-15dcb8f18ed654794c6acf4a5cda92a6.scn"]
 
 [params]
 

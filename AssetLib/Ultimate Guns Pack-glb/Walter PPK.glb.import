@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://4blofko0srpm"
-path="res://.godot/imported/Walter PPK.glb-0cf283b128983c5aff89c8d04c0fb949.scn"
+path="res://godot/imported/Walter PPK.glb-0cf283b128983c5aff89c8d04c0fb949.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Walter PPK.glb"
-dest_files=["res://.godot/imported/Walter PPK.glb-0cf283b128983c5aff89c8d04c0fb949.scn"]
+dest_files=["res://godot/imported/Walter PPK.glb-0cf283b128983c5aff89c8d04c0fb949.scn"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b58rvubqfftgp"
-path="res://.godot/imported/32 SW Eject One Casing.wav-785b043a24eca4329d10b2e4401d93ac.sample"
+path="res://godot/imported/32 SW Eject One Casing.wav-785b043a24eca4329d10b2e4401d93ac.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/32 SW Long/WAV/32 SW Eject One Casing.wav"
-dest_files=["res://.godot/imported/32 SW Eject One Casing.wav-785b043a24eca4329d10b2e4401d93ac.sample"]
+dest_files=["res://godot/imported/32 SW Eject One Casing.wav-785b043a24eca4329d10b2e4401d93ac.sample"]
 
 [params]
 

@@ -2,17 +2,7 @@ extends Resource
 
 class_name WeaponResource
 
-@export_group("General variables")
-@export var weaponName : String
-@export var weaponId : int
-var weaponSlot : WeaponSlot
 
-@export_group("Type variables")
-enum types
-{
-	NULL, HITSCAN, PROJECTILE
-}
-@export var type = types.NULL 
 
 @export_group("Animation variables")
 @export var animBlendTime : float

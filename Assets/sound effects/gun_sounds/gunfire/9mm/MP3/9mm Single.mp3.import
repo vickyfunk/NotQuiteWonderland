@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dc5ucnjfvxd7u"
+path="res://godot/imported/9mm Single.mp3-6e390d974e36f3b5eb10f21b92d8e746.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/gunfire/9mm/MP3/9mm Single.mp3"
+dest_files=["res://godot/imported/9mm Single.mp3-6e390d974e36f3b5eb10f21b92d8e746.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

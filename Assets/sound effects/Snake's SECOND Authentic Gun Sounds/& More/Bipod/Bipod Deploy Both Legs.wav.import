@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dk2wvkjmaccnq"
+path="res://godot/imported/Bipod Deploy Both Legs.wav-1a308fd9833b623420efcdd56ff4f8e6.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Bipod/Bipod Deploy Both Legs.wav"
+dest_files=["res://godot/imported/Bipod Deploy Both Legs.wav-1a308fd9833b623420efcdd56ff4f8e6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

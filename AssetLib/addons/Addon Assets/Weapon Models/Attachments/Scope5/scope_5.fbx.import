@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bupqh2tr7mt3q"
-path="res://.godot/imported/scope_5.fbx-8c004d690a0f7a7da4181599a6f63632.scn"
+path="res://godot/imported/scope_5.fbx-8c004d690a0f7a7da4181599a6f63632.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Attachments/Scope5/scope_5.fbx"
-dest_files=["res://.godot/imported/scope_5.fbx-8c004d690a0f7a7da4181599a6f63632.scn"]
+dest_files=["res://godot/imported/scope_5.fbx-8c004d690a0f7a7da4181599a6f63632.scn"]
 
 [params]
 

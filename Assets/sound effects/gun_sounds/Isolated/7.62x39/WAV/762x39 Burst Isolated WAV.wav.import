@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://br1j1jdheicti"
+path="res://godot/imported/762x39 Burst Isolated WAV.wav-c132e92f425d22085c3df13b12938b54.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/Isolated/7.62x39/WAV/762x39 Burst Isolated WAV.wav"
+dest_files=["res://godot/imported/762x39 Burst Isolated WAV.wav-c132e92f425d22085c3df13b12938b54.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

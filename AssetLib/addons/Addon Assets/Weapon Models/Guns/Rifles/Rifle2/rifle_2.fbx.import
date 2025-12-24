@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://g7nyu5wnv8nr"
-path="res://.godot/imported/rifle_2.fbx-1dba8ed3c57774a4714d51b07521bea7.scn"
+path="res://godot/imported/rifle_2.fbx-1dba8ed3c57774a4714d51b07521bea7.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Guns/Rifles/Rifle2/rifle_2.fbx"
-dest_files=["res://.godot/imported/rifle_2.fbx-1dba8ed3c57774a4714d51b07521bea7.scn"]
+dest_files=["res://godot/imported/rifle_2.fbx-1dba8ed3c57774a4714d51b07521bea7.scn"]
 
 [params]
 

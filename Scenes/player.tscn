@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene load_steps=39 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" uid="uid://b3hr0d0bq0mh8" path="res://Scripts/Player.gd" id="1_ptgww"]
 [ext_resource type="Script" uid="uid://c1indgkkj0u48" path="res://Scripts/HUD.gd" id="2_6d6d2"]
@@ -7,16 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://AssetLib/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="Texture2D" uid="uid://dyobtmdaxgc3f" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121_scaled.png" id="5_5bio3"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://AssetLib/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
-[ext_resource type="Resource" uid="uid://cx2nt7k8xpo6w" path="res://Resource Templates/Resources/Weapon Data/Glock.tres" id="6_rmp7o"]
 [ext_resource type="Texture2D" uid="uid://uc5j6i5tgwku" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair161.png" id="6_u6kn0"]
-[ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resource Templates/Resources/Weapon Data/Tantal.tres" id="7_jatp6"]
-[ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://Resource Templates/Resources/Weapon Data/LaserRifle.tres" id="8_fia83"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://AssetLib/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
 [ext_resource type="Script" uid="uid://camh0kubp5gay" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
-[ext_resource type="Script" uid="uid://fubjgo205yho" path="res://Resource Templates/WeaponResource.gd" id="12_wwkmi"]
-[ext_resource type="PackedScene" uid="uid://c1g7ji87j053d" path="res://Assets/meshes/projectiles/762x39bullet.glb" id="12_y1rb8"]
 [ext_resource type="PackedScene" uid="uid://cc5f7uw687x7x" path="res://AssetLib/Ultimate Guns Pack-glb/low-poly_mateba_unica_6_autorevolver.glb" id="14_66b6f"]
-[ext_resource type="AudioStream" uid="uid://vvg0ax8d4pge" path="res://Assets/sound effects/Free Footsteps Pack/Concrete 2.wav" id="15_axp3g"]
+[ext_resource type="AudioStream" uid="uid://vvg0ax8d4pge" path="res://Assets/sound effects/footsteps/Concrete 2.wav" id="15_axp3g"]
 
 [sub_resource type="Resource" id="Resource_2kkn5"]
 script = ExtResource("3_y3vyu")
@@ -30,19 +25,6 @@ radius = 0.35
 points = PackedVector3Array(0.223309, 0.896623, 0.103721, -0.337198, -0.702061, -0.0738964, -0.337534, -0.702762, 0.0723161, 0.310749, -0.801262, 0.0436457, -0.0738964, 0.702061, -0.337198, -0.16127, 0.700536, 0.305571, 0.0725934, -0.705427, 0.337223, 0.159308, -0.699184, -0.306633, -0.312854, 0.802421, -0.0156505, 0.305573, 0.700541, -0.161271, 0.271925, 0.68908, 0.21446, -0.163457, -0.828337, -0.252249, -0.163719, -0.829673, 0.251001, -0.273692, 0.660736, -0.216253, -0.076791, 0.973148, -0.10719, 0.105646, -0.974166, 0.0752147, 0.0725934, 0.705427, 0.337223, 0.159305, 0.699172, -0.306627, -0.16068, -0.697961, -0.306097, 0.333009, -0.667538, -0.102346, 0.21446, -0.68908, 0.271925, 0.333438, 0.668396, 0.100824, -0.297834, 0.594163, 0.183049, -0.216924, -0.662794, 0.272955, -0.106631, 0.937716, 0.165455, -0.10719, -0.973148, -0.076791, 0.104936, -0.937366, -0.167048, 0.333438, -0.668396, 0.100824, 0.0723161, -0.702761, -0.337534, 0.104937, 0.937368, -0.167048, -0.102345, -0.667533, 0.333007, -0.337198, 0.702061, -0.0738964)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gmyi8"]
-
-[sub_resource type="Curve" id="Curve_f7kk2"]
-_data = [Vector2(0.30292, 0.250749), 0.0, 0.0, 0, 0, Vector2(0.492701, 0.425898), 0.0, 0.0, 0, 0, Vector2(0.686131, 0.27021), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Resource" id="Resource_cohrp"]
-script = ExtResource("12_wwkmi")
-Weapon_Name = "Mateba"
-Current_Ammo = 6
-Type = 2
-Projectile_to_Load = ExtResource("12_y1rb8")
-Projectile_Velocity = 300.0
-recoil_rotation_x = SubResource("Curve_f7kk2")
 
 [sub_resource type="Animation" id="Animation_053ja"]
 resource_name = "GlockADS"
@@ -677,10 +659,10 @@ FRICTION = 1.0
 time_bw_steps_walking = 0.3
 footstep_manager = NodePath("FootstepPlayer")
 unit_data = SubResource("Resource_2kkn5")
-horiz_head = NodePath("Horizontal Head")
-vert_head = NodePath("Horizontal Head/Vertical Head")
-camera = NodePath("Horizontal Head/Vertical Head/Camera3D")
-weapon_holder = NodePath("Horizontal Head/Vertical Head/Wrist/WeaponManager")
+horiz_head = NodePath("HorizontalHead")
+vert_head = NodePath("HorizontalHead/VerticalHead")
+camera = NodePath("HorizontalHead/VerticalHead/Camera3D")
+weapon_holder = NodePath("HorizontalHead/VerticalHead/Wrist/WeaponManager")
 weapon_sway_amount = 0.1
 Aiming_Crosshair = NodePath("CanvasLayer/AimingCrosshair")
 
@@ -806,13 +788,13 @@ mesh = SubResource("CapsuleMesh_a53bf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("ConvexPolygonShape3D_jkvit")
 
-[node name="Horizontal Head" type="Node3D" parent="."]
+[node name="HorizontalHead" type="Node3D" parent="."]
 
-[node name="Vertical Head" type="Node3D" parent="Horizontal Head"]
+[node name="VerticalHead" type="Node3D" parent="HorizontalHead"]
 
-[node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
+[node name="Camera3D" type="Camera3D" parent="HorizontalHead/VerticalHead"]
 
-[node name="CameraShaker" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("camera")]
+[node name="CameraShaker" type="Node3D" parent="HorizontalHead/VerticalHead" node_paths=PackedStringArray("camera")]
 script = ExtResource("11_w3kwb")
 noise = SubResource("FastNoiseLite_gmyi8")
 max_x = 5.0
@@ -820,16 +802,15 @@ max_y = 2.5
 max_z = 2.5
 camera = NodePath("../Camera3D")
 
-[node name="Wrist" type="Node3D" parent="Horizontal Head/Vertical Head"]
+[node name="Wrist" type="Node3D" parent="HorizontalHead/VerticalHead"]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head/Wrist" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "vert_head", "wrist", "camera_shaker", "gun_barrel_crosshair", "camera")]
+[node name="WeaponManager" type="Node3D" parent="HorizontalHead/VerticalHead/Wrist" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "vert_head", "wrist", "camera_shaker", "gun_barrel_crosshair", "camera")]
 script = ExtResource("3_vb8qq")
 shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
 reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
 vert_head = NodePath("../..")
 wrist = NodePath("..")
 camera_shaker = NodePath("../../CameraShaker")
-_weapon_resources = Array[ExtResource("12_wwkmi")]([ExtResource("6_rmp7o"), ExtResource("7_jatp6"), ExtResource("8_fia83"), SubResource("Resource_cohrp")])
 Start_Weapons = Array[String](["Glock", "Tantal", "Laser Rifle", "Mateba"])
 gun_barrel_crosshair = NodePath("../../../../CanvasLayer/GunBarrelCrosshair")
 camera = NodePath("../../Camera3D")
@@ -838,41 +819,40 @@ sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-[node name="Glock" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.014518727, 0.9884732, 0.15069231, -0.56562704, -0.13239612, 0.81396323, 0.82453233, -0.0734179, 0.5610302, 0.07, -0.1, -0.3)
+[node name="Glock" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager" instance=ExtResource("4_lmw1r")]
+transform = Transform3D(-0.014518721, 0.9884727, 0.1506923, -0.5656268, -0.13239604, 0.8139631, 0.82453203, -0.073417865, 0.5610301, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
-visible = false
 
-[node name="Mateba" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("14_66b6f")]
+[node name="Mateba" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager" instance=ExtResource("14_66b6f")]
 transform = Transform3D(0.128868, 0, 1.74525, 0, 1.75, 0, -1.74525, 0, 0.128868, 0.17, -0.241716, -0.52648)
 rotation_edit_mode = 1
 visible = false
 
-[node name="Tantal" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("5_b88fu")]
+[node name="Tantal" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager" instance=ExtResource("5_b88fu")]
 transform = Transform3D(0.453139, -0.046586562, 0.390506, 0.33501005, 0.3577861, -0.346061, -0.20599201, 0.47939602, 0.29622304, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 
-[node name="LaserRifle" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("10_e71et")]
+[node name="LaserRifle" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager" instance=ExtResource("10_e71et")]
 transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
 rotation_edit_mode = 1
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager"]
 libraries = {
 &"": SubResource("AnimationLibrary_8njrv")
 }
 
-[node name="Bullet_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]
+[node name="Bullet_Point" type="Marker3D" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
 
-[node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="ShootPlayer" type="AudioStreamPlayer3D" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager/Bullet_Point"]
 volume_db = -5.079
 
-[node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager/Bullet_Point"]
 
-[node name="Aiming_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="Aiming_Point" type="Marker3D" parent="HorizontalHead/VerticalHead/Wrist/WeaponManager/Bullet_Point"]
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.736114, 0)
@@ -882,8 +862,8 @@ max_polyphony = 2
 panning_strength = 3.0
 
 [connection signal="Update_Velocity" from="." to="CanvasLayer" method="_on_player_update_velocity"]
-[connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
-[connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
-[connection signal="Weapon_Changed" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
-[connection signal="animation_finished" from="Horizontal Head/Vertical Head/Wrist/WeaponManager/AnimationPlayer" to="Horizontal Head/Vertical Head/Wrist/WeaponManager" method="_on_animation_player_animation_finished"]
-[connection signal="finished" from="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point/ReloadPlayer" to="Horizontal Head/Vertical Head/Wrist/WeaponManager" method="_on_reload_player_finished"]
+[connection signal="Update_Ammo" from="HorizontalHead/VerticalHead/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Weapon_Stack" from="HorizontalHead/VerticalHead/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
+[connection signal="Weapon_Changed" from="HorizontalHead/VerticalHead/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
+[connection signal="animation_finished" from="HorizontalHead/VerticalHead/Wrist/WeaponManager/AnimationPlayer" to="HorizontalHead/VerticalHead/Wrist/WeaponManager" method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="HorizontalHead/VerticalHead/Wrist/WeaponManager/Bullet_Point/ReloadPlayer" to="HorizontalHead/VerticalHead/Wrist/WeaponManager" method="_on_reload_player_finished"]

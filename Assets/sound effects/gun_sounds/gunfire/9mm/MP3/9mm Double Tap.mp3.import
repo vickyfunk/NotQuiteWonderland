@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh27w54wlods7"
+path="res://godot/imported/9mm Double Tap.mp3-304029256dd8779eb90849f3baad747c.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/gunfire/9mm/MP3/9mm Double Tap.mp3"
+dest_files=["res://godot/imported/9mm Double Tap.mp3-304029256dd8779eb90849f3baad747c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

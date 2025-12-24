@@ -1,0 +1,6 @@
+/build
+/export
+/doc/*.jpg~
+/godot/editor_cache.json
+/testing
+/doc/*.png~

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f80mi1clopnv"
-path="res://.godot/imported/Bipod.glb-7f650ff4d2f510176a8897f805521987.scn"
+path="res://godot/imported/Bipod.glb-7f650ff4d2f510176a8897f805521987.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Bipod.glb"
-dest_files=["res://.godot/imported/Bipod.glb-7f650ff4d2f510176a8897f805521987.scn"]
+dest_files=["res://godot/imported/Bipod.glb-7f650ff4d2f510176a8897f805521987.scn"]
 
 [params]
 

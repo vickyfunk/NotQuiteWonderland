@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://mnbyghfnpqnc" path="res://Assets/meshes/casings/x39casing.glb" id="1_g1exn"]
 [ext_resource type="PackedScene" uid="uid://buqjj0a8y4lw8" path="res://Scenes/545x39bullet.tscn" id="1_rtly8"]
 [ext_resource type="Curve" uid="uid://bvio3ncd4vrxs" path="res://Resource Templates/Resources/Weapon Data/tantal_recoil_curve.tres" id="2_4tk30"]
-[ext_resource type="AudioStream" uid="uid://c3hvfbi0gs33h" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Full Sound/7.62x39/WAV/762x39 Single WAV.wav" id="2_7ndyx"]
-[ext_resource type="AudioStream" uid="uid://lpt3vg54lteq" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Reload Part 1 WAV.wav" id="2_c20m8"]
-[ext_resource type="AudioStream" uid="uid://r5x73rp73r6x" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Reload Part 2 WAV.wav" id="3_ge8w2"]
+[ext_resource type="AudioStream" uid="uid://c3hvfbi0gs33h" path="res://Assets/sound effects/gun_sounds/gunfire/7.62x39/762x39 Single WAV.wav" id="2_7ndyx"]
+[ext_resource type="AudioStream" uid="uid://lpt3vg54lteq" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/AK Reload Part 1 WAV.wav" id="2_c20m8"]
+[ext_resource type="AudioStream" uid="uid://r5x73rp73r6x" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/AK Reload Part 2 WAV.wav" id="3_ge8w2"]
 [ext_resource type="Curve" uid="uid://cqpeotleotdjc" path="res://Resource Templates/Resources/Weapon Data/tantal_recoil_x_rotation.tres" id="3_kcijo"]
-[ext_resource type="AudioStream" uid="uid://b1xfwq8jcemkc" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/AK Rack WAV.wav" id="5_btbq6"]
+[ext_resource type="AudioStream" uid="uid://b1xfwq8jcemkc" path="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/AK Rack WAV.wav" id="5_btbq6"]
 
 [resource]
 script = ExtResource("1_6dtwn")

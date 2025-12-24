@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnj052rolonh5"
-path="res://.godot/imported/9mm Pistol Rack Part 1.wav-2d02e0a5162be8ffe0bebcb7ed447417.sample"
+path="res://godot/imported/9mm Pistol Rack Part 1.wav-2d02e0a5162be8ffe0bebcb7ed447417.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Rack Part 1.wav"
-dest_files=["res://.godot/imported/9mm Pistol Rack Part 1.wav-2d02e0a5162be8ffe0bebcb7ed447417.sample"]
+dest_files=["res://godot/imported/9mm Pistol Rack Part 1.wav-2d02e0a5162be8ffe0bebcb7ed447417.sample"]
 
 [params]
 

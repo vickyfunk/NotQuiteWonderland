@@ -2,7 +2,19 @@ extends Resource
 
 class_name Weapon_Resource
 
-enum Weapon_Action {Automatic, Manual}
+@export_group("General variables")
+@export var weaponName : String
+@export var weaponId : int
+var weaponSlot : WeaponSlot
+
+@export_group("Type variables")
+enum types
+{
+	NULL, HITSCAN, PROJECTILE
+}
+@export var type = types.NULL 
+
+
 
 @export_group ("Animations")
 @export var Weapon_Name: String
@@ -25,6 +37,8 @@ enum Weapon_Action {Automatic, Manual}
 #values pulled from the ammo table
 @export_group("Firing")
 @export_flags("Hitscan", "Projectile") var Type
+@export var Action: bool 
+PackedByteArray
 @export var Caliber: Array #what shape of bullet
 @export var Ammo_Type: Array #what kind of bullet of a given caliber
 @export var Damage: float #duh

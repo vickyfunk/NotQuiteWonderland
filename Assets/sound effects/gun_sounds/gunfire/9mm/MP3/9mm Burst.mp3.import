@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df7tprpja1q0p"
+path="res://godot/imported/9mm Burst.mp3-83ab8a4c49aad24f93fc139cec3b7a2a.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/gunfire/9mm/MP3/9mm Burst.mp3"
+dest_files=["res://godot/imported/9mm Burst.mp3-83ab8a4c49aad24f93fc139cec3b7a2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cftus6mtvqueu"
-path="res://.godot/imported/compensator_1.fbx-fd9fd3af34f11b2590b9db812e5fdb8e.scn"
+path="res://godot/imported/compensator_1.fbx-fd9fd3af34f11b2590b9db812e5fdb8e.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Attachments/Compensator1/compensator_1.fbx"
-dest_files=["res://.godot/imported/compensator_1.fbx-fd9fd3af34f11b2590b9db812e5fdb8e.scn"]
+dest_files=["res://godot/imported/compensator_1.fbx-fd9fd3af34f11b2590b9db812e5fdb8e.scn"]
 
 [params]
 

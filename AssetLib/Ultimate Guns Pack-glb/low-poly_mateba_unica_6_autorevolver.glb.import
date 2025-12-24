@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cc5f7uw687x7x"
-path="res://.godot/imported/low-poly_mateba_unica_6_autorevolver.glb-8d766a36f2afd1608313064c9ee53193.scn"
+path="res://godot/imported/low-poly_mateba_unica_6_autorevolver.glb-8d766a36f2afd1608313064c9ee53193.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/low-poly_mateba_unica_6_autorevolver.glb"
-dest_files=["res://.godot/imported/low-poly_mateba_unica_6_autorevolver.glb-8d766a36f2afd1608313064c9ee53193.scn"]
+dest_files=["res://godot/imported/low-poly_mateba_unica_6_autorevolver.glb-8d766a36f2afd1608313064c9ee53193.scn"]
 
 [params]
 

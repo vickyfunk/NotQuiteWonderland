@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b02c0ctccfvy7"
-path="res://.godot/imported/Savage Axis.glb-9031ac39a1e9340df266735179a6848e.scn"
+path="res://godot/imported/Savage Axis.glb-9031ac39a1e9340df266735179a6848e.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Savage Axis.glb"
-dest_files=["res://.godot/imported/Savage Axis.glb-9031ac39a1e9340df266735179a6848e.scn"]
+dest_files=["res://godot/imported/Savage Axis.glb-9031ac39a1e9340df266735179a6848e.scn"]
 
 [params]
 

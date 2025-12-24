@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://24ky1vcfftj"
+path="res://godot/imported/308 Bolt Cycle WAV.wav-6a90b3d4f8f2d879f32522cf7999f97e.sample"
+
+[deps]
+
+source_file="res://Assets/sound effects/gun_sounds/Reloads, Cycling & More/308 Bolt Cycle WAV.wav"
+dest_files=["res://godot/imported/308 Bolt Cycle WAV.wav-6a90b3d4f8f2d879f32522cf7999f97e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

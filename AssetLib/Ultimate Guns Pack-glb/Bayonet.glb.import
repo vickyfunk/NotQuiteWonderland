@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bsoxcq2l5tg56"
-path="res://.godot/imported/Bayonet.glb-3be2658ef87576f7734c5879fcfb7d82.scn"
+path="res://godot/imported/Bayonet.glb-3be2658ef87576f7734c5879fcfb7d82.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Bayonet.glb"
-dest_files=["res://.godot/imported/Bayonet.glb-3be2658ef87576f7734c5879fcfb7d82.scn"]
+dest_files=["res://godot/imported/Bayonet.glb-3be2658ef87576f7734c5879fcfb7d82.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b1yme2ggmer50"
-path="res://.godot/imported/Remington 700.glb-d4d56940234194849071aeb2f6faf752.scn"
+path="res://godot/imported/Remington 700.glb-d4d56940234194849071aeb2f6faf752.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Remington 700.glb"
-dest_files=["res://.godot/imported/Remington 700.glb-d4d56940234194849071aeb2f6faf752.scn"]
+dest_files=["res://godot/imported/Remington 700.glb-d4d56940234194849071aeb2f6faf752.scn"]
 
 [params]
 

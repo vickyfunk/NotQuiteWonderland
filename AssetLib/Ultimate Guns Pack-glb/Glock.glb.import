@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d0jcfpspjfqko"
-path="res://.godot/imported/Glock.glb-d93aeefda63967c53bc2c6351b85a913.scn"
+path="res://godot/imported/Glock.glb-d93aeefda63967c53bc2c6351b85a913.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Glock.glb"
-dest_files=["res://.godot/imported/Glock.glb-d93aeefda63967c53bc2c6351b85a913.scn"]
+dest_files=["res://godot/imported/Glock.glb-d93aeefda63967c53bc2c6351b85a913.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://h1srlkjrdyal"
-path="res://.godot/imported/default_texture.svg-2c4d0f7292db0e4afcfabdf85433cf2d.ctex"
+path="res://godot/imported/default_texture.svg-2c4d0f7292db0e4afcfabdf85433cf2d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/roommate/defaults/default_texture.svg"
-dest_files=["res://.godot/imported/default_texture.svg-2c4d0f7292db0e4afcfabdf85433cf2d.ctex"]
+dest_files=["res://godot/imported/default_texture.svg-2c4d0f7292db0e4afcfabdf85433cf2d.ctex"]
 
 [params]
 

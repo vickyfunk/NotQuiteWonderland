@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://u4pmc1m6s7uw"
-path="res://.godot/imported/9mm Magazine Unpack.mp3-25e2d8398932c53b0a2b637df541ba85.mp3str"
+path="res://godot/imported/9mm Magazine Unpack.mp3-25e2d8398932c53b0a2b637df541ba85.mp3str"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/MP3/9mm Magazine Unpack.mp3"
-dest_files=["res://.godot/imported/9mm Magazine Unpack.mp3-25e2d8398932c53b0a2b637df541ba85.mp3str"]
+dest_files=["res://godot/imported/9mm Magazine Unpack.mp3-25e2d8398932c53b0a2b637df541ba85.mp3str"]
 
 [params]
 

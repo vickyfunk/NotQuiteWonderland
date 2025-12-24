@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cufjpih1bbu8g"
-path="res://.godot/imported/submachine_gun_3.fbx-1033dd15287623724d3103910bd016ca.scn"
+path="res://godot/imported/submachine_gun_3.fbx-1033dd15287623724d3103910bd016ca.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Guns/SubmachineGuns/SubmachineGun3/submachine_gun_3.fbx"
-dest_files=["res://.godot/imported/submachine_gun_3.fbx-1033dd15287623724d3103910bd016ca.scn"]
+dest_files=["res://godot/imported/submachine_gun_3.fbx-1033dd15287623724d3103910bd016ca.scn"]
 
 [params]
 

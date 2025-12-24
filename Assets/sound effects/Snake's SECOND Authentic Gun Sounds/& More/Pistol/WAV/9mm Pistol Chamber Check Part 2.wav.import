@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bpoi5wmnx5wak"
-path="res://.godot/imported/9mm Pistol Chamber Check Part 2.wav-54a4b9f181936f636750d58272285131.sample"
+path="res://godot/imported/9mm Pistol Chamber Check Part 2.wav-54a4b9f181936f636750d58272285131.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Pistol/WAV/9mm Pistol Chamber Check Part 2.wav"
-dest_files=["res://.godot/imported/9mm Pistol Chamber Check Part 2.wav-54a4b9f181936f636750d58272285131.sample"]
+dest_files=["res://godot/imported/9mm Pistol Chamber Check Part 2.wav-54a4b9f181936f636750d58272285131.sample"]
 
 [params]
 

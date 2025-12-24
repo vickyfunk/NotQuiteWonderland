@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://brb78l36ki4pj"
-path="res://.godot/imported/Desert Eagle.glb-69ea561c367a74eee06053aca3edcd67.scn"
+path="res://godot/imported/Desert Eagle.glb-69ea561c367a74eee06053aca3edcd67.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Desert Eagle.glb"
-dest_files=["res://.godot/imported/Desert Eagle.glb-69ea561c367a74eee06053aca3edcd67.scn"]
+dest_files=["res://godot/imported/Desert Eagle.glb-69ea561c367a74eee06053aca3edcd67.scn"]
 
 [params]
 

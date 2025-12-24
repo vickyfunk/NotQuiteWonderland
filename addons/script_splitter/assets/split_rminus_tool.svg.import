@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1yp7jd6hvabl"
-path="res://.godot/imported/split_rminus_tool.svg-d7a9fa38184b6bc3008e9a11b0f95fb6.ctex"
+path="res://godot/imported/split_rminus_tool.svg-d7a9fa38184b6bc3008e9a11b0f95fb6.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/script_splitter/assets/split_rminus_tool.svg"
-dest_files=["res://.godot/imported/split_rminus_tool.svg-d7a9fa38184b6bc3008e9a11b0f95fb6.ctex"]
+dest_files=["res://godot/imported/split_rminus_tool.svg-d7a9fa38184b6bc3008e9a11b0f95fb6.ctex"]
 
 [params]
 

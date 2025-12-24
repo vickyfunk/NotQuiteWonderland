@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1lqo7debleoq"
-path="res://.godot/imported/img0304.jpg-de0fbec5d345e6c6f095022974ebc90d.ctex"
+path="res://godot/imported/img0304.jpg-de0fbec5d345e6c6f095022974ebc90d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://godot_resource_groups_examples/one_thousand_images/img0304.jpg"
-dest_files=["res://.godot/imported/img0304.jpg-de0fbec5d345e6c6f095022974ebc90d.ctex"]
+dest_files=["res://godot/imported/img0304.jpg-de0fbec5d345e6c6f095022974ebc90d.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bt1citbji6pa5"
-path="res://.godot/imported/Tripod.glb-b11c13d533174a5cf9333ce097074ddf.scn"
+path="res://godot/imported/Tripod.glb-b11c13d533174a5cf9333ce097074ddf.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Tripod.glb"
-dest_files=["res://.godot/imported/Tripod.glb-b11c13d533174a5cf9333ce097074ddf.scn"]
+dest_files=["res://godot/imported/Tripod.glb-b11c13d533174a5cf9333ce097074ddf.scn"]
 
 [params]
 

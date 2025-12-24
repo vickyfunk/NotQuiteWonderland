@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mbfyxsdb0xxg"
-path="res://.godot/imported/BTWait.svg-2a5d27d0c617861f027b2e66516aa5bf.ctex"
+path="res://godot/imported/BTWait.svg-2a5d27d0c617861f027b2e66516aa5bf.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://addons/limboai/icons/BTWait.svg"
-dest_files=["res://.godot/imported/BTWait.svg-2a5d27d0c617861f027b2e66516aa5bf.ctex"]
+dest_files=["res://godot/imported/BTWait.svg-2a5d27d0c617861f027b2e66516aa5bf.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gpmsr464341o"
-path="res://.godot/imported/AWP.glb-1c280d21dcd5544afc326e40a978811e.scn"
+path="res://godot/imported/AWP.glb-1c280d21dcd5544afc326e40a978811e.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/AWP.glb"
-dest_files=["res://.godot/imported/AWP.glb-1c280d21dcd5544afc326e40a978811e.scn"]
+dest_files=["res://godot/imported/AWP.glb-1c280d21dcd5544afc326e40a978811e.scn"]
 
 [params]
 

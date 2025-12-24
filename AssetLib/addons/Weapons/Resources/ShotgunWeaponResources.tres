@@ -9,9 +9,6 @@ point_count = 4
 
 [resource]
 script = ExtResource("5_ynmrh")
-weaponName = "Shotgun"
-weaponId = 3
-type = 1
 animBlendTime = 0.2
 equipAnimName = "EquipAnimShotgun"
 unequipAnimName = "UnequipAnimShotgun"

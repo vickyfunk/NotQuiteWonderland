@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ihivaaxafnkw"
-path="res://.godot/imported/dm_icon_drag_deformer.svg-dbf52ad22ece67c6ac28c6f9a5713e96.ctex"
+path="res://godot/imported/dm_icon_drag_deformer.svg-dbf52ad22ece67c6ac28c6f9a5713e96.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/deformablemesh/dm_icon_drag_deformer.svg"
-dest_files=["res://.godot/imported/dm_icon_drag_deformer.svg-dbf52ad22ece67c6ac28c6f9a5713e96.ctex"]
+dest_files=["res://godot/imported/dm_icon_drag_deformer.svg-dbf52ad22ece67c6ac28c6f9a5713e96.ctex"]
 
 [params]
 

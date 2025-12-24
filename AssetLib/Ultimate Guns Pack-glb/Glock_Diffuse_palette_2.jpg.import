@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://darnxw75eqfgn"
-path.s3tc="res://.godot/imported/Glock_Diffuse_palette_2.jpg-9da7bee9b4cdebb9a41173f12633e037.s3tc.ctex"
+path.s3tc="res://godot/imported/Glock_Diffuse_palette_2.jpg-9da7bee9b4cdebb9a41173f12633e037.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -13,7 +13,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Glock_Diffuse_palette_2.jpg"
-dest_files=["res://.godot/imported/Glock_Diffuse_palette_2.jpg-9da7bee9b4cdebb9a41173f12633e037.s3tc.ctex"]
+dest_files=["res://godot/imported/Glock_Diffuse_palette_2.jpg-9da7bee9b4cdebb9a41173f12633e037.s3tc.ctex"]
 
 [params]
 

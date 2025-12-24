@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ce4juao014bjp"
-path="res://.godot/imported/Webley Revolver.glb-a20ea7e0dec78d11d48958367c606079.scn"
+path="res://godot/imported/Webley Revolver.glb-a20ea7e0dec78d11d48958367c606079.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Webley Revolver.glb"
-dest_files=["res://.godot/imported/Webley Revolver.glb-a20ea7e0dec78d11d48958367c606079.scn"]
+dest_files=["res://godot/imported/Webley Revolver.glb-a20ea7e0dec78d11d48958367c606079.scn"]
 
 [params]
 

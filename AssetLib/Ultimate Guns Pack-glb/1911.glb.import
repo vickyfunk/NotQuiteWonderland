@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3gb0y1ph37n"
-path="res://.godot/imported/1911.glb-d1f6eeea31409a65512159cc95498edc.scn"
+path="res://godot/imported/1911.glb-d1f6eeea31409a65512159cc95498edc.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/1911.glb"
-dest_files=["res://.godot/imported/1911.glb-d1f6eeea31409a65512159cc95498edc.scn"]
+dest_files=["res://godot/imported/1911.glb-d1f6eeea31409a65512159cc95498edc.scn"]
 
 [params]
 

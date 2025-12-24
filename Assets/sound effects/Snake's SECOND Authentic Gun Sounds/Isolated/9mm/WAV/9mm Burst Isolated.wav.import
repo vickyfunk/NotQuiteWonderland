@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cyij2orkw0qjh"
-path="res://.godot/imported/9mm Burst Isolated.wav-1a1e1adb90cc2a49436f0ae4760b715f.sample"
+path="res://godot/imported/9mm Burst Isolated.wav-1a1e1adb90cc2a49436f0ae4760b715f.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Isolated/9mm/WAV/9mm Burst Isolated.wav"
-dest_files=["res://.godot/imported/9mm Burst Isolated.wav-1a1e1adb90cc2a49436f0ae4760b715f.sample"]
+dest_files=["res://godot/imported/9mm Burst Isolated.wav-1a1e1adb90cc2a49436f0ae4760b715f.sample"]
 
 [params]
 

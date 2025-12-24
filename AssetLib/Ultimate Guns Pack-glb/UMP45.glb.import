@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://drx5nycdrpql5"
-path="res://.godot/imported/UMP45.glb-acf933abd63cd6d0f2aff6ff58443395.scn"
+path="res://godot/imported/UMP45.glb-acf933abd63cd6d0f2aff6ff58443395.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/UMP45.glb"
-dest_files=["res://.godot/imported/UMP45.glb-acf933abd63cd6d0f2aff6ff58443395.scn"]
+dest_files=["res://godot/imported/UMP45.glb-acf933abd63cd6d0f2aff6ff58443395.scn"]
 
 [params]
 

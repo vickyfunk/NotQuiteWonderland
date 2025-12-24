@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://1buyhgipvkov"]
+
+[ext_resource type="PackedScene" uid="uid://coklbcv2m6ky6" path="res://Scenes/player.tscn" id="1_6sgmf"]
+[ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resource Templates/Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_0pdfm"]
+[ext_resource type="Texture2D" uid="uid://7vtk3ilx03sr" path="res://Assets/textures/Placeholder Grid Texture.png" id="2_k6ewo"]
+[ext_resource type="PackedScene" uid="uid://cns2etdmr0d4t" path="res://Assets/World Objects/box.tscn" id="3_fi8al"]
+[ext_resource type="PackedScene" uid="uid://drxh6j2kbuhkj" path="res://Scenes/capsule_target.tscn" id="4_3wavy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kpbjj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ijoaq"]
+sky_material = SubResource("ProceduralSkyMaterial_kpbjj")
+
+[sub_resource type="Environment" id="Environment_j7gxi"]
+background_mode = 2
+sky = SubResource("Sky_ijoaq")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ou5lv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knf6c"]
+albedo_color = Color(0.34902, 0.34902, 0.34902, 1)
+albedo_texture_force_srgb = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vpi4g"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st5po"]
+albedo_color = Color(0.00784314, 0.341176, 0, 1)
+albedo_texture = ExtResource("2_k6ewo")
+normal_scale = -4.82
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j7gxi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 95.6053, -46.5824)
+shadow_enabled = true
+
+[node name="test_cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(14.265, 0, 0, 0, 9.5, 0, 0, 0, 26.25, 28.187, 3.95866, 24.921)
+mesh = SubResource("BoxMesh_ou5lv")
+surface_material_override/0 = SubResource("StandardMaterial3D_knf6c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_cube"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_cube/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vpi4g")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_6sgmf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60022, 0)
+character_data = ExtResource("2_0pdfm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(100, 0.5, 100)
+material = SubResource("StandardMaterial3D_st5po")
+
+[node name="Box" parent="." instance=ExtResource("3_fi8al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.62747, 0.381112, 23.7932)
+
+[node name="Box2" parent="." instance=ExtResource("3_fi8al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17222, 0.381112, 23.7932)
+
+[node name="Box3" parent="." instance=ExtResource("3_fi8al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9442, 0.956997, 23.7932)
+
+[node name="CapsuleTarget" parent="." groups=["Target"] instance=ExtResource("4_3wavy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7579, 1.3267, 10.3503)

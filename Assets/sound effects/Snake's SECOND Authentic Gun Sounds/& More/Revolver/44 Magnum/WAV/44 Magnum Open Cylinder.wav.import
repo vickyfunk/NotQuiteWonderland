@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d20eqd6dce7p7"
-path="res://.godot/imported/44 Magnum Open Cylinder.wav-2bc7f9c49be0aaa6f6e3052140220d9e.sample"
+path="res://godot/imported/44 Magnum Open Cylinder.wav-2bc7f9c49be0aaa6f6e3052140220d9e.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/WAV/44 Magnum Open Cylinder.wav"
-dest_files=["res://.godot/imported/44 Magnum Open Cylinder.wav-2bc7f9c49be0aaa6f6e3052140220d9e.sample"]
+dest_files=["res://godot/imported/44 Magnum Open Cylinder.wav-2bc7f9c49be0aaa6f6e3052140220d9e.sample"]
 
 [params]
 

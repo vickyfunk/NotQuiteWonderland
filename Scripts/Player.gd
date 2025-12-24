@@ -57,7 +57,7 @@ var time_since_step: float
 # The part of the head that rotates vertically, i.e. around the x axis (and tilts)
 @export var vert_head: Node3D
 @export var camera: Camera3D
-@export var camera_rotation_amount : float = .085
+@export var camera_rotation_amount : float = .0
 @export var weapon_holder: Node3D
 @export var weapon_sway_amount : float = .05
 @export var weapon_rotation_amount : float = .01

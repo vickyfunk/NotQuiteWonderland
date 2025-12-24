@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8nox7tmllko6"
-path="res://.godot/imported/Tantal.glb-81a43d9e34c2d0db7137d1b85ad4e527.scn"
+path="res://godot/imported/Tantal.glb-81a43d9e34c2d0db7137d1b85ad4e527.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Tantal.glb"
-dest_files=["res://.godot/imported/Tantal.glb-81a43d9e34c2d0db7137d1b85ad4e527.scn"]
+dest_files=["res://godot/imported/Tantal.glb-81a43d9e34c2d0db7137d1b85ad4e527.scn"]
 
 [params]
 

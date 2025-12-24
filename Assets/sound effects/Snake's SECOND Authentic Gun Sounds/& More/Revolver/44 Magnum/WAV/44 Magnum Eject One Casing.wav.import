@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bwt1qsjrnd3m1"
-path="res://.godot/imported/44 Magnum Eject One Casing.wav-e3f0edaf1dedffbab27521feb1e54f95.sample"
+path="res://godot/imported/44 Magnum Eject One Casing.wav-e3f0edaf1dedffbab27521feb1e54f95.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/WAV/44 Magnum Eject One Casing.wav"
-dest_files=["res://.godot/imported/44 Magnum Eject One Casing.wav-e3f0edaf1dedffbab27521feb1e54f95.sample"]
+dest_files=["res://godot/imported/44 Magnum Eject One Casing.wav-e3f0edaf1dedffbab27521feb1e54f95.sample"]
 
 [params]
 

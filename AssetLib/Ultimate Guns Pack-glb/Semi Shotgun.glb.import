@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b2br42qs17w0m"
-path="res://.godot/imported/Semi Shotgun.glb-413ee3834c06610e8b357f186f9e84f3.scn"
+path="res://godot/imported/Semi Shotgun.glb-413ee3834c06610e8b357f186f9e84f3.scn"
 
 [deps]
 
 source_file="res://AssetLib/Ultimate Guns Pack-glb/Semi Shotgun.glb"
-dest_files=["res://.godot/imported/Semi Shotgun.glb-413ee3834c06610e8b357f186f9e84f3.scn"]
+dest_files=["res://godot/imported/Semi Shotgun.glb-413ee3834c06610e8b357f186f9e84f3.scn"]
 
 [params]
 

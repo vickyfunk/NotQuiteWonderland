@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct7c52pdsuhwq"
-path="res://.godot/imported/style.svg-bf76658b45878100e6c56874e29e9fc5.ctex"
+path="res://godot/imported/style.svg-bf76658b45878100e6c56874e29e9fc5.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -12,7 +12,7 @@ metadata={
 [deps]
 
 source_file="res://addons/roommate/icons/style.svg"
-dest_files=["res://.godot/imported/style.svg-bf76658b45878100e6c56874e29e9fc5.ctex"]
+dest_files=["res://godot/imported/style.svg-bf76658b45878100e6c56874e29e9fc5.ctex"]
 
 [params]
 

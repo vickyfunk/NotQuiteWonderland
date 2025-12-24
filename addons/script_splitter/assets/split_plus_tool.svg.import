@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg17j5ifvqsi8"
-path="res://.godot/imported/split_plus_tool.svg-8993d76480b248c74e5ceef08c49f018.ctex"
+path="res://godot/imported/split_plus_tool.svg-8993d76480b248c74e5ceef08c49f018.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/script_splitter/assets/split_plus_tool.svg"
-dest_files=["res://.godot/imported/split_plus_tool.svg-8993d76480b248c74e5ceef08c49f018.ctex"]
+dest_files=["res://godot/imported/split_plus_tool.svg-8993d76480b248c74e5ceef08c49f018.ctex"]
 
 [params]
 

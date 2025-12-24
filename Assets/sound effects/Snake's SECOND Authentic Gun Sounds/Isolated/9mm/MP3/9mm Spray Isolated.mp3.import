@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cyavp363x4nqx"
-path="res://.godot/imported/9mm Spray Isolated.mp3-a6a23a8b4c0123f5687551989a08d8fa.mp3str"
+path="res://godot/imported/9mm Spray Isolated.mp3-a6a23a8b4c0123f5687551989a08d8fa.mp3str"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/Isolated/9mm/MP3/9mm Spray Isolated.mp3"
-dest_files=["res://.godot/imported/9mm Spray Isolated.mp3-a6a23a8b4c0123f5687551989a08d8fa.mp3str"]
+dest_files=["res://godot/imported/9mm Spray Isolated.mp3-a6a23a8b4c0123f5687551989a08d8fa.mp3str"]
 
 [params]
 

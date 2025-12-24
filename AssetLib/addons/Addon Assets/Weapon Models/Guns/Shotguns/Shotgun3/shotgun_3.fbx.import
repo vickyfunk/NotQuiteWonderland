@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://calrvcnle2ic6"
-path="res://.godot/imported/shotgun_3.fbx-e4f4547ae7da18fc0c239542f147f86e.scn"
+path="res://godot/imported/shotgun_3.fbx-e4f4547ae7da18fc0c239542f147f86e.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Guns/Shotguns/Shotgun3/shotgun_3.fbx"
-dest_files=["res://.godot/imported/shotgun_3.fbx-e4f4547ae7da18fc0c239542f147f86e.scn"]
+dest_files=["res://godot/imported/shotgun_3.fbx-e4f4547ae7da18fc0c239542f147f86e.scn"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c31tqbuy3srle"
-path="res://.godot/imported/44 Magnum Cock Hammer.wav-2faf57752ab7d752c9d2288a1c01ae1b.sample"
+path="res://godot/imported/44 Magnum Cock Hammer.wav-2faf57752ab7d752c9d2288a1c01ae1b.sample"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Revolver/44 Magnum/WAV/44 Magnum Cock Hammer.wav"
-dest_files=["res://.godot/imported/44 Magnum Cock Hammer.wav-2faf57752ab7d752c9d2288a1c01ae1b.sample"]
+dest_files=["res://godot/imported/44 Magnum Cock Hammer.wav-2faf57752ab7d752c9d2288a1c01ae1b.sample"]
 
 [params]
 

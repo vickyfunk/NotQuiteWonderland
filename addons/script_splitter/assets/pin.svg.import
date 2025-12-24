@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7rel5pr2g7d2"
-path="res://.godot/imported/pin.svg-fc2020fc902e599cc597f694f431fc67.ctex"
+path="res://godot/imported/pin.svg-fc2020fc902e599cc597f694f431fc67.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://addons/script_splitter/assets/pin.svg"
-dest_files=["res://.godot/imported/pin.svg-fc2020fc902e599cc597f694f431fc67.ctex"]
+dest_files=["res://godot/imported/pin.svg-fc2020fc902e599cc597f694f431fc67.ctex"]
 
 [params]
 

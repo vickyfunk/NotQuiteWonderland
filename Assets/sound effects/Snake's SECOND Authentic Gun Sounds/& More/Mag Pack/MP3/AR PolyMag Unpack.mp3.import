@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dijmmwdw7ilon"
-path="res://.godot/imported/AR PolyMag Unpack.mp3-2fdbea93c5f337a5fed2356f16e7b97b.mp3str"
+path="res://godot/imported/AR PolyMag Unpack.mp3-2fdbea93c5f337a5fed2356f16e7b97b.mp3str"
 
 [deps]
 
 source_file="res://Assets/sound effects/Snake's SECOND Authentic Gun Sounds/& More/Mag Pack/MP3/AR PolyMag Unpack.mp3"
-dest_files=["res://.godot/imported/AR PolyMag Unpack.mp3-2fdbea93c5f337a5fed2356f16e7b97b.mp3str"]
+dest_files=["res://godot/imported/AR PolyMag Unpack.mp3-2fdbea93c5f337a5fed2356f16e7b97b.mp3str"]
 
 [params]
 

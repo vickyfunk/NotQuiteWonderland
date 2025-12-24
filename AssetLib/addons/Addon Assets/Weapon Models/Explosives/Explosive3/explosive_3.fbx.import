@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cxjxenu5v1oss"
-path="res://.godot/imported/explosive_3.fbx-d647290d2e6acb2428c9ca12f2bbaf0b.scn"
+path="res://godot/imported/explosive_3.fbx-d647290d2e6acb2428c9ca12f2bbaf0b.scn"
 
 [deps]
 
 source_file="res://AssetLib/addons/Addon Assets/Weapon Models/Explosives/Explosive3/explosive_3.fbx"
-dest_files=["res://.godot/imported/explosive_3.fbx-d647290d2e6acb2428c9ca12f2bbaf0b.scn"]
+dest_files=["res://godot/imported/explosive_3.fbx-d647290d2e6acb2428c9ca12f2bbaf0b.scn"]
 
 [params]
 
