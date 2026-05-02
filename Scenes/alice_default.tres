@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=2 format=3 uid="uid://q26bd2k3nv67"]
+
+[ext_resource type="Script" uid="uid://dm2piv360yl6w" path="res://Resource Templates/UnitData.gd" id="1_0e3h5"]
+
+[resource]
+script = ExtResource("1_0e3h5")
+name = "Alice"
+max_luck = 25.0
+luck = 25.0

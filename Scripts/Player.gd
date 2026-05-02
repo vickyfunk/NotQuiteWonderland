@@ -67,6 +67,8 @@ var time_since_step: float
 
 @export var Aiming_Crosshair: TextureRect
 
+@onready var unit_name: String = unit_data.name
+
 var mouse_input : Vector2
 var default_weapon_holder_pos: Vector3
 var dash_dir : Vector3
@@ -93,6 +95,10 @@ func _unhandled_input(event):
 		mouse_input = event.relative
 
 func _physics_process(delta):
+	# Putting death in here bc it seems arbitrarily fairer than dying the frame you hit 0 hp,
+	# but at the top bc you shouldn't be able to do anything post mortem
+	if unit_data.is_dead:
+		die()
 	
 	# Add time since last footstep sound, up to 2 seconds past the "time between" value as
 	# that is realistically more than enough even if the frequency varies with velocity
@@ -365,6 +371,7 @@ func rotate_velocity_2d(angle: float):
 func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Position:= Vector3.ZERO):
 	var Hit_Position = _Position - get_global_transform().origin
 	# take damage here (not implemented yet)
+	unit_data.take_damage(Damage, Impact, Pen_Rating)
 	if unit_data.health <= 0:
 		die()
 	if _Direction != Vector3.ZERO:
@@ -372,3 +379,4 @@ func Hit_Successful(Damage, Impact, Pen_Rating, _Direction:= Vector3.ZERO, _Posi
 
 func die():
 	print("you died lolololololol")
+	queue_free()

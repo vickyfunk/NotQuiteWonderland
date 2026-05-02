@@ -49,7 +49,7 @@ project/assembly_name="NotQuiteWonderland"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/DestructiblesCSharp/plugin.cfg", "res://addons/anim_player_refactor/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/deep_raycast_3d/plugin.cfg", "res://addons/enhancedhingejoint3d/plugin.cfg", "res://addons/gdserial/plugin.cfg", "res://addons/gecs/plugin.cfg", "res://addons/godot_3d_cursor/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/material_generator/plugin.cfg", "res://addons/physical_audio_3d/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/roommate/plugin.cfg", "res://addons/script_splitter/plugin.cfg", "res://addons/trigger_manager/plugin.cfg", "res://addons/verlet_rope_4/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/asset_placer/plugin.cfg", "res://addons/deep_raycast_3d/plugin.cfg", "res://addons/enhancedhingejoint3d/plugin.cfg", "res://addons/gdserial/plugin.cfg", "res://addons/gecs/plugin.cfg", "res://addons/godot_3d_cursor/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/gui_auto_layout/plugin.cfg", "res://addons/material_generator/plugin.cfg", "res://addons/physical_audio_3d/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/roommate/plugin.cfg", "res://addons/script_splitter/plugin.cfg", "res://addons/trigger_manager/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
 
 [filesystem]
 

@@ -2,6 +2,8 @@ extends Resource
 
 class_name UnitData
 
+@export var name: String = "forgot to name this"
+
 @export var max_health: float = 100.0
 @export var health: float = 100.0
 
@@ -12,7 +14,10 @@ class_name UnitData
 @export var max_luck: float = 0.0
 @export var luck: float = 0.0
 
+@export var is_dead: bool = false
+
 func ready():
+	is_dead = false
 	health = max_health
 	armor_durability = max_armor_durability
 	luck = max_luck
@@ -44,3 +49,9 @@ func take_damage(damage: float, impact: float, pen_rating: float):
 	armor_durability -= net_armor_damage
 	if armor_durability <= 0.0:
 		armor_rating = 0.0
+	
+	if health < 0.0:
+		die()
+		
+func die():
+	is_dead = true

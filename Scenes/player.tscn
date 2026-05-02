@@ -1,9 +1,10 @@
 [gd_scene load_steps=46 format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" uid="uid://b3hr0d0bq0mh8" path="res://Scripts/Player.gd" id="1_ptgww"]
-[ext_resource type="Script" uid="uid://c1indgkkj0u48" path="res://Scripts/HUD.gd" id="2_6d6d2"]
+[ext_resource type="Script" uid="uid://da667kp73uk34" path="res://Scripts/HUD.gd" id="2_6d6d2"]
+[ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resource Templates/Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_igrcy"]
+[ext_resource type="Resource" uid="uid://q26bd2k3nv67" path="res://Scenes/alice_default.tres" id="3_igrcy"]
 [ext_resource type="Script" uid="uid://b6dp0mwfpn33u" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
-[ext_resource type="Script" uid="uid://dm2piv360yl6w" path="res://Resource Templates/UnitData.gd" id="3_y3vyu"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://AssetLib/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="Texture2D" uid="uid://dyobtmdaxgc3f" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121_scaled.png" id="5_5bio3"]
 [ext_resource type="PackedScene" uid="uid://b8nox7tmllko6" path="res://AssetLib/Ultimate Guns Pack-glb/Tantal.glb" id="5_b88fu"]
@@ -12,16 +13,11 @@
 [ext_resource type="Resource" uid="uid://5euoebwedfh4" path="res://Resource Templates/Resources/Weapon Data/Tantal.tres" id="7_jatp6"]
 [ext_resource type="Resource" uid="uid://cdhiggdsjo6ly" path="res://Resource Templates/Resources/Weapon Data/LaserRifle.tres" id="8_fia83"]
 [ext_resource type="PackedScene" uid="uid://cpov65b6a2p75" path="res://AssetLib/Ultimate Guns Pack-glb/Scifi Assault Rifle.glb" id="10_e71et"]
-[ext_resource type="Script" uid="uid://camh0kubp5gay" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
+[ext_resource type="Script" uid="uid://bkr764qwyvk65" path="res://Scripts/CameraShaker.gd" id="11_w3kwb"]
 [ext_resource type="Script" uid="uid://fubjgo205yho" path="res://Resource Templates/WeaponResource.gd" id="12_wwkmi"]
 [ext_resource type="PackedScene" uid="uid://c1g7ji87j053d" path="res://Assets/meshes/projectiles/762x39bullet.glb" id="12_y1rb8"]
 [ext_resource type="PackedScene" uid="uid://cc5f7uw687x7x" path="res://AssetLib/Ultimate Guns Pack-glb/low-poly_mateba_unica_6_autorevolver.glb" id="14_66b6f"]
 [ext_resource type="AudioStream" uid="uid://vvg0ax8d4pge" path="res://Assets/sound effects/Free Footsteps Pack/Concrete 2.wav" id="15_axp3g"]
-
-[sub_resource type="Resource" id="Resource_2kkn5"]
-script = ExtResource("3_y3vyu")
-max_luck = 25.0
-luck = 25.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a53bf"]
 radius = 0.35
@@ -38,8 +34,8 @@ point_count = 3
 [sub_resource type="Resource" id="Resource_cohrp"]
 script = ExtResource("12_wwkmi")
 Weapon_Name = "Mateba"
-Current_Ammo = 6
 Type = 2
+Current_Ammo = 6
 Projectile_to_Load = ExtResource("12_y1rb8")
 Projectile_Velocity = 300.0
 recoil_rotation_x = SubResource("Curve_f7kk2")
@@ -676,7 +672,8 @@ DASH_DURATION = 0.005
 FRICTION = 1.0
 time_bw_steps_walking = 0.3
 footstep_manager = NodePath("FootstepPlayer")
-unit_data = SubResource("Resource_2kkn5")
+character_data = ExtResource("2_igrcy")
+unit_data = ExtResource("3_igrcy")
 horiz_head = NodePath("Horizontal Head")
 vert_head = NodePath("Horizontal Head/Vertical Head")
 camera = NodePath("Horizontal Head/Vertical Head/Camera3D")
@@ -839,7 +836,7 @@ sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
 [node name="Glock" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.014518727, 0.9884732, 0.15069231, -0.56562704, -0.13239612, 0.81396323, 0.82453233, -0.0734179, 0.5610302, 0.07, -0.1, -0.3)
+transform = Transform3D(-0.014518726, 0.98847306, 0.15069231, -0.565627, -0.1323961, 0.8139632, 0.8245323, -0.073417895, 0.56103015, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 visible = false
 
@@ -849,7 +846,7 @@ rotation_edit_mode = 1
 visible = false
 
 [node name="Tantal" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0.453139, -0.046586562, 0.390506, 0.33501005, 0.3577861, -0.346061, -0.20599201, 0.47939602, 0.29622304, 0.755, 0.425, 1.57)
+transform = Transform3D(0.453139, -0.04658658, 0.390506, 0.33501005, 0.35778606, -0.34606105, -0.20599201, 0.4793961, 0.29622304, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 
