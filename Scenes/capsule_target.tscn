@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://drxh6j2kbuhkj"]
+[gd_scene format=3 uid="uid://drxh6j2kbuhkj"]
 
-[ext_resource type="Script" path="res://Scripts/physics_target.gd" id="1_3kc2o"]
+[ext_resource type="Script" uid="uid://dsska1ci53xqk" path="res://Scripts/physics_target.gd" id="1_3kc2o"]
+[ext_resource type="Script" uid="uid://dm2piv360yl6w" path="res://Resource Templates/UnitData.gd" id="2_h6bgd"]
+
+[sub_resource type="Resource" id="Resource_igrcy"]
+script = ExtResource("2_h6bgd")
+metadata/_custom_type_script = "uid://dm2piv360yl6w"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3w65j"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huwpc"]
 
-[node name="RigidBody3D" type="RigidBody3D"]
+[node name="RigidBody3D" type="RigidBody3D" unique_id=173801322 groups=["Target"]]
 script = ExtResource("1_3kc2o")
+unit_data = SubResource("Resource_igrcy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1549737298]
 mesh = SubResource("CapsuleMesh_3w65j")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1403814652]
 shape = SubResource("CylinderShape3D_huwpc")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://r6yvyposmop4"]
+[gd_resource type="Resource" format=3 uid="uid://r6yvyposmop4"]
 
 [ext_resource type="Script" uid="uid://b7wk7rljett6u" path="res://addons/roommate/resources/default_setting_values.gd" id="1_s157l"]
 

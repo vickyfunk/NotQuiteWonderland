@@ -47,3 +47,7 @@ func _on_player_update_hands_equip(Equipment):
 
 func _on_player_update_feet_equip(Equipment):
 	CurrentFeetEquipment.set_text("Feet: " + str(Equipment))
+
+
+func _on_weapon_manager_update_magcount(_Mag_Count):
+	pass # Replace with function body.

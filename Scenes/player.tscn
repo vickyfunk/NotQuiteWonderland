@@ -1,9 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://coklbcv2m6ky6"]
+[gd_scene format=3 uid="uid://coklbcv2m6ky6"]
 
 [ext_resource type="Script" uid="uid://b3hr0d0bq0mh8" path="res://Scripts/Player.gd" id="1_ptgww"]
-[ext_resource type="Script" uid="uid://da667kp73uk34" path="res://Scripts/HUD.gd" id="2_6d6d2"]
+[ext_resource type="Script" uid="uid://c1indgkkj0u48" path="res://Scripts/HUD.gd" id="2_6d6d2"]
 [ext_resource type="Resource" uid="uid://de2oqbi4lb2ab" path="res://Resource Templates/Resources/Character Data/AllUpgradesDemoEquipment_CharacterDataResource.tres" id="2_igrcy"]
-[ext_resource type="Resource" uid="uid://q26bd2k3nv67" path="res://Scenes/alice_default.tres" id="3_igrcy"]
+[ext_resource type="Resource" uid="uid://q26bd2k3nv67" path="res://Resource Templates/Resources/Unit Data/alice_default.tres" id="3_igrcy"]
 [ext_resource type="Script" uid="uid://b6dp0mwfpn33u" path="res://Scripts/WeaponManager.gd" id="3_vb8qq"]
 [ext_resource type="PackedScene" uid="uid://d0jcfpspjfqko" path="res://AssetLib/Ultimate Guns Pack-glb/Glock.glb" id="4_lmw1r"]
 [ext_resource type="Texture2D" uid="uid://dyobtmdaxgc3f" path="res://Assets/textures/Kenney's Crosshair Pack/PNG/Black/crosshair121_scaled.png" id="5_5bio3"]
@@ -309,7 +309,7 @@ tracks/3/enabled = true
 tracks/3/path = NodePath("Bullet_Point")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0.7, 1, 0.201795, -0.0821831, -0.858493)
+tracks/3/keys = PackedFloat32Array(0.7, 1, 0.202, -0.082, -0.863)
 
 [sub_resource type="Animation" id="Animation_nu34i"]
 resource_name = "LaserEmpty"
@@ -661,8 +661,7 @@ _data = {
 &"TantalShoot": SubResource("Animation_gj0oj")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder", "Aiming_Crosshair")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46689, 0)
+[node name="Player" type="CharacterBody3D" unique_id=1906070231 node_paths=PackedStringArray("footstep_manager", "horiz_head", "vert_head", "camera", "weapon_holder", "Aiming_Crosshair")]
 script = ExtResource("1_ptgww")
 WALK_SPEED = 4.0
 SPRINT_SPEED = 8.13
@@ -681,50 +680,50 @@ weapon_holder = NodePath("Horizontal Head/Vertical Head/Wrist/WeaponManager")
 weapon_sway_amount = 0.1
 Aiming_Crosshair = NodePath("CanvasLayer/AimingCrosshair")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1151979908]
 script = ExtResource("2_6d6d2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1794640561]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=416952226]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1658021407]
 layout_mode = 2
 
-[node name="CurrentWeapon" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="CurrentWeapon" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=564837826]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=2020957713]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=2137680262]
 layout_mode = 2
 
-[node name="CurrentAmmo" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+[node name="CurrentAmmo" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=1331195270]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=447624175]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=1945858395]
 layout_mode = 2
 
-[node name="WeaponStack" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3"]
+[node name="WeaponStack" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=587043176]
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1515062407]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=315838603]
 layout_mode = 2
 
-[node name="CurrentVelocity" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4"]
+[node name="CurrentVelocity" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=1312595065]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=1874210987]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -732,52 +731,52 @@ offset_left = -40.0
 offset_bottom = 104.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=30147564]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer" unique_id=1064822128]
 layout_mode = 2
 
-[node name="CurrentHeadEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer"]
+[node name="CurrentHeadEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer" unique_id=2058930644]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=1721295367]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2" unique_id=852606364]
 layout_mode = 2
 
-[node name="CurrentFaceEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2"]
+[node name="CurrentFaceEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2" unique_id=148467374]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=1942895756]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer3"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer3" unique_id=207569083]
 layout_mode = 2
 
-[node name="CurrentChestEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer3"]
+[node name="CurrentChestEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer3" unique_id=1422173418]
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=973721914]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer4"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer4" unique_id=481962276]
 layout_mode = 2
 
-[node name="CurrentHandsEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer4"]
+[node name="CurrentHandsEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer4" unique_id=324442752]
 layout_mode = 2
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=1025918529]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer5"]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer5" unique_id=48954341]
 layout_mode = 2
 
-[node name="CurrentFeetEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer5"]
+[node name="CurrentFeetEquipment" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer5" unique_id=27347845]
 layout_mode = 2
 
-[node name="AimingCrosshair" type="TextureRect" parent="CanvasLayer"]
+[node name="AimingCrosshair" type="TextureRect" parent="CanvasLayer" unique_id=34602927]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -786,7 +785,7 @@ grow_vertical = 2
 texture = ExtResource("5_5bio3")
 stretch_mode = 3
 
-[node name="GunBarrelCrosshair" type="TextureRect" parent="CanvasLayer"]
+[node name="GunBarrelCrosshair" type="TextureRect" parent="CanvasLayer" unique_id=1605654933]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -795,21 +794,21 @@ grow_vertical = 2
 texture = ExtResource("6_u6kn0")
 stretch_mode = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=924478738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 mesh = SubResource("CapsuleMesh_a53bf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=774848002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 shape = SubResource("ConvexPolygonShape3D_jkvit")
 
-[node name="Horizontal Head" type="Node3D" parent="."]
+[node name="Horizontal Head" type="Node3D" parent="." unique_id=1474195743]
 
-[node name="Vertical Head" type="Node3D" parent="Horizontal Head"]
+[node name="Vertical Head" type="Node3D" parent="Horizontal Head" unique_id=1710044859]
 
-[node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head"]
+[node name="Camera3D" type="Camera3D" parent="Horizontal Head/Vertical Head" unique_id=1513593454]
 
-[node name="CameraShaker" type="Node3D" parent="Horizontal Head/Vertical Head" node_paths=PackedStringArray("camera")]
+[node name="CameraShaker" type="Node3D" parent="Horizontal Head/Vertical Head" unique_id=1439979417 node_paths=PackedStringArray("camera")]
 script = ExtResource("11_w3kwb")
 noise = SubResource("FastNoiseLite_gmyi8")
 max_x = 5.0
@@ -817,9 +816,9 @@ max_y = 2.5
 max_z = 2.5
 camera = NodePath("../Camera3D")
 
-[node name="Wrist" type="Node3D" parent="Horizontal Head/Vertical Head"]
+[node name="Wrist" type="Node3D" parent="Horizontal Head/Vertical Head" unique_id=2121810391]
 
-[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head/Wrist" node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "vert_head", "wrist", "camera_shaker", "gun_barrel_crosshair", "camera")]
+[node name="WeaponManager" type="Node3D" parent="Horizontal Head/Vertical Head/Wrist" unique_id=1843658353 node_paths=PackedStringArray("shoot_audio_player", "reload_audio_player", "vert_head", "wrist", "camera_shaker", "gun_barrel_crosshair", "camera")]
 script = ExtResource("3_vb8qq")
 shoot_audio_player = NodePath("Bullet_Point/ShootPlayer")
 reload_audio_player = NodePath("Bullet_Point/ReloadPlayer")
@@ -835,43 +834,40 @@ sway_down = Vector3(0.1, 0, 0)
 sway_left = Vector3(0, -0.1, 0)
 sway_right = Vector3(0, 0.1, 0)
 
-[node name="Glock" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("4_lmw1r")]
-transform = Transform3D(-0.014518726, 0.98847306, 0.15069231, -0.565627, -0.1323961, 0.8139632, 0.8245323, -0.073417895, 0.56103015, 0.07, -0.1, -0.3)
+[node name="Glock" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=2002693817 instance=ExtResource("4_lmw1r")]
+transform = Transform3D(-0.014518723, 0.9884728, 0.1506923, -0.56562686, -0.13239606, 0.8139631, 0.82453215, -0.07341787, 0.5610301, 0.07, -0.1, -0.3)
 rotation_edit_mode = 1
 visible = false
 
-[node name="Mateba" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("14_66b6f")]
+[node name="Mateba" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=2085156711 instance=ExtResource("14_66b6f")]
 transform = Transform3D(0.128868, 0, 1.74525, 0, 1.75, 0, -1.74525, 0, 0.128868, 0.17, -0.241716, -0.52648)
 rotation_edit_mode = 1
 visible = false
 
-[node name="Tantal" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("5_b88fu")]
-transform = Transform3D(0.453139, -0.04658658, 0.390506, 0.33501005, 0.35778606, -0.34606105, -0.20599201, 0.4793961, 0.29622304, 0.755, 0.425, 1.57)
+[node name="Tantal" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=566366994 instance=ExtResource("5_b88fu")]
+transform = Transform3D(0.453139, -0.046586584, 0.390506, 0.33501005, 0.3577861, -0.34606105, -0.20599201, 0.47939613, 0.29622304, 0.755, 0.425, 1.57)
 rotation_edit_mode = 1
 visible = false
 
-[node name="LaserRifle" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" instance=ExtResource("10_e71et")]
-transform = Transform3D(0, 0, 0.6, 0, 0.6, 0, -0.6, 0, 0, 0.2, -0.25, -0.4)
+[node name="LaserRifle" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=1490461858 instance=ExtResource("10_e71et")]
+transform = Transform3D(-0.12868439, 0.04430566, 0.58436066, 0.55864036, 0.19006549, 0.10860982, -0.1770913, 0.56737304, -0.08201566, 0.515, 0.315, 1)
 rotation_edit_mode = 1
-visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]
-libraries = {
-&"": SubResource("AnimationLibrary_8njrv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=1937962309]
+libraries/ = SubResource("AnimationLibrary_8njrv")
 
-[node name="Bullet_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager"]
+[node name="Bullet_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager" unique_id=606416875]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0705564, -0.0611819, -0.521306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202, -0.082, -0.863)
 
-[node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="ShootPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point" unique_id=1842008516]
 volume_db = -5.079
 
-[node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="ReloadPlayer" type="AudioStreamPlayer3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point" unique_id=1214793580]
 
-[node name="Aiming_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point"]
+[node name="Aiming_Point" type="Marker3D" parent="Horizontal Head/Vertical Head/Wrist/WeaponManager/Bullet_Point" unique_id=1000929627]
 
-[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=405585599]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.736114, 0)
 stream = ExtResource("15_axp3g")
 volume_db = -9.626
@@ -880,6 +876,7 @@ panning_strength = 3.0
 
 [connection signal="Update_Velocity" from="." to="CanvasLayer" method="_on_player_update_velocity"]
 [connection signal="Update_Ammo" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_ammo"]
+[connection signal="Update_Magcount" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_magcount"]
 [connection signal="Update_Weapon_Stack" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_update_weapon_stack"]
 [connection signal="Weapon_Changed" from="Horizontal Head/Vertical Head/Wrist/WeaponManager" to="CanvasLayer" method="_on_weapon_manager_weapon_changed"]
 [connection signal="animation_finished" from="Horizontal Head/Vertical Head/Wrist/WeaponManager/AnimationPlayer" to="Horizontal Head/Vertical Head/Wrist/WeaponManager" method="_on_animation_player_animation_finished"]

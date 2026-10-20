@@ -1,9 +1,9 @@
 extends RigidBody3D
 
 var shoot: bool = false
-var Damage: float = 0.0
-var Impact: float = 0.0
-var Pen_Rating: float = 0.0
+var Damage: float = 10.0
+var Impact: float = 10.0
+var Pen_Rating: float = 3.0
 var Speed: float = 10.0
 var is_player_bullet: bool = false
 #@onready var tracer_trail: MeshInstance3D = get_node("TracerTrail")

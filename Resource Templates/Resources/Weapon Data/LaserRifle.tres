@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=7 format=3 uid="uid://cdhiggdsjo6ly"]
+[gd_resource type="Resource" script_class="Weapon_Resource" format=3 uid="uid://cdhiggdsjo6ly"]
 
 [ext_resource type="AudioStream" uid="uid://c7t0613fu4bgo" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 1 WAV.wav" id="1_3uxg0"]
 [ext_resource type="AudioStream" uid="uid://ds5te866xdnti" path="res://Assets/sound effects/Snake's Authentic Gun Sounds/Reloads, Cycling & More/WAV/Angel Mag Reload Part 2 WAV.wav" id="2_8c7wh"]
@@ -21,15 +21,16 @@ Shoot_Sound = ExtResource("3_ext01")
 Reload_Sound_1 = ExtResource("1_3uxg0")
 Reload_Sound_2 = ExtResource("2_8c7wh")
 Slide_Rack_Sound = ExtResource("4_oj7ix")
-Current_Ammo = 2000
-Reserve_Ammo = 2000
-Needs_Battery = true
+Type = 1
 Damage = 1.0
 Pen_Rating = 4.0
 Auto_Fire = true
-Type = 1
+Weapon_Range = 1000
+alt_fire_index = 2
+Current_Ammo = 2000
+Reserve_Ammo = 2000
+Needs_Battery = true
 recoil_rotation_x = ExtResource("5_lw8vo")
 recoil_rotation_z = ExtResource("5_lw8vo")
 recoil_position_z = ExtResource("5_lw8vo")
 recoil_amplitude = Vector3(0, 0, 0)
-alt_fire_index = 2

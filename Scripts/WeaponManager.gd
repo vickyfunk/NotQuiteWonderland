@@ -3,6 +3,7 @@ extends Node3D
 signal Weapon_Changed
 signal Update_Ammo
 signal Update_Weapon_Stack
+signal Update_Magcount
 
 @onready var Animation_Player = get_node("AnimationPlayer")
 @onready var Bullet_Point = get_node("%Bullet_Point")
@@ -299,7 +300,7 @@ func Hitscan_Collision(Collision_Point):
 
 func Hitscan_Damage(Collider, Direction, Position):
 	if Collider.is_in_group("Target") and Collider.has_method("Hit_Successful"):
-		Collider.Hit_Successful(Current_Weapon.Damage, Direction, Position)
+		Collider.Hit_Successful(Current_Weapon.Damage, 0.0, 2.0, Direction, Position)
 
 func Launch_Projectile(Point: Vector3):
 	var Direction = (Point - Bullet_Point.get_global_transform().origin).normalized()
