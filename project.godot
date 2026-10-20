@@ -32,6 +32,27 @@ config/icon="res://icon.svg"
 
 ECS="*res://addons/gecs/ecs/ecs.gd"
 
+[debug]
+
+settings/stdout/verbose_stdout=true
+file_logging/enable_file_logging=true
+file_logging/max_log_files=11
+gdscript/warnings/unassigned_variable_op_assign=2
+gdscript/warnings/shadowed_global_identifier=2
+gdscript/warnings/unreachable_code=2
+gdscript/warnings/unreachable_pattern=2
+gdscript/warnings/incompatible_ternary=2
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+gdscript/warnings/unsafe_call_argument=1
+gdscript/warnings/return_value_discarded=1
+gdscript/warnings/static_called_on_instance=2
+gdscript/warnings/assert_always_true=2
+gdscript/warnings/assert_always_false=2
+gdscript/warnings/narrowing_conversion=2
+gdscript/warnings/int_as_enum_without_cast=2
+gdscript/warnings/int_as_enum_without_match=2
+
 [dialogic]
 
 directories/dch_directory={}
@@ -221,6 +242,11 @@ weapon_slot_6={
 
 sensors/enable_accelerometer=true
 sensors/enable_gravity=true
+
+[internationalization]
+
+locale/include_text_server_data=true
+rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
 
 [layer_names]
 
